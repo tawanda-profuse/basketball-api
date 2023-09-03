@@ -1,0 +1,152 @@
+@import './vars.scss';
+
+player-summary-component {
+  font-family: 'Roboto';
+
+  .container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 3.125rem 1.25rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .choice {
+    text-align: center;
+    font-size: 3rem;
+    margin: 2rem 0;
+    color: #555;
+  }
+
+  .filter {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 5rem);
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      background-color: $color-thunder-blue;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      padding: 0.75rem 0;
+      border-radius: 0.5rem;
+      outline: none;
+      border: none;
+    }
+
+    button:hover {
+      background-color: orangered;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .player-info {
+    padding: 3.125rem;
+    display: flex;
+    flex-direction: column;
+    border: 0.2rem solid black;
+    background-color: $color-thunder-blue;
+    justify-content: center;
+    color: white;
+    border-radius: 0.625rem;
+    width: 30%;
+  }
+
+  .player-bio {
+    margin-bottom: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 1.25rem 0;
+  }
+
+  .player-bio img {
+    width: 9.375rem;
+    height: 9.375rem;
+    border: 0.3125rem solid black;
+    object-fit: cover;
+    border-radius: 10%;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.125rem solid white;
+    padding-top: 5%;
+
+    h3, option, select {
+      font-family: 'Roboto';
+      font-size: 1.5rem;
+      color: white;
+    }
+    select{
+      background-color: $color-thunder-blue;
+      border: none;
+      cursor: pointer;
+    }
+    option{
+      background-color: orangered;
+      padding: 2rem 0;
+      -webkit-appearance: none;
+      appearance: none;
+      border: 0.0625rem solid white
+    }
+  }
+
+  .shots-data {
+    width: 50%;
+
+    h1 {
+      text-align: center;
+    }
+
+    svg {
+      width: 100%;
+    }
+
+    .info-btn {
+      cursor: pointer;
+    }
+  }
+
+  .key{
+    border: 0.2rem solid orangered;
+    border-radius: 1rem;
+    padding: 1rem;
+    translate: 0 -50%;
+
+    h4{
+      text-decoration: underline;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p{
+      vertical-align: middle;
+      font-size: 1.5rem;
+    }
+  }
+
+  @media screen and (max-width: 861px) {
+
+    .shots-data,
+    .player-info {
+      width: 100%;
+    }
+
+    .shots-data {
+      order: 1;
+    }
+
+    .player-info {
+      order: 2;
+    }
+    .key{
+      translate: 0 -50%;
+    }
+  }
+}
