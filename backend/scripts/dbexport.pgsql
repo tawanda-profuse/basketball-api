@@ -66,6 +66,7 @@ ALTER TABLE app.box_score OWNER TO okcapplicant;
 --
 
 CREATE TABLE app.app_player (
+    poster text
 )
 INHERITS (app.box_score);
 
@@ -954,88 +955,88 @@ ALTER TABLE ONLY public.django_migrations ALTER COLUMN id SET DEFAULT nextval('p
 -- Data for Name: app_player; Type: TABLE DATA; Schema: app; Owner: okcapplicant
 --
 
-COPY app.app_player (id, date, "isStarter", game_id, player_id, minutes, points, assists, "offensiveRebounds", "defensiveRebounds", steals, blocks, turnovers, "defensiveFouls", "offensiveFouls", "freeThrowsMade", "freeThrowsAttempted", "twoPointersMade", "twoPointersAttempted", "threePointersMade", "threePointersAttempted", player_name) FROM stdin;
-28	2023-02-10	t	3	2	36	23	2	0	4	0	1	4	5	0	5	5	6	8	2	5	Tweety
-44	2022-12-19	t	1	2	41	26	3	3	5	2	0	4	0	2	5	7	9	13	1	5	Tweety
-60	2022-12-21	t	2	2	35	17	4	0	5	0	1	2	2	0	1	3	5	10	2	4	Tweety
-53	2022-12-21	t	2	3	22	12	4	1	5	1	0	1	1	0	1	2	4	5	1	2	Bugs Bunny
-45	2022-12-19	f	1	4	22	8	2	4	2	1	0	2	4	1	0	0	4	6	0	1	Daffy Duck
-54	2022-12-21	f	2	4	15	3	2	1	1	0	1	0	0	0	0	0	0	2	1	3	Daffy Duck
-37	2023-03-26	t	4	5	26	3	5	0	2	0	0	1	2	0	0	0	0	1	1	5	Sniffles
-46	2022-12-19	t	1	6	32	13	6	2	6	0	0	0	2	0	4	4	3	6	1	2	Yosemite Sam
-55	2022-12-21	t	2	6	34	13	2	1	4	1	0	5	3	2	2	2	4	4	1	3	Yosemite Sam
-36	2023-03-26	f	4	7	15	11	0	1	4	0	0	0	3	0	0	0	1	3	3	6	Road Runner
-30	2023-02-10	t	3	8	36	11	6	1	2	1	0	2	2	0	4	4	2	6	1	8	Porky Pig
-47	2022-12-19	t	1	8	34	19	1	0	4	1	0	2	5	0	0	0	2	6	5	10	Porky Pig
-56	2022-12-21	t	2	8	29	12	4	0	1	1	1	3	3	2	0	0	0	2	4	9	Porky Pig
-23	2023-02-10	t	3	10	17	11	2	0	2	0	0	0	3	0	1	1	2	2	2	5	Lola Bunny
-39	2023-03-26	f	4	10	19	4	0	0	0	1	0	1	1	0	2	2	1	4	0	0	Lola Bunny
-24	2023-02-10	f	3	11	24	8	1	2	3	0	1	3	2	1	2	2	0	0	2	4	Wile E. Coyote
-34	2023-03-26	f	4	11	31	28	0	2	4	0	0	2	4	1	3	3	8	15	3	6	Wile E. Coyote
-41	2023-03-26	t	4	12	32	8	1	0	4	2	0	1	2	1	0	0	1	4	2	4	Bill Murray
-31	2023-02-10	f	3	13	1	2	0	0	0	0	0	0	1	0	0	0	1	1	0	0	Barnyard Dawg
-22	2023-02-10	f	3	14	16	4	3	1	1	0	0	0	5	0	0	0	2	2	0	0	Tasmanian Devil
-32	2023-03-26	t	4	14	10	6	0	0	2	0	0	2	0	0	0	1	3	3	0	1	Tasmanian Devil
-50	2022-12-19	f	1	14	14	3	4	0	2	0	0	4	2	3	1	2	1	2	0	1	Tasmanian Devil
-51	2022-12-21	f	2	14	18	8	1	2	5	1	0	1	2	1	0	0	4	5	0	0	Tasmanian Devil
-27	2023-02-10	f	3	15	28	13	3	1	2	1	2	0	0	0	0	0	2	4	3	4	Foghorn Leghorn
-40	2023-03-26	t	4	15	35	29	3	0	5	0	0	5	3	0	8	11	6	8	3	5	Foghorn Leghorn
-42	2022-12-19	f	1	15	10	6	0	1	2	0	0	0	0	0	2	2	2	3	0	1	Foghorn Leghorn
-59	2022-12-21	f	2	15	19	8	0	0	1	0	0	0	0	0	0	0	1	2	2	3	Foghorn Leghorn
-26	2023-02-10	f	3	16	13	10	1	1	2	0	0	1	1	1	0	0	5	6	0	1	Elmer Fudd
-2	2022-12-19	t	1	18	35	35	6	0	2	1	2	2	2	0	14	14	9	23	1	1	Monstar 2
-17	2022-12-21	t	2	18	35	27	3	0	6	2	1	5	1	2	11	13	8	16	0	3	Monstar 2
-66	2023-02-10	t	3	18	39	44	7	0	3	2	1	4	1	0	18	19	13	15	0	1	Monstar 2
-3	2022-12-19	f	1	19	28	12	2	1	3	2	0	2	2	1	0	0	3	4	2	3	Monstar 3
-18	2022-12-21	f	2	19	26	9	2	4	3	2	0	1	0	0	1	2	4	6	0	1	Monstar 3
-71	2023-02-10	t	3	19	26	8	0	0	3	2	0	0	2	0	0	0	4	6	0	3	Monstar 3
-19	2022-12-21	t	2	20	38	14	3	0	3	1	1	3	2	0	2	2	3	5	2	6	Monstar 4
-70	2023-02-10	f	3	20	20	18	1	1	0	1	1	0	5	0	3	5	3	3	3	3	Monstar 4
-20	2022-12-21	t	2	21	19	6	2	1	2	2	0	1	1	0	2	2	2	5	0	2	Monstar 5
-11	2022-12-21	f	2	22	17	6	1	0	2	1	0	0	2	0	0	0	0	1	2	4	Monstar 6
-6	2022-12-19	f	1	22	23	11	1	0	3	1	0	0	1	0	0	0	1	1	3	6	Monstar 6
-61	2023-02-10	f	3	22	23	12	3	0	3	0	0	1	1	0	0	0	0	1	4	4	Monstar 6
-7	2022-12-19	f	1	23	10	1	1	0	1	0	0	0	1	0	1	1	0	0	0	3	Monstar 7
-12	2022-12-21	f	2	23	6	3	1	1	0	0	0	0	0	0	0	0	0	0	1	1	Monstar 7
-65	2023-02-10	f	3	23	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Monstar 7
-63	2023-02-10	f	3	25	20	9	3	1	0	1	1	2	0	0	1	1	1	4	2	4	Monstar 9
-13	2022-12-21	t	2	26	30	13	6	2	4	1	0	3	0	0	1	2	6	8	0	0	Monstar 10
-68	2023-02-10	t	3	26	28	19	7	3	3	0	0	0	4	0	3	3	5	12	2	3	Monstar 10
-14	2022-12-21	f	2	27	9	0	0	1	2	0	0	1	0	1	0	0	0	4	0	0	Monstar 11
-64	2023-02-10	t	3	27	20	2	1	2	2	0	0	1	4	1	0	0	1	4	0	1	Monstar 11
-21	2022-12-21	f	2	28	3	2	0	0	1	0	0	1	0	0	0	0	1	1	0	1	Monstar 12
-67	2023-02-10	f	3	28	7	2	0	1	1	0	0	1	1	1	0	0	1	2	0	0	Monstar 12
-15	2022-12-21	t	2	29	30	15	1	0	4	0	0	3	2	0	4	4	4	5	1	3	Monstar 13
-69	2023-02-10	t	3	29	32	13	6	1	3	3	0	1	2	1	5	5	4	9	0	1	Monstar 13
-62	2023-02-10	f	3	30	18	11	1	1	1	0	0	0	3	0	2	2	3	3	1	2	Monstar 14
-76	2023-03-26	f	4	22	28	20	5	2	5	2	0	0	2	0	5	5	0	2	5	10	Monstar 6
-80	2023-03-26	t	4	30	26	7	2	2	4	0	0	1	3	0	1	2	3	5	0	3	Monstar 14
-72	2023-03-26	f	4	31	12	4	0	1	0	1	0	1	1	0	0	0	2	3	0	2	Monstar 15
-77	2023-03-26	t	4	18	35	31	3	2	0	4	0	3	1	0	13	15	9	16	0	1	Monstar 2
-81	2023-03-26	t	4	20	28	6	1	3	3	2	0	2	4	0	2	2	2	8	0	6	Monstar 4
-73	2023-03-26	f	4	24	13	5	0	0	1	1	0	0	2	0	0	0	1	3	1	1	Monstar 8
-74	2023-03-26	f	4	25	14	5	2	1	1	0	0	0	3	0	0	0	1	2	1	4	Monstar 9
-78	2023-03-26	t	4	26	35	17	6	1	10	1	2	2	0	0	0	1	4	7	3	5	Monstar 10
-25	2023-02-10	t	3	1	35	38	9	1	1	1	0	6	2	1	12	13	4	5	6	13	Michael Jordan
-43	2022-12-19	t	1	1	38	28	6	0	3	1	0	4	4	0	4	4	3	5	6	12	Michael Jordan
-52	2022-12-21	t	2	1	36	16	8	0	2	2	0	4	2	0	2	2	4	8	2	11	Michael Jordan
-29	2023-02-10	t	3	9	28	9	2	2	6	0	1	2	2	1	5	6	2	2	0	0	Sylvester
-38	2023-03-26	t	4	9	32	7	4	2	8	1	6	3	1	1	1	2	3	6	0	0	Sylvester
-48	2022-12-19	t	1	9	31	9	3	2	5	0	2	0	4	0	1	2	4	4	0	0	Sylvester
-57	2022-12-21	f	2	9	19	6	3	4	3	3	1	1	2	0	0	0	3	5	0	0	Sylvester
-35	2023-03-26	f	4	13	21	14	5	1	0	0	0	3	1	0	4	6	2	5	2	4	Barnyard Dawg
-49	2022-12-19	f	1	13	13	9	1	2	2	0	0	0	1	0	0	0	0	6	3	5	Barnyard Dawg
-58	2022-12-21	f	2	13	7	3	1	0	0	0	1	1	2	0	0	0	0	0	1	1	Barnyard Dawg
-33	2023-03-26	f	4	16	14	2	0	2	0	1	1	0	2	0	2	2	0	1	0	1	Elmer Fudd
-16	2022-12-21	f	2	17	20	6	0	0	1	0	1	0	5	0	0	0	0	2	2	3	Monstar 1
-1	2022-12-19	f	1	17	16	12	1	0	3	0	1	0	1	0	0	0	0	0	4	5	Monstar 1
-4	2022-12-19	t	1	20	31	13	0	2	1	1	0	2	4	1	7	8	3	6	0	2	Monstar 4
-5	2022-12-19	t	1	21	23	8	3	3	3	0	1	2	2	0	2	4	3	5	0	4	Monstar 5
-75	2023-03-26	f	4	27	7	0	0	0	1	0	0	1	1	1	0	0	0	1	0	1	Monstar 11
-8	2022-12-19	t	1	27	25	12	1	2	2	1	0	0	2	0	4	4	4	6	0	3	Monstar 11
-9	2022-12-19	f	1	28	12	6	1	1	5	0	0	1	2	0	2	3	2	2	0	2	Monstar 12
-79	2023-03-26	t	4	29	37	23	4	1	4	2	0	1	1	0	3	3	7	12	2	2	Monstar 13
-10	2022-12-19	t	1	29	33	13	4	2	5	1	1	1	2	0	2	3	4	10	1	2	Monstar 13
+COPY app.app_player (id, date, "isStarter", game_id, player_id, minutes, points, assists, "offensiveRebounds", "defensiveRebounds", steals, blocks, turnovers, "defensiveFouls", "offensiveFouls", "freeThrowsMade", "freeThrowsAttempted", "twoPointersMade", "twoPointersAttempted", "threePointersMade", "threePointersAttempted", player_name, poster) FROM stdin;
+28	2023-02-10	t	3	2	36	23	2	0	4	0	1	4	5	0	5	5	6	8	2	5	Tweety	\N
+44	2022-12-19	t	1	2	41	26	3	3	5	2	0	4	0	2	5	7	9	13	1	5	Tweety	\N
+60	2022-12-21	t	2	2	35	17	4	0	5	0	1	2	2	0	1	3	5	10	2	4	Tweety	\N
+53	2022-12-21	t	2	3	22	12	4	1	5	1	0	1	1	0	1	2	4	5	1	2	Bugs Bunny	\N
+45	2022-12-19	f	1	4	22	8	2	4	2	1	0	2	4	1	0	0	4	6	0	1	Daffy Duck	\N
+54	2022-12-21	f	2	4	15	3	2	1	1	0	1	0	0	0	0	0	0	2	1	3	Daffy Duck	\N
+37	2023-03-26	t	4	5	26	3	5	0	2	0	0	1	2	0	0	0	0	1	1	5	Sniffles	\N
+46	2022-12-19	t	1	6	32	13	6	2	6	0	0	0	2	0	4	4	3	6	1	2	Yosemite Sam	\N
+55	2022-12-21	t	2	6	34	13	2	1	4	1	0	5	3	2	2	2	4	4	1	3	Yosemite Sam	\N
+36	2023-03-26	f	4	7	15	11	0	1	4	0	0	0	3	0	0	0	1	3	3	6	Road Runner	\N
+30	2023-02-10	t	3	8	36	11	6	1	2	1	0	2	2	0	4	4	2	6	1	8	Porky Pig	\N
+47	2022-12-19	t	1	8	34	19	1	0	4	1	0	2	5	0	0	0	2	6	5	10	Porky Pig	\N
+56	2022-12-21	t	2	8	29	12	4	0	1	1	1	3	3	2	0	0	0	2	4	9	Porky Pig	\N
+23	2023-02-10	t	3	10	17	11	2	0	2	0	0	0	3	0	1	1	2	2	2	5	Lola Bunny	\N
+39	2023-03-26	f	4	10	19	4	0	0	0	1	0	1	1	0	2	2	1	4	0	0	Lola Bunny	\N
+24	2023-02-10	f	3	11	24	8	1	2	3	0	1	3	2	1	2	2	0	0	2	4	Wile E. Coyote	\N
+34	2023-03-26	f	4	11	31	28	0	2	4	0	0	2	4	1	3	3	8	15	3	6	Wile E. Coyote	\N
+41	2023-03-26	t	4	12	32	8	1	0	4	2	0	1	2	1	0	0	1	4	2	4	Bill Murray	\N
+31	2023-02-10	f	3	13	1	2	0	0	0	0	0	0	1	0	0	0	1	1	0	0	Barnyard Dawg	\N
+22	2023-02-10	f	3	14	16	4	3	1	1	0	0	0	5	0	0	0	2	2	0	0	Tasmanian Devil	\N
+32	2023-03-26	t	4	14	10	6	0	0	2	0	0	2	0	0	0	1	3	3	0	1	Tasmanian Devil	\N
+50	2022-12-19	f	1	14	14	3	4	0	2	0	0	4	2	3	1	2	1	2	0	1	Tasmanian Devil	\N
+51	2022-12-21	f	2	14	18	8	1	2	5	1	0	1	2	1	0	0	4	5	0	0	Tasmanian Devil	\N
+27	2023-02-10	f	3	15	28	13	3	1	2	1	2	0	0	0	0	0	2	4	3	4	Foghorn Leghorn	\N
+40	2023-03-26	t	4	15	35	29	3	0	5	0	0	5	3	0	8	11	6	8	3	5	Foghorn Leghorn	\N
+42	2022-12-19	f	1	15	10	6	0	1	2	0	0	0	0	0	2	2	2	3	0	1	Foghorn Leghorn	\N
+59	2022-12-21	f	2	15	19	8	0	0	1	0	0	0	0	0	0	0	1	2	2	3	Foghorn Leghorn	\N
+26	2023-02-10	f	3	16	13	10	1	1	2	0	0	1	1	1	0	0	5	6	0	1	Elmer Fudd	\N
+2	2022-12-19	t	1	18	35	35	6	0	2	1	2	2	2	0	14	14	9	23	1	1	Monstar 2	\N
+17	2022-12-21	t	2	18	35	27	3	0	6	2	1	5	1	2	11	13	8	16	0	3	Monstar 2	\N
+66	2023-02-10	t	3	18	39	44	7	0	3	2	1	4	1	0	18	19	13	15	0	1	Monstar 2	\N
+3	2022-12-19	f	1	19	28	12	2	1	3	2	0	2	2	1	0	0	3	4	2	3	Monstar 3	\N
+18	2022-12-21	f	2	19	26	9	2	4	3	2	0	1	0	0	1	2	4	6	0	1	Monstar 3	\N
+71	2023-02-10	t	3	19	26	8	0	0	3	2	0	0	2	0	0	0	4	6	0	3	Monstar 3	\N
+19	2022-12-21	t	2	20	38	14	3	0	3	1	1	3	2	0	2	2	3	5	2	6	Monstar 4	\N
+70	2023-02-10	f	3	20	20	18	1	1	0	1	1	0	5	0	3	5	3	3	3	3	Monstar 4	\N
+20	2022-12-21	t	2	21	19	6	2	1	2	2	0	1	1	0	2	2	2	5	0	2	Monstar 5	\N
+11	2022-12-21	f	2	22	17	6	1	0	2	1	0	0	2	0	0	0	0	1	2	4	Monstar 6	\N
+6	2022-12-19	f	1	22	23	11	1	0	3	1	0	0	1	0	0	0	1	1	3	6	Monstar 6	\N
+61	2023-02-10	f	3	22	23	12	3	0	3	0	0	1	1	0	0	0	0	1	4	4	Monstar 6	\N
+7	2022-12-19	f	1	23	10	1	1	0	1	0	0	0	1	0	1	1	0	0	0	3	Monstar 7	\N
+12	2022-12-21	f	2	23	6	3	1	1	0	0	0	0	0	0	0	0	0	0	1	1	Monstar 7	\N
+65	2023-02-10	f	3	23	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Monstar 7	\N
+63	2023-02-10	f	3	25	20	9	3	1	0	1	1	2	0	0	1	1	1	4	2	4	Monstar 9	\N
+13	2022-12-21	t	2	26	30	13	6	2	4	1	0	3	0	0	1	2	6	8	0	0	Monstar 10	\N
+68	2023-02-10	t	3	26	28	19	7	3	3	0	0	0	4	0	3	3	5	12	2	3	Monstar 10	\N
+14	2022-12-21	f	2	27	9	0	0	1	2	0	0	1	0	1	0	0	0	4	0	0	Monstar 11	\N
+64	2023-02-10	t	3	27	20	2	1	2	2	0	0	1	4	1	0	0	1	4	0	1	Monstar 11	\N
+21	2022-12-21	f	2	28	3	2	0	0	1	0	0	1	0	0	0	0	1	1	0	1	Monstar 12	\N
+67	2023-02-10	f	3	28	7	2	0	1	1	0	0	1	1	1	0	0	1	2	0	0	Monstar 12	\N
+15	2022-12-21	t	2	29	30	15	1	0	4	0	0	3	2	0	4	4	4	5	1	3	Monstar 13	\N
+69	2023-02-10	t	3	29	32	13	6	1	3	3	0	1	2	1	5	5	4	9	0	1	Monstar 13	\N
+62	2023-02-10	f	3	30	18	11	1	1	1	0	0	0	3	0	2	2	3	3	1	2	Monstar 14	\N
+76	2023-03-26	f	4	22	28	20	5	2	5	2	0	0	2	0	5	5	0	2	5	10	Monstar 6	\N
+80	2023-03-26	t	4	30	26	7	2	2	4	0	0	1	3	0	1	2	3	5	0	3	Monstar 14	\N
+72	2023-03-26	f	4	31	12	4	0	1	0	1	0	1	1	0	0	0	2	3	0	2	Monstar 15	\N
+77	2023-03-26	t	4	18	35	31	3	2	0	4	0	3	1	0	13	15	9	16	0	1	Monstar 2	\N
+81	2023-03-26	t	4	20	28	6	1	3	3	2	0	2	4	0	2	2	2	8	0	6	Monstar 4	\N
+73	2023-03-26	f	4	24	13	5	0	0	1	1	0	0	2	0	0	0	1	3	1	1	Monstar 8	\N
+74	2023-03-26	f	4	25	14	5	2	1	1	0	0	0	3	0	0	0	1	2	1	4	Monstar 9	\N
+78	2023-03-26	t	4	26	35	17	6	1	10	1	2	2	0	0	0	1	4	7	3	5	Monstar 10	\N
+29	2023-02-10	t	3	9	28	9	2	2	6	0	1	2	2	1	5	6	2	2	0	0	Sylvester	\N
+38	2023-03-26	t	4	9	32	7	4	2	8	1	6	3	1	1	1	2	3	6	0	0	Sylvester	\N
+48	2022-12-19	t	1	9	31	9	3	2	5	0	2	0	4	0	1	2	4	4	0	0	Sylvester	\N
+57	2022-12-21	f	2	9	19	6	3	4	3	3	1	1	2	0	0	0	3	5	0	0	Sylvester	\N
+35	2023-03-26	f	4	13	21	14	5	1	0	0	0	3	1	0	4	6	2	5	2	4	Barnyard Dawg	\N
+49	2022-12-19	f	1	13	13	9	1	2	2	0	0	0	1	0	0	0	0	6	3	5	Barnyard Dawg	\N
+58	2022-12-21	f	2	13	7	3	1	0	0	0	1	1	2	0	0	0	0	0	1	1	Barnyard Dawg	\N
+33	2023-03-26	f	4	16	14	2	0	2	0	1	1	0	2	0	2	2	0	1	0	1	Elmer Fudd	\N
+16	2022-12-21	f	2	17	20	6	0	0	1	0	1	0	5	0	0	0	0	2	2	3	Monstar 1	\N
+1	2022-12-19	f	1	17	16	12	1	0	3	0	1	0	1	0	0	0	0	0	4	5	Monstar 1	\N
+4	2022-12-19	t	1	20	31	13	0	2	1	1	0	2	4	1	7	8	3	6	0	2	Monstar 4	\N
+5	2022-12-19	t	1	21	23	8	3	3	3	0	1	2	2	0	2	4	3	5	0	4	Monstar 5	\N
+75	2023-03-26	f	4	27	7	0	0	0	1	0	0	1	1	1	0	0	0	1	0	1	Monstar 11	\N
+8	2022-12-19	t	1	27	25	12	1	2	2	1	0	0	2	0	4	4	4	6	0	3	Monstar 11	\N
+9	2022-12-19	f	1	28	12	6	1	1	5	0	0	1	2	0	2	3	2	2	0	2	Monstar 12	\N
+79	2023-03-26	t	4	29	37	23	4	1	4	2	0	1	1	0	3	3	7	12	2	2	Monstar 13	\N
+10	2022-12-19	t	1	29	33	13	4	2	5	1	1	1	2	0	2	3	4	10	1	2	Monstar 13	\N
+25	2023-02-10	t	3	1	35	38	9	1	1	1	0	6	2	1	12	13	4	5	6	13	Michael Jordan	assets/posters/m-jordan.jpg
+43	2022-12-19	t	1	1	38	28	6	0	3	1	0	4	4	0	4	4	3	5	6	12	Michael Jordan	assets/posters/m-jordan.jpg
+52	2022-12-21	t	2	1	36	16	8	0	2	2	0	4	2	0	2	2	4	8	2	11	Michael Jordan	assets/posters/m-jordan.jpg
 \.
 
 

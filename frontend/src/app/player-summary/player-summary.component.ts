@@ -4,25 +4,25 @@ import {
   OnDestroy,
   OnInit,
   ViewEncapsulation
-} from '@angular/core';
-import * as moment from 'moment';
-import {ActivatedRoute} from '@angular/router';
-import {untilDestroyed, UntilDestroy} from '@ngneat/until-destroy';
-import {PlayersService} from '../_services/players.service';
+} from '@angular/core'
+import * as moment from 'moment'
+import { ActivatedRoute } from '@angular/router'
+import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy'
+import { PlayersService } from '../_services/players.service'
 
 @UntilDestroy()
 @Component({
   selector: 'player-summary-component',
   templateUrl: './player-summary.component.html',
   styleUrls: ['./player-summary.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class PlayerSummaryComponent implements OnInit, OnDestroy {
-
-  endpoint: any;
-  apiResponse: any;
+  endpoint: any
+  apiResponse: any
   playerData: any = {
     name: String,
+    poster: String,
     date: Date,
     minutes: Number,
     points: Number,
@@ -40,51 +40,77 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
     twoThrowsAttempted: Number,
     threeThrowsMade: Number,
     threeThrowsAttempted: Number
-  };
+  }
   playerID: number = 1; // changing this value will update the UI
+  dateFilter = 0; // changing this value will filter the API results based on the date
+  public playersInfo;
 
-  constructor(
+  constructor (
     protected activatedRoute: ActivatedRoute,
     protected cdr: ChangeDetectorRef,
     protected playersService: PlayersService,
-  ) {
+  ) {}
 
+  
+  ngOnInit (): void {
+    this.fetchApiResponse()
+  }
+  
+  changeParams (): void {
+    this.fetchApiResponse()
   }
 
-  ngOnInit(): void {
-      this.fetchApiResponse();
+  fetchApiResponse (): void {
+    this.playersService
+      .getPlayerSummary(this.playerID)
+      .pipe(untilDestroyed(this))
+      .subscribe(data => {
+        this.endpoint = data.endpoint
+        this.apiResponse = JSON.stringify(data.apiResponse, null, 2)
+        this.playersInfo = data.apiResponse;
+        this.playerData.poster = data.apiResponse[this.dateFilter].poster
+        this.playerData.name = data.apiResponse[this.dateFilter].player_name
+        this.playerData.date = data.apiResponse[this.dateFilter].date
+        this.playerData.minutes = data.apiResponse[this.dateFilter].minutes
+        this.playerData.points = data.apiResponse[this.dateFilter].points
+        this.playerData.steals = data.apiResponse[this.dateFilter].steals
+        this.playerData.blocks = data.apiResponse[this.dateFilter].blocks
+        this.playerData.turnovers = data.apiResponse[this.dateFilter].turnovers
+        this.playerData.fouls =
+          data.apiResponse[this.dateFilter].offensiveFouls +
+          data.apiResponse[this.dateFilter].defensiveFouls
+        this.playerData.freeThrowsMade =
+          data.apiResponse[this.dateFilter].freeThrowsMade
+        this.playerData.freeThrowsAttempted =
+          data.apiResponse[this.dateFilter].freeThrowsAttempted
+        this.playerData.twoPointersMade =
+          data.apiResponse[this.dateFilter].twoPointersMade
+        this.playerData.twoPointersAttempted =
+          data.apiResponse[this.dateFilter].twoPointersAttempted
+        this.playerData.threePointersMade =
+          data.apiResponse[this.dateFilter].threePointersMade
+        this.playerData.threePointersAttempted =
+          data.apiResponse[this.dateFilter].threePointersAttempted
+      })
   }
 
-  changeParams(): void {
-    this.fetchApiResponse();
+  ngOnDestroy () {
+    this.fetchApiResponse()
   }
 
-  fetchApiResponse(): void {
-      this.playersService.getPlayerSummary(this.playerID).pipe(untilDestroyed(this)).subscribe(data => {
-      this.endpoint = data.endpoint;
-      this.apiResponse = JSON.stringify(data.apiResponse, null, 2);
-      this.playerData.name = data.apiResponse[0].player_name;
-      this.playerData.date = data.apiResponse[0].date;
-      this.playerData.minutes = data.apiResponse[0].minutes;
-      this.playerData.points = data.apiResponse[0].points;
-      this.playerData.steals = data.apiResponse[0].steals;
-      this.playerData.blocks = data.apiResponse[0].blocks;
-      this.playerData.turnovers = data.apiResponse[0].turnovers;
-      this.playerData.fouls = data.apiResponse[0].offensiveFouls + data.apiResponse[0].defensiveFouls;
-      this.playerData.freeThrowsMade = data.apiResponse[0].freeThrowsMade; 
-      this.playerData.freeThrowsAttempted = data.apiResponse[0].freeThrowsAttempted;
-      this.playerData.twoPointersMade = data.apiResponse[0].twoPointersMade; 
-      this.playerData.twoPointersAttempted = data.apiResponse[0].twoPointersAttempted;
-      this.playerData.threePointersMade = data.apiResponse[0].threePointersMade; 
-      this.playerData.threePointersAttempted = data.apiResponse[0].threePointersAttempted;
-    })
+  adjustDate (data: number) {
+    this.dateFilter = data
+    this.fetchApiResponse()
   }
 
-  ngOnDestroy() {
+  items = {
+    focusItem: 0
   }
 
-  changeData(data){
+  changeData (data: number) {
+    this.items.focusItem = data;
     this.playerID = data
-    alert(this.playerID)
+    this.fetchApiResponse()
   }
+
 }

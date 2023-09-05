@@ -13,7 +13,8 @@ player-summary-component {
 
   .choice {
     text-align: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
+    text-decoration: underline;
     margin: 2rem 0;
     color: #555;
   }
@@ -38,7 +39,7 @@ player-summary-component {
     }
 
     button:hover {
-      background-color: orangered;
+      background-color: $color-thunder-orange;
       text-decoration: underline;
       cursor: pointer;
     }
@@ -90,7 +91,7 @@ player-summary-component {
       cursor: pointer;
     }
     option{
-      background-color: orangered;
+      background-color: $color-thunder-orange;
       padding: 2rem 0;
       -webkit-appearance: none;
       appearance: none;
@@ -115,7 +116,7 @@ player-summary-component {
   }
 
   .key{
-    border: 0.2rem solid orangered;
+    border: 0.2rem solid $color-thunder-orange;
     border-radius: 1rem;
     padding: 1rem;
     translate: 0 -50%;

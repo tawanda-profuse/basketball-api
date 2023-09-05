@@ -25,10 +25,11 @@ class PlayerSerializer(serializers.ModelSerializer):
     twoPointersAttempted = serializers.IntegerField()
     threePointersMade = serializers.IntegerField()
     threePointersAttempted = serializers.IntegerField()
+    poster = serializers.CharField()
 
     class Meta:
         model=Player
-        fields=('id','date','isStarter','game_id','player_id','player_name','minutes','points','assists','offensiveRebounds','defensiveRebounds','steals','blocks','turnovers','defensiveFouls','offensiveFouls','freeThrowsMade','freeThrowsAttempted','twoPointersMade','twoPointersAttempted','threePointersMade','threePointersAttempted')
+        fields=('id','date','isStarter','game_id','player_id','player_name','minutes','points','assists','offensiveRebounds','defensiveRebounds','steals','blocks','turnovers','defensiveFouls','offensiveFouls','freeThrowsMade','freeThrowsAttempted','twoPointersMade','twoPointersAttempted','threePointersMade','threePointersAttempted', 'poster')
 
 class ShotsSerializer(serializers.ModelSerializer):
 

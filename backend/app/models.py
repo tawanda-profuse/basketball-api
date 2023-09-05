@@ -24,6 +24,7 @@ class Player(models.Model):
     twoPointersAttempted = models.IntegerField()
     threePointersMade = models.IntegerField()
     threePointersAttempted = models.IntegerField()
+    poster = models.CharField(max_length=500)
 
 class Shots(models.Model):
     # Database columns

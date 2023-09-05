@@ -1,42 +1,22 @@
-<h1 class="choice">Choose a player:</h1>
+<h1 class="choice">Select a player:</h1>
 <div class="filter">
-  <button type="button" (click)="changeData(1)">1</button>
-  <button type="button" (click)="changeData(2)">2</button>
-  <button type="button" (click)="changeData(3)">3</button
-  ><button type="button" (click)="changeData(4)">4</button
-  ><button type="button" (click)="changeData(5)">5</button
-  ><button type="button" (click)="changeData(6)">6</button
-  ><button type="button" (click)="changeData(7)">7</button
-  ><button type="button" (click)="changeData(8)">8</button
-  ><button type="button" (click)="changeData(9)">9</button
-  ><button type="button" (click)="changeData(10)">10</button
-  ><button type="button" (click)="changeData(11)">11</button
-  ><button type="button" (click)="changeData(12)">12</button
-  ><button type="button" (click)="changeData(13)">13</button
-  ><button type="button" (click)="changeData(14)">14</button>
-  <button type="button" (click)="changeData(15)">15</button>
-  <button type="button" (click)="changeData(16)">16</button>
-  <button type="button" (click)="changeData(17)">17</button>
-  <button type="button" (click)="changeData(18)">18</button>
-  <button type="button" (click)="changeData(19)">19</button>
-  <button type="button" (click)="changeData(20)">20</button>
-  <button type="button" (click)="changeData(21)">21</button>
-  <button type="button" (click)="changeData(22)">22</button>
-  <button type="button" (click)="changeData(23)">23</button>
-  <button type="button" (click)="changeData(24)">24</button>
-  <button type="button" (click)="changeData(25)">25</button>
-  <button type="button" (click)="changeData(26)">26</button>
-  <button type="button" (click)="changeData(27)">27</button>
-  <button type="button" (click)="changeData(28)">28</button>
-  <button type="button" (click)="changeData(29)">29</button>
-  <button type="button" (click)="changeData(30)">30</button>
-  <button type="button" (click)="changeData(31)">31</button>
+  <button
+    type="button"
+    *ngFor="let _ of [].constructor(31); let i = index"
+    (click)="changeData(i + 1)"
+    [style.background-color]="
+      items.focusItem === i + 1 ? 'orangered' : '#007ac1'
+    "
+  >
+    {{ i + 1 }}
+  </button>
 </div>
+
 <div class="container">
   <div class="player-info">
     <div class="player-bio">
       <img
-        src="assets/posters/m-jordan.jpg"
+        [src]="playerData.poster"
         alt="A poster of {{ playerData.name }}"
       />
     </div>
@@ -48,10 +28,13 @@
       <span class="item">
         <h3>Date:</h3>
         <select name="date" id="date">
-          <option value="date-1">{{ playerData.date }}</option>
-          <option value="date-2">2022.12.21</option>
-          <option value="date-3">2022.12.19</option>
-          <option value="date-4">2023.03.26</option>
+          <option
+          *ngFor="let info of playersInfo; let i = index"
+          value="{{ info.date }}"
+          (click)="adjustDate(i)"
+          >
+            {{ info.date }}
+          </option>
         </select>
       </span>
       <span class="item">
@@ -354,6 +337,7 @@
         </g>
         <!-- Green dot -->
         <ellipse
+        *ngFor="let _ of [].constructor(10); let i = index"
           cx="1169"
           cy="1043"
           rx="40"
@@ -365,6 +349,7 @@
         />
         <!-- Red cross -->
         <path
+        *ngFor="let _ of [].constructor(8); let i = index"
           d="M 999 1003 L 1028.17 1003 L 1049 1026.97 L 1069.83 1003 L 1099 1003 L 1063.58 1043.5 L 1099 1084 L 1069.83 1084 L 1049 1060.03 L 1028.17 1084 L 999 1084 L 1032.33 1043.5 Z"
           fill="#ff0000"
           stroke="#000000"
