@@ -956,75 +956,79 @@ ALTER TABLE ONLY public.django_migrations ALTER COLUMN id SET DEFAULT nextval('p
 --
 
 COPY app.app_player (id, date, "isStarter", game_id, player_id, minutes, points, assists, "offensiveRebounds", "defensiveRebounds", steals, blocks, turnovers, "defensiveFouls", "offensiveFouls", "freeThrowsMade", "freeThrowsAttempted", "twoPointersMade", "twoPointersAttempted", "threePointersMade", "threePointersAttempted", player_name, poster) FROM stdin;
-4	2022-12-19	t	1	20	31	13	0	2	1	1	0	2	4	1	7	8	3	6	0	2	Monstar 4	assets/posters/monstars.webp
+4	2022-12-19	t	1	20	31	13	0	2	1	1	0	2	4	1	7	8	3	6	0	2	Monstar 4	assets/posters/monstars.jpg
 56	2022-12-21	t	2	8	29	12	4	0	1	1	1	3	3	2	0	0	0	2	4	9	Porky Pig	assets/posters/porky-pig.jpg
-52	2022-12-21	t	2	1	36	16	8	0	2	2	0	4	2	0	2	2	4	8	2	11	Michael Jordan	assets/posters/m-jordan.jpg
+52	2022-12-21	t	2	1	36	16	8	0	2	2	0	4	2	0	2	2	4	8	2	11	Michael Jordan	assets/posters/m-jordan.png
 30	2023-02-10	t	3	8	36	11	6	1	2	1	0	2	2	0	4	4	2	6	1	8	Porky Pig	assets/posters/porky-pig.jpg
 47	2022-12-19	t	1	8	34	19	1	0	4	1	0	2	5	0	0	0	2	6	5	10	Porky Pig	assets/posters/porky-pig.jpg
-19	2022-12-21	t	2	20	38	14	3	0	3	1	1	3	2	0	2	2	3	5	2	6	Monstar 4	assets/posters/monstars.webp
-70	2023-02-10	f	3	20	20	18	1	1	0	1	1	0	5	0	3	5	3	3	3	3	Monstar 4	assets/posters/monstars.webp
-25	2023-02-10	t	3	1	35	38	9	1	1	1	0	6	2	1	12	13	4	5	6	13	Michael Jordan	assets/posters/m-jordan.jpg
-43	2022-12-19	t	1	1	38	28	6	0	3	1	0	4	4	0	4	4	3	5	6	12	Michael Jordan	assets/posters/m-jordan.jpg
-59	2022-12-21	f	2	15	19	8	0	0	1	0	0	0	0	0	0	0	1	2	2	3	Foghorn Leghorn	assets/posters/leghorn.jpg
+25	2023-02-10	t	3	1	35	38	9	1	1	1	0	6	2	1	12	13	4	5	6	13	Michael Jordan	assets/posters/m-jordan.png
+43	2022-12-19	t	1	1	38	28	6	0	3	1	0	4	4	0	4	4	3	5	6	12	Michael Jordan	assets/posters/m-jordan.png
+19	2022-12-21	t	2	20	38	14	3	0	3	1	1	3	2	0	2	2	3	5	2	6	Monstar 4	assets/posters/monstars.jpg
+70	2023-02-10	f	3	20	20	18	1	1	0	1	1	0	5	0	3	5	3	3	3	3	Monstar 4	assets/posters/monstars.jpg
+5	2022-12-19	t	1	21	23	8	3	3	3	0	1	2	2	0	2	4	3	5	0	4	Monstar 5	assets/posters/monstars.jpg
+81	2023-03-26	t	4	20	28	6	1	3	3	2	0	2	4	0	2	2	2	8	0	6	Monstar 4	assets/posters/monstars.jpg
+77	2023-03-26	t	4	18	35	31	3	2	0	4	0	3	1	0	13	15	9	16	0	1	Monstar 2	assets/posters/monstars.jpg
+73	2023-03-26	f	4	24	13	5	0	0	1	1	0	0	2	0	0	0	1	3	1	1	Monstar 8	assets/posters/monstars.jpg
 32	2023-03-26	t	4	14	10	6	0	0	2	0	0	2	0	0	0	1	3	3	0	1	Tasmanian Devil	assets/posters/tasmania-devil.jpg
 50	2022-12-19	f	1	14	14	3	4	0	2	0	0	4	2	3	1	2	1	2	0	1	Tasmanian Devil	assets/posters/tasmania-devil.jpg
 51	2022-12-21	f	2	14	18	8	1	2	5	1	0	1	2	1	0	0	4	5	0	0	Tasmanian Devil	assets/posters/tasmania-devil.jpg
-5	2022-12-19	t	1	21	23	8	3	3	3	0	1	2	2	0	2	4	3	5	0	4	Monstar 5	assets/posters/monstars.webp
-81	2023-03-26	t	4	20	28	6	1	3	3	2	0	2	4	0	2	2	2	8	0	6	Monstar 4	assets/posters/monstars.webp
-77	2023-03-26	t	4	18	35	31	3	2	0	4	0	3	1	0	13	15	9	16	0	1	Monstar 2	assets/posters/monstars.webp
-73	2023-03-26	f	4	24	13	5	0	0	1	1	0	0	2	0	0	0	1	3	1	1	Monstar 8	assets/posters/monstars.webp
+59	2022-12-21	f	2	15	19	8	0	0	1	0	0	0	0	0	0	0	1	2	2	3	Foghorn Leghorn	assets/posters/leghorn.png
 22	2023-02-10	f	3	14	16	4	3	1	1	0	0	0	5	0	0	0	2	2	0	0	Tasmanian Devil	assets/posters/tasmania-devil.jpg
-27	2023-02-10	f	3	15	28	13	3	1	2	1	2	0	0	0	0	0	2	4	3	4	Foghorn Leghorn	assets/posters/leghorn.jpg
-40	2023-03-26	t	4	15	35	29	3	0	5	0	0	5	3	0	8	11	6	8	3	5	Foghorn Leghorn	assets/posters/leghorn.jpg
-42	2022-12-19	f	1	15	10	6	0	1	2	0	0	0	0	0	2	2	2	3	0	1	Foghorn Leghorn	assets/posters/leghorn.jpg
-74	2023-03-26	f	4	25	14	5	2	1	1	0	0	0	3	0	0	0	1	2	1	4	Monstar 9	assets/posters/monstars.webp
-78	2023-03-26	t	4	26	35	17	6	1	10	1	2	2	0	0	0	1	4	7	3	5	Monstar 10	assets/posters/monstars.webp
-20	2022-12-21	t	2	21	19	6	2	1	2	2	0	1	1	0	2	2	2	5	0	2	Monstar 5	assets/posters/monstars.webp
+74	2023-03-26	f	4	25	14	5	2	1	1	0	0	0	3	0	0	0	1	2	1	4	Monstar 9	assets/posters/monstars.jpg
+78	2023-03-26	t	4	26	35	17	6	1	10	1	2	2	0	0	0	1	4	7	3	5	Monstar 10	assets/posters/monstars.jpg
+20	2022-12-21	t	2	21	19	6	2	1	2	2	0	1	1	0	2	2	2	5	0	2	Monstar 5	assets/posters/monstars.jpg
+27	2023-02-10	f	3	15	28	13	3	1	2	1	2	0	0	0	0	0	2	4	3	4	Foghorn Leghorn	assets/posters/leghorn.png
+40	2023-03-26	t	4	15	35	29	3	0	5	0	0	5	3	0	8	11	6	8	3	5	Foghorn Leghorn	assets/posters/leghorn.png
+42	2022-12-19	f	1	15	10	6	0	1	2	0	0	0	0	0	2	2	2	3	0	1	Foghorn Leghorn	assets/posters/leghorn.png
 60	2022-12-21	t	2	2	35	17	4	0	5	0	1	2	2	0	1	3	5	10	2	4	Tweety	assets/posters/tweety.png
 28	2023-02-10	t	3	2	36	23	2	0	4	0	1	4	5	0	5	5	6	8	2	5	Tweety	assets/posters/tweety.png
 44	2022-12-19	t	1	2	41	26	3	3	5	2	0	4	0	2	5	7	9	13	1	5	Tweety	assets/posters/tweety.png
 34	2023-03-26	f	4	11	31	28	0	2	4	0	0	2	4	1	3	3	8	15	3	6	Wile E. Coyote	assets/posters/will-coyote.jpg
-11	2022-12-21	f	2	22	17	6	1	0	2	1	0	0	2	0	0	0	0	1	2	4	Monstar 6	assets/posters/monstars.webp
-6	2022-12-19	f	1	22	23	11	1	0	3	1	0	0	1	0	0	0	1	1	3	6	Monstar 6	assets/posters/monstars.webp
-61	2023-02-10	f	3	22	23	12	3	0	3	0	0	1	1	0	0	0	0	1	4	4	Monstar 6	assets/posters/monstars.webp
+11	2022-12-21	f	2	22	17	6	1	0	2	1	0	0	2	0	0	0	0	1	2	4	Monstar 6	assets/posters/monstars.jpg
+6	2022-12-19	f	1	22	23	11	1	0	3	1	0	0	1	0	0	0	1	1	3	6	Monstar 6	assets/posters/monstars.jpg
+61	2023-02-10	f	3	22	23	12	3	0	3	0	0	1	1	0	0	0	0	1	4	4	Monstar 6	assets/posters/monstars.jpg
 24	2023-02-10	f	3	11	24	8	1	2	3	0	1	3	2	1	2	2	0	0	2	4	Wile E. Coyote	assets/posters/will-coyote.jpg
-76	2023-03-26	f	4	22	28	20	5	2	5	2	0	0	2	0	5	5	0	2	5	10	Monstar 6	assets/posters/monstars.webp
-63	2023-02-10	f	3	25	20	9	3	1	0	1	1	2	0	0	1	1	1	4	2	4	Monstar 9	assets/posters/monstars.webp
-13	2022-12-21	t	2	26	30	13	6	2	4	1	0	3	0	0	1	2	6	8	0	0	Monstar 10	assets/posters/monstars.webp
-68	2023-02-10	t	3	26	28	19	7	3	3	0	0	0	4	0	3	3	5	12	2	3	Monstar 10	assets/posters/monstars.webp
-14	2022-12-21	f	2	27	9	0	0	1	2	0	0	1	0	1	0	0	0	4	0	0	Monstar 11	assets/posters/monstars.webp
-79	2023-03-26	t	4	29	37	23	4	1	4	2	0	1	1	0	3	3	7	12	2	2	Monstar 13	assets/posters/monstars.webp
-10	2022-12-19	t	1	29	33	13	4	2	5	1	1	1	2	0	2	3	4	10	1	2	Monstar 13	assets/posters/monstars.webp
-9	2022-12-19	f	1	28	12	6	1	1	5	0	0	1	2	0	2	3	2	2	0	2	Monstar 12	assets/posters/monstars.webp
-7	2022-12-19	f	1	23	10	1	1	0	1	0	0	0	1	0	1	1	0	0	0	3	Monstar 7	assets/posters/monstars.webp
-12	2022-12-21	f	2	23	6	3	1	1	0	0	0	0	0	0	0	0	0	0	1	1	Monstar 7	assets/posters/monstars.webp
-65	2023-02-10	f	3	23	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Monstar 7	assets/posters/monstars.webp
-69	2023-02-10	t	3	29	32	13	6	1	3	3	0	1	2	1	5	5	4	9	0	1	Monstar 13	assets/posters/monstars.webp
-62	2023-02-10	f	3	30	18	11	1	1	1	0	0	0	3	0	2	2	3	3	1	2	Monstar 14	assets/posters/monstars.webp
-75	2023-03-26	f	4	27	7	0	0	0	1	0	0	1	1	1	0	0	0	1	0	1	Monstar 11	assets/posters/monstars.webp
-8	2022-12-19	t	1	27	25	12	1	2	2	1	0	0	2	0	4	4	4	6	0	3	Monstar 11	assets/posters/monstars.webp
-64	2023-02-10	t	3	27	20	2	1	2	2	0	0	1	4	1	0	0	1	4	0	1	Monstar 11	assets/posters/monstars.webp
-21	2022-12-21	f	2	28	3	2	0	0	1	0	0	1	0	0	0	0	1	1	0	1	Monstar 12	assets/posters/monstars.webp
-67	2023-02-10	f	3	28	7	2	0	1	1	0	0	1	1	1	0	0	1	2	0	0	Monstar 12	assets/posters/monstars.webp
-15	2022-12-21	t	2	29	30	15	1	0	4	0	0	3	2	0	4	4	4	5	1	3	Monstar 13	assets/posters/monstars.webp
-80	2023-03-26	t	4	30	26	7	2	2	4	0	0	1	3	0	1	2	3	5	0	3	Monstar 14	assets/posters/monstars.webp
-72	2023-03-26	f	4	31	12	4	0	1	0	1	0	1	1	0	0	0	2	3	0	2	Monstar 15	assets/posters/monstars.webp
+76	2023-03-26	f	4	22	28	20	5	2	5	2	0	0	2	0	5	5	0	2	5	10	Monstar 6	assets/posters/monstars.jpg
+63	2023-02-10	f	3	25	20	9	3	1	0	1	1	2	0	0	1	1	1	4	2	4	Monstar 9	assets/posters/monstars.jpg
+13	2022-12-21	t	2	26	30	13	6	2	4	1	0	3	0	0	1	2	6	8	0	0	Monstar 10	assets/posters/monstars.jpg
+68	2023-02-10	t	3	26	28	19	7	3	3	0	0	0	4	0	3	3	5	12	2	3	Monstar 10	assets/posters/monstars.jpg
+14	2022-12-21	f	2	27	9	0	0	1	2	0	0	1	0	1	0	0	0	4	0	0	Monstar 11	assets/posters/monstars.jpg
+79	2023-03-26	t	4	29	37	23	4	1	4	2	0	1	1	0	3	3	7	12	2	2	Monstar 13	assets/posters/monstars.jpg
+10	2022-12-19	t	1	29	33	13	4	2	5	1	1	1	2	0	2	3	4	10	1	2	Monstar 13	assets/posters/monstars.jpg
+9	2022-12-19	f	1	28	12	6	1	1	5	0	0	1	2	0	2	3	2	2	0	2	Monstar 12	assets/posters/monstars.jpg
+7	2022-12-19	f	1	23	10	1	1	0	1	0	0	0	1	0	1	1	0	0	0	3	Monstar 7	assets/posters/monstars.jpg
+12	2022-12-21	f	2	23	6	3	1	1	0	0	0	0	0	0	0	0	0	0	1	1	Monstar 7	assets/posters/monstars.jpg
+65	2023-02-10	f	3	23	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	Monstar 7	assets/posters/monstars.jpg
+69	2023-02-10	t	3	29	32	13	6	1	3	3	0	1	2	1	5	5	4	9	0	1	Monstar 13	assets/posters/monstars.jpg
+62	2023-02-10	f	3	30	18	11	1	1	1	0	0	0	3	0	2	2	3	3	1	2	Monstar 14	assets/posters/monstars.jpg
+75	2023-03-26	f	4	27	7	0	0	0	1	0	0	1	1	1	0	0	0	1	0	1	Monstar 11	assets/posters/monstars.jpg
+8	2022-12-19	t	1	27	25	12	1	2	2	1	0	0	2	0	4	4	4	6	0	3	Monstar 11	assets/posters/monstars.jpg
+64	2023-02-10	t	3	27	20	2	1	2	2	0	0	1	4	1	0	0	1	4	0	1	Monstar 11	assets/posters/monstars.jpg
+21	2022-12-21	f	2	28	3	2	0	0	1	0	0	1	0	0	0	0	1	1	0	1	Monstar 12	assets/posters/monstars.jpg
+67	2023-02-10	f	3	28	7	2	0	1	1	0	0	1	1	1	0	0	1	2	0	0	Monstar 12	assets/posters/monstars.jpg
+15	2022-12-21	t	2	29	30	15	1	0	4	0	0	3	2	0	4	4	4	5	1	3	Monstar 13	assets/posters/monstars.jpg
+80	2023-03-26	t	4	30	26	7	2	2	4	0	0	1	3	0	1	2	3	5	0	3	Monstar 14	assets/posters/monstars.jpg
+72	2023-03-26	f	4	31	12	4	0	1	0	1	0	1	1	0	0	0	2	3	0	2	Monstar 15	assets/posters/monstars.jpg
 53	2022-12-21	t	2	3	22	12	4	1	5	1	0	1	1	0	1	2	4	5	1	2	Bugs Bunny	assets/posters/bugs-bunny.jfif
 45	2022-12-19	f	1	4	22	8	2	4	2	1	0	2	4	1	0	0	4	6	0	1	Daffy Duck	assets/posters/daffy.webp
 54	2022-12-21	f	2	4	15	3	2	1	1	0	1	0	0	0	0	0	0	2	1	3	Daffy Duck	assets/posters/daffy.webp
 46	2022-12-19	t	1	6	32	13	6	2	6	0	0	0	2	0	4	4	3	6	1	2	Yosemite Sam	assets/posters/yosemite-sam.png
 55	2022-12-21	t	2	6	34	13	2	1	4	1	0	5	3	2	2	2	4	4	1	3	Yosemite Sam	assets/posters/yosemite-sam.png
 26	2023-02-10	f	3	16	13	10	1	1	2	0	0	1	1	1	0	0	5	6	0	1	Elmer Fudd	assets/posters/elmer-fudd.jpg
-3	2022-12-19	f	1	19	28	12	2	1	3	2	0	2	2	1	0	0	3	4	2	3	Monstar 3	assets/posters/monstars.webp
+41	2023-03-26	t	4	12	32	8	1	0	4	2	0	1	2	1	0	0	1	4	2	4	Bill Murray	assets/posters/bill-murray.png
+3	2022-12-19	f	1	19	28	12	2	1	3	2	0	2	2	1	0	0	3	4	2	3	Monstar 3	assets/posters/monstars.jpg
+2	2022-12-19	t	1	18	35	35	6	0	2	1	2	2	2	0	14	14	9	23	1	1	Monstar 2	assets/posters/monstars.jpg
 36	2023-03-26	f	4	7	15	11	0	1	4	0	0	0	3	0	0	0	1	3	3	6	Road Runner	assets/posters/road-runner.jpg
-2	2022-12-19	t	1	18	35	35	6	0	2	1	2	2	2	0	14	14	9	23	1	1	Monstar 2	assets/posters/monstars.webp
-41	2023-03-26	t	4	12	32	8	1	0	4	2	0	1	2	1	0	0	1	4	2	4	Bill Murray	assets/posters/bill-murray.webp
-17	2022-12-21	t	2	18	35	27	3	0	6	2	1	5	1	2	11	13	8	16	0	3	Monstar 2	assets/posters/monstars.webp
+17	2022-12-21	t	2	18	35	27	3	0	6	2	1	5	1	2	11	13	8	16	0	3	Monstar 2	assets/posters/monstars.jpg
+66	2023-02-10	t	3	18	39	44	7	0	3	2	1	4	1	0	18	19	13	15	0	1	Monstar 2	assets/posters/monstars.jpg
 31	2023-02-10	f	3	13	1	2	0	0	0	0	0	0	1	0	0	0	1	1	0	0	Barnyard Dawg	assets/posters/barnyard-dawg.jpg
-66	2023-02-10	t	3	18	39	44	7	0	3	2	1	4	1	0	18	19	13	15	0	1	Monstar 2	assets/posters/monstars.webp
 37	2023-03-26	t	4	5	26	3	5	0	2	0	0	1	2	0	0	0	0	1	1	5	Sniffles	assets/posters/sniffles.png
 23	2023-02-10	t	3	10	17	11	2	0	2	0	0	0	3	0	1	1	2	2	2	5	Lola Bunny	assets/posters/lola-bunny.webp
 39	2023-03-26	f	4	10	19	4	0	0	0	1	0	1	1	0	2	2	1	4	0	0	Lola Bunny	assets/posters/lola-bunny.webp
+16	2022-12-21	f	2	17	20	6	0	0	1	0	1	0	5	0	0	0	0	2	2	3	Monstar 1	assets/posters/monstars.jpg
+1	2022-12-19	f	1	17	16	12	1	0	3	0	1	0	1	0	0	0	0	0	4	5	Monstar 1	assets/posters/monstars.jpg
+18	2022-12-21	f	2	19	26	9	2	4	3	2	0	1	0	0	1	2	4	6	0	1	Monstar 3	assets/posters/monstars.jpg
+71	2023-02-10	t	3	19	26	8	0	0	3	2	0	0	2	0	0	0	4	6	0	3	Monstar 3	assets/posters/monstars.jpg
 35	2023-03-26	f	4	13	21	14	5	1	0	0	0	3	1	0	4	6	2	5	2	4	Barnyard Dawg	assets/posters/barnyard-dawg.jpg
 49	2022-12-19	f	1	13	13	9	1	2	2	0	0	0	1	0	0	0	0	6	3	5	Barnyard Dawg	assets/posters/barnyard-dawg.jpg
 58	2022-12-21	f	2	13	7	3	1	0	0	0	1	1	2	0	0	0	0	0	1	1	Barnyard Dawg	assets/posters/barnyard-dawg.jpg
@@ -1033,10 +1037,6 @@ COPY app.app_player (id, date, "isStarter", game_id, player_id, minutes, points,
 48	2022-12-19	t	1	9	31	9	3	2	5	0	2	0	4	0	1	2	4	4	0	0	Sylvester	assets/posters/sylvester.jpg
 57	2022-12-21	f	2	9	19	6	3	4	3	3	1	1	2	0	0	0	3	5	0	0	Sylvester	assets/posters/sylvester.jpg
 33	2023-03-26	f	4	16	14	2	0	2	0	1	1	0	2	0	2	2	0	1	0	1	Elmer Fudd	assets/posters/elmer-fudd.jpg
-16	2022-12-21	f	2	17	20	6	0	0	1	0	1	0	5	0	0	0	0	2	2	3	Monstar 1	assets/posters/monstars.webp
-1	2022-12-19	f	1	17	16	12	1	0	3	0	1	0	1	0	0	0	0	0	4	5	Monstar 1	assets/posters/monstars.webp
-18	2022-12-21	f	2	19	26	9	2	4	3	2	0	1	0	0	1	2	4	6	0	1	Monstar 3	assets/posters/monstars.webp
-71	2023-02-10	t	3	19	26	8	0	0	3	2	0	0	2	0	0	0	4	6	0	3	Monstar 3	assets/posters/monstars.webp
 \.
 
 
