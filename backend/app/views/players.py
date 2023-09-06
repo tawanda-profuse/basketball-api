@@ -24,7 +24,7 @@ from django.http import HttpResponse
 
 def index(request):
     # Testing HTTP Response
-    return HttpResponse('<h1>Django Include URLs</h1><p>The quick big brown fox jumped over the lazy dog.</p>')
+    return HttpResponse('<h1>Django Include URLs</h1><p>Quick Jordan jumped over the lazy Monstar.</p>')
 
 def PlayerSummary(request, playerID):
     try:

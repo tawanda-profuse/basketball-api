@@ -29,4 +29,20 @@ export class PlayersService extends BaseService {
       }
     ));
   }
+  
+  getPlayerShots(playerID: number, gameID): Observable<any> {
+    const endpoint = `${this.baseUrl}/playerSummary/shots/${playerID}/game/${gameID}`;
+
+    return this.get(endpoint).pipe(map(
+      (data: Object) => {
+          return {
+            endpoint: endpoint,
+            apiResponse: data
+          };
+      },
+      error => {
+          return error;
+      }
+    ));
+  }
 }

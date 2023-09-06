@@ -70,8 +70,10 @@ player-summary-component {
     width: 9.375rem;
     height: 9.375rem;
     border: 0.3125rem solid black;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: white;
     border-radius: 10%;
+    transition: 0.3s ease;
   }
 
   .item {
@@ -84,6 +86,7 @@ player-summary-component {
       font-family: 'Roboto';
       font-size: 1.5rem;
       color: white;
+      transition: 0.3s ease;
     }
     select{
       background-color: $color-thunder-blue;

@@ -19,7 +19,9 @@ import { PlayersService } from '../_services/players.service'
 })
 export class PlayerSummaryComponent implements OnInit, OnDestroy {
   endpoint: any
+  endpoint2: any
   apiResponse: any
+  apiResponse2: any
   playerData: any = {
     name: String,
     poster: String,
@@ -41,23 +43,26 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
     threeThrowsMade: Number,
     threeThrowsAttempted: Number
   }
-  playerID: number = 1; // changing this value will update the UI
-  dateFilter = 0; // changing this value will filter the API results based on the date
-  public playersInfo;
+  playerID: number = 1 // changing this value will update the UI
+  gameID: number = 1 // changing this value will update the UI
+  dateFilter = 0 // changing this value will filter the API results based on the date
+  public playersInfo
+  public playerShotsInfo
 
   constructor (
     protected activatedRoute: ActivatedRoute,
     protected cdr: ChangeDetectorRef,
-    protected playersService: PlayersService,
+    protected playersService: PlayersService
   ) {}
 
-  
   ngOnInit (): void {
     this.fetchApiResponse()
+    this.shotsApiResponse()
   }
   
   changeParams (): void {
     this.fetchApiResponse()
+    this.shotsApiResponse()
   }
 
   fetchApiResponse (): void {
@@ -67,7 +72,7 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
       .subscribe(data => {
         this.endpoint = data.endpoint
         this.apiResponse = JSON.stringify(data.apiResponse, null, 2)
-        this.playersInfo = data.apiResponse;
+        this.playersInfo = data.apiResponse
         this.playerData.poster = data.apiResponse[this.dateFilter].poster
         this.playerData.name = data.apiResponse[this.dateFilter].player_name
         this.playerData.date = data.apiResponse[this.dateFilter].date
@@ -94,23 +99,42 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
       })
   }
 
+  shotsApiResponse (): void {
+    this.playersService
+      .getPlayerShots(this.playerID, this.gameID)
+      .pipe(untilDestroyed(this))
+      .subscribe(data => {
+        this.endpoint2 = data.endpoint
+        this.apiResponse2 = JSON.stringify(data.apiResponse, null, 2)
+        this.playerShotsInfo = data.apiResponse
+        console.log(this.playerShotsInfo)
+      })
+  }
+  
   ngOnDestroy () {
     this.fetchApiResponse()
+    this.shotsApiResponse()
   }
 
-  adjustDate (data: number) {
-    this.dateFilter = data
-    this.fetchApiResponse()
+  adjustDate (data: number): void {
+    this.dateFilter = 0;
+    this.gameID = 1;
+    this.dateFilter = data - 1;
+    this.gameID = data;
+    this.fetchApiResponse();
+    this.shotsApiResponse();
   }
 
   items = {
     focusItem: 0
   }
 
-  changeData (data: number) {
+  changeData (data: number): void {
     this.items.focusItem = data;
-    this.playerID = data
-    this.fetchApiResponse()
+    this.playerID = data;
+    this.fetchApiResponse();
+    this.shotsApiResponse();
+    this.dateFilter = 0;
+    this.gameID = 1;
   }
-
 }
