@@ -41,7 +41,11 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
     twoThrowsMade: Number,
     twoThrowsAttempted: Number,
     threeThrowsMade: Number,
-    threeThrowsAttempted: Number
+    threeThrowsAttempted: Number,
+    game_id: Number,
+    isMake: Boolean,
+    locationX: Float64Array,
+    locationY: Float64Array
   }
   playerID: number = 1 // changing this value will update the UI
   gameID: number = 1 // changing this value will update the UI
@@ -59,7 +63,7 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
     this.fetchApiResponse()
     this.shotsApiResponse()
   }
-  
+
   changeParams (): void {
     this.fetchApiResponse()
     this.shotsApiResponse()
@@ -77,6 +81,10 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
         this.playerData.name = data.apiResponse[this.dateFilter].player_name
         this.playerData.date = data.apiResponse[this.dateFilter].date
         this.playerData.minutes = data.apiResponse[this.dateFilter].minutes
+        this.playerData.assists = data.apiResponse[this.dateFilter].assists
+        this.playerData.rebounds =
+          data.apiResponse[this.dateFilter].offensiveRebounds +
+          data.apiResponse[this.dateFilter].defensiveRebounds
         this.playerData.points = data.apiResponse[this.dateFilter].points
         this.playerData.steals = data.apiResponse[this.dateFilter].steals
         this.playerData.blocks = data.apiResponse[this.dateFilter].blocks
@@ -107,22 +115,25 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
         this.endpoint2 = data.endpoint
         this.apiResponse2 = JSON.stringify(data.apiResponse, null, 2)
         this.playerShotsInfo = data.apiResponse
-        console.log(this.playerShotsInfo)
+        this.playerData.game_id = this.gameID
+        this.playerData.isMake = data.apiResponse[this.dateFilter].isMake
+        this.playerData.locationX = data.apiResponse[this.dateFilter].locationX
+        this.playerData.locationY = data.apiResponse[this.dateFilter].locationY
       })
   }
-  
+
   ngOnDestroy () {
     this.fetchApiResponse()
     this.shotsApiResponse()
   }
 
   adjustDate (data: number): void {
-    this.dateFilter = 0;
-    this.gameID = 1;
-    this.dateFilter = data - 1;
-    this.gameID = data;
-    this.fetchApiResponse();
-    this.shotsApiResponse();
+    this.dateFilter = 0
+    this.gameID = 1
+    this.dateFilter = data - 1
+    this.gameID = data
+    this.fetchApiResponse()
+    this.shotsApiResponse()
   }
 
   items = {
@@ -130,11 +141,11 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
   }
 
   changeData (data: number): void {
-    this.items.focusItem = data;
-    this.playerID = data;
-    this.fetchApiResponse();
-    this.shotsApiResponse();
-    this.dateFilter = 0;
-    this.gameID = 1;
+    this.items.focusItem = data
+    this.playerID = data
+    this.fetchApiResponse()
+    this.shotsApiResponse()
+    this.dateFilter = 0
+    this.gameID = 1
   }
 }

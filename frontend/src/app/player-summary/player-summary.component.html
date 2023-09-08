@@ -15,10 +15,7 @@
 <div class="container">
   <div class="player-info">
     <div class="player-bio">
-      <img
-        [src]="playerData.poster"
-        alt="A poster of {{ playerData.name }}"
-      />
+      <img [src]="playerData.poster" alt="A poster of {{ playerData.name }}" />
     </div>
     <div class="details">
       <span class="item">
@@ -27,12 +24,25 @@
       </span>
       <span class="item">
         <h3>Date:</h3>
-        <select name="date" id="date" (change)="adjustDate($event.target.value === '2022.12.19' ? 1 : $event.target.value === '2022.12.21' ? 2 : $event.target.value === '2023.02.10' ? 3 : 4)">
-          <option
-          *ngFor="let info of playersInfo"
-          value="{{ info.date }}"
-          >
-             {{info.date}} 
+        <select
+          name="date"
+          id="date"
+          (change)="
+            adjustDate(
+              $event.target.value === '2022.12.19'
+                ? 1
+                : $event.target.value === '2022.12.21'
+                ? 2
+                : $event.target.value === '2023.02.10'
+                ? 3
+                : $event.target.value === '2023.03.26'
+                ? 4
+                : null
+            )
+          "
+        >
+          <option *ngFor="let info of playersInfo" value="{{ info.date }}">
+            {{ info.date }}
           </option>
         </select>
       </span>
@@ -46,11 +56,11 @@
       </span>
       <span class="item"
         ><h3>Assists:</h3>
-        <h3>8</h3></span
+        <h3>{{ playerData.assists }}</h3></span
       >
       <span class="item"
         ><h3>Rebounds:</h3>
-        <h3>5</h3></span
+        <h3>{{ playerData.rebounds }}</h3></span
       >
       <span class="item">
         <h3>Steals:</h3>
@@ -289,72 +299,72 @@
           </switch>
         </g>
         <g>
-        <!-- Green dots: -->
-        <!-- *ngFor="let info of playersInfo" -->
-        <!-- Center points: -->
-        <!-- cx="735" -->
-        <!-- cy="1390" -->
-        <ellipse
-          cx="1169"
-          cy="900"
-          rx="30"
-          ry="30"
-          fill="#00ff00"
-          stroke="#000000"
-          stroke-width="6"
-          pointer-events="all"
-        />
-        <ellipse
-          cx="900"
-          cy="1043"
-          rx="30"
-          ry="30"
-          fill="#00ff00"
-          stroke="#000000"
-          stroke-width="6"
-          pointer-events="all"
-        />
-        <ellipse
-          cx="855"
-          cy="700"
-          rx="30"
-          ry="30"
-          fill="#00ff00"
-          stroke="#000000"
-          stroke-width="6"
-          pointer-events="all"
-        />
-        <ellipse
-          cx="455"
-          cy="1000"
-          rx="30"
-          ry="30"
-          fill="#00ff00"
-          stroke="#000000"
-          stroke-width="6"
-          pointer-events="all"
-        />
-      </g>
-      <g>
-        <!-- Red crosses: -->
-        <path
-          d="M 999 1003 L 1028.17 1003 L 1049 1026.97 L 1069.83 1003 L 1099 1003 L 1063.58 1043.5 L 1099 1084 L 1069.83 1084 L 1049 1060.03 L 1028.17 1084 L 999 1084 L 1032.33 1043.5 Z"
-          fill="#ff0000"
-          stroke="#000000"
-          stroke-width="6"
-          stroke-miterlimit="10"
-          pointer-events="all"
-        />
-        <path
-        transform="translate(-990, 300)"
-          d="M 999 1003 L 1028.17 1003 L 1049 1026.97 L 1069.83 1003 L 1099 1003 L 1063.58 1043.5 L 1099 1084 L 1069.83 1084 L 1049 1060.03 L 1028.17 1084 L 999 1084 L 1032.33 1043.5 Z"
-          fill="#ff0000"
-          stroke="#000000"
-          stroke-width="6"
-          stroke-miterlimit="10"
-          pointer-events="all"
-        />
-      </g>
+          <!-- Green dots: -->
+          <!-- *ngFor="let info of playersInfo" -->
+          <!-- Center points: -->
+          <!-- cx="735" -->
+          <!-- cy="1390" -->
+          <ellipse
+            cx="1169"
+            cy="900"
+            rx="30"
+            ry="30"
+            fill="#00ff00"
+            stroke="#000000"
+            stroke-width="6"
+            pointer-events="all"
+          />
+          <ellipse
+            cx="900"
+            cy="1043"
+            rx="30"
+            ry="30"
+            fill="#00ff00"
+            stroke="#000000"
+            stroke-width="6"
+            pointer-events="all"
+          />
+          <ellipse
+            cx="855"
+            cy="700"
+            rx="30"
+            ry="30"
+            fill="#00ff00"
+            stroke="#000000"
+            stroke-width="6"
+            pointer-events="all"
+          />
+          <ellipse
+            cx="455"
+            cy="1000"
+            rx="30"
+            ry="30"
+            fill="#00ff00"
+            stroke="#000000"
+            stroke-width="6"
+            pointer-events="all"
+          />
+        </g>
+        <g>
+          <!-- Red crosses: -->
+          <path
+            d="M 999 1003 L 1028.17 1003 L 1049 1026.97 L 1069.83 1003 L 1099 1003 L 1063.58 1043.5 L 1099 1084 L 1069.83 1084 L 1049 1060.03 L 1028.17 1084 L 999 1084 L 1032.33 1043.5 Z"
+            fill="#ff0000"
+            stroke="#000000"
+            stroke-width="6"
+            stroke-miterlimit="10"
+            pointer-events="all"
+          />
+          <path
+            transform="translate(-990, 300)"
+            d="M 999 1003 L 1028.17 1003 L 1049 1026.97 L 1069.83 1003 L 1099 1003 L 1063.58 1043.5 L 1099 1084 L 1069.83 1084 L 1049 1060.03 L 1028.17 1084 L 999 1084 L 1032.33 1043.5 Z"
+            fill="#ff0000"
+            stroke="#000000"
+            stroke-width="6"
+            stroke-miterlimit="10"
+            pointer-events="all"
+          />
+        </g>
       </g>
       <switch>
         <g
@@ -376,5 +386,36 @@
       <p>Made shots: 🟢</p>
       <p>Missed shots: ❌</p>
     </div>
+  </div>
+  <div class="shots-table">
+    <table>
+      <caption>
+        <h1 class="choice">Shot data for {{ playerData.name }}</h1>
+      </caption>
+      <tr>
+        <th>Game</th>
+        <th>Made Shot?</th>
+        <th>X Location</th>
+        <th>Y Location</th>
+        <th>Date</th>
+      </tr>
+      <tr *ngFor="let info of playerShotsInfo">
+        <td>
+          {{ playerData.game_id }}
+        </td>
+        <td>
+          {{ info.isMake }}
+        </td>
+        <td>
+          {{ info.locationX }}
+        </td>
+        <td>
+          {{ info.locationY }}
+        </td>
+        <td>
+          {{ playerData.date }}
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
