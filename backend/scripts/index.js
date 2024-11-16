@@ -1,18 +1,16 @@
 var fs = require("fs");
-var playersData = JSON.parse(
-  fs.readFileSync("./raw_data/players.json", "utf8")
-);
-var teamsData = JSON.parse(fs.readFileSync("./raw_data/teams.json", "utf8"));
-var gamesData = JSON.parse(fs.readFileSync("./raw_data/games.json", "utf8"));
+var playersData = JSON.parse(fs.readFileSync("../raw_data/players.json", "utf8"));
+var teamsData = JSON.parse(fs.readFileSync("../raw_data/teams.json", "utf8"));
+var gamesData = JSON.parse(fs.readFileSync("../raw_data/games.json", "utf8"));
 
 const Pool = require("pg").Pool;
 
-// Conection string:
+// Connection string:
 const pool = new Pool({
-  user: "okcapplicant",
+  user: "postgres",
   host: "localhost",
-  database: "okc",
-  password: "thunder",
+  database: "basketball",
+  password: "work=MailWorking",
   port: 5432,
 });
 
@@ -76,7 +74,7 @@ const gameShots = function () {
       player.shots.forEach((shot) => {
         counter++;
         pool.query(
-          `INSERT INTO app.shots (id, player_id, game_id, "isMake", "locationX", "locationY", date) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+          `INSERT INTO app.app_shots (id, player_id, game_id, "isMake", "locationX", "locationY", date) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
           [
             counter,
             player.id,
@@ -103,7 +101,7 @@ const gameShots = function () {
       player.shots.forEach((shot) => {
         counter++;
         pool.query(
-          `INSERT INTO app.shots (id, player_id, game_id, "isMake", "locationX", "locationY", date) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+          `INSERT INTO app.app_shots (id, player_id, game_id, "isMake", "locationX", "locationY", date) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
           [
             counter,
             player.id,
@@ -134,13 +132,14 @@ const boxScore = () => {
     game.homeTeam.players.forEach((player) => {
       counter++;
       pool.query(
-        `INSERT INTO app.box_score (id, date,"isStarter", game_id, player_id, minutes, points, assists, "offensiveRebounds", "defensiveRebounds", steals, blocks, turnovers, "defensiveFouls", "offensiveFouls", "freeThrowsMade", "freeThrowsAttempted", "twoPointersMade", "twoPointersAttempted", "threePointersMade", "threePointersAttempted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)`,
+        `INSERT INTO app.app_player (id, date,"isStarter", game_id, player_id, player_name, minutes, points, assists, "offensiveRebounds", "defensiveRebounds", steals, blocks, turnovers, "defensiveFouls", "offensiveFouls", "freeThrowsMade", "freeThrowsAttempted", "twoPointersMade", "twoPointersAttempted", "threePointersMade", "threePointersAttempted", poster) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23)`,
         [
           counter,
           game.date,
           player.isStarter,
           game.id,
           player.id,
+          playersData.find(person => person.id === player.id).name,
           player.minutes,
           player.points,
           player.assists,
@@ -157,6 +156,7 @@ const boxScore = () => {
           player.twoPointersAttempted,
           player.threePointersMade,
           player.threePointersAttempted,
+          playersData.find(person => person.id === player.id).poster,
         ],
         (error, results) => {
           if (error) {
@@ -173,13 +173,14 @@ const boxScore = () => {
     game.awayTeam.players.forEach((player) => {
       counter++;
       pool.query(
-        `INSERT INTO app.box_score (id, date, "isStarter", game_id, player_id, minutes, points, assists, "offensiveRebounds", "defensiveRebounds", steals, blocks, turnovers, "defensiveFouls", "offensiveFouls", "freeThrowsMade", "freeThrowsAttempted", "twoPointersMade", "twoPointersAttempted", "threePointersMade", "threePointersAttempted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)`,
+        `INSERT INTO app.app_player (id, date,"isStarter", game_id, player_id, player_name, minutes, points, assists, "offensiveRebounds", "defensiveRebounds", steals, blocks, turnovers, "defensiveFouls", "offensiveFouls", "freeThrowsMade", "freeThrowsAttempted", "twoPointersMade", "twoPointersAttempted", "threePointersMade", "threePointersAttempted", poster) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23)`,
         [
           counter,
           game.date,
           player.isStarter,
           game.id,
           player.id,
+          playersData.find(person => person.id === player.id).name,
           player.minutes,
           player.points,
           player.assists,
@@ -196,6 +197,7 @@ const boxScore = () => {
           player.twoPointersAttempted,
           player.threePointersMade,
           player.threePointersAttempted,
+          playersData.find(person => person.id === player.id).poster,
         ],
         (error, results) => {
           if (error) {
@@ -204,8 +206,7 @@ const boxScore = () => {
             console.log(results);
           }
         }
-      );
-    });
+      );});
   });
 };
 

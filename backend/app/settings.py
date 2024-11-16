@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    # 'app.apps.AppsConfig',
     'corsheaders',
     'app'
 ]
@@ -90,17 +89,14 @@ WSGI_APPLICATION = 'app.wsgi.app'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'ENGINE': 'django.db.backends.postgresql',
         'OPTIONS': {
             'options': '-c search_path=app,public',
         },
-        'NAME': 'okc',
-        'USER': 'okcapplicant',
-        'PASSWORD': 'thunder',
+        'NAME': 'basketball',
+        'USER': 'postgres',
+        'PASSWORD': 'work=MailWorking',
         'HOST': '',
-        # 'HOST': '127.0.0.1',
-        # 'HOST': 'localhost',
         'PORT': '5432',
     },
 }

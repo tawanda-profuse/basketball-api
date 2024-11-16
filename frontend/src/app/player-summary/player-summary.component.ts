@@ -5,7 +5,6 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core'
-import * as moment from 'moment'
 import { ActivatedRoute } from '@angular/router'
 import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy'
 import { PlayersService } from '../_services/players.service'

@@ -1,126 +1,156 @@
-[
-    {
+[{
         "id": 1,
-        "name": "Michael Jordan"
+        "name": "Michael Jordan",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 2,
-        "name": "Tweety"
+        "name": "Tweety",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 3,
-        "name": "Bugs Bunny"
+        "name": "Bugs Bunny",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 4,
-        "name": "Daffy Duck"
+        "name": "Daffy Duck",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 5,
-        "name": "Sniffles"
+        "name": "Sniffles",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 6,
-        "name": "Yosemite Sam"
+        "name": "Yosemite Sam",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 7,
-        "name": "Road Runner"
+        "name": "Road Runner",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 8,
-        "name": "Porky Pig"
+        "name": "Porky Pig",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 9,
-        "name": "Sylvester"
+        "name": "Sylvester",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 10,
-        "name": "Lola Bunny"
+        "name": "Lola Bunny",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 11,
-        "name": "Wile E. Coyote"
+        "name": "Wile E. Coyote",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 12,
-        "name": "Bill Murray"
+        "name": "Bill Murray",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 13,
-        "name": "Barnyard Dawg"
+        "name": "Barnyard Dawg",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 14,
-        "name": "Tasmanian Devil"
+        "name": "Tasmanian Devil",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 15,
-        "name": "Foghorn Leghorn"
+        "name": "Foghorn Leghorn",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 16,
-        "name": "Elmer Fudd"
+        "name": "Elmer Fudd",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 17,
-        "name": "Monstar 1"
+        "name": "Monstar 1",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 18,
-        "name": "Monstar 2"
+        "name": "Monstar 2",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 19,
-        "name": "Monstar 3"
+        "name": "Monstar 3",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 20,
-        "name": "Monstar 4"
+        "name": "Monstar 4",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 21,
-        "name": "Monstar 5"
+        "name": "Monstar 5",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 22,
-        "name": "Monstar 6"
+        "name": "Monstar 6",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 23,
-        "name": "Monstar 7"
+        "name": "Monstar 7",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 24,
-        "name": "Monstar 8"
+        "name": "Monstar 8",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 25,
-        "name": "Monstar 9"
+        "name": "Monstar 9",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 26,
-        "name": "Monstar 10"
+        "name": "Monstar 10",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 27,
-        "name": "Monstar 11"
+        "name": "Monstar 11",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 28,
-        "name": "Monstar 12"
+        "name": "Monstar 12",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 29,
-        "name": "Monstar 13"
+        "name": "Monstar 13",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 30,
-        "name": "Monstar 14"
+        "name": "Monstar 14",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     },
     {
         "id": 31,
-        "name": "Monstar 15"
+        "name": "Monstar 15",
+        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
     }
 ]

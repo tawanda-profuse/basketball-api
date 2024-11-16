@@ -19,6 +19,7 @@ frontend/tmp
 frontend/node_modules
 backend/node_modules
 backend/app/__pycache__
+backend/app/migrations/__pycache__
 backend/app/views/__pycache__
 backend/env
 frontend/bower_components

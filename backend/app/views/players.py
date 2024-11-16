@@ -1,21 +1,10 @@
 # # -*- coding: utf-8 -*-
 import logging
-from functools import partial
-import json
-import os
 
-from rest_framework.response import Response
-from rest_framework.views import APIView, exception_handler
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
 from app.models import Player, Shots
 from app.serializers import PlayerSerializer, ShotsSerializer
-from django.http import Http404
-from rest_framework import status
-from rest_framework import generics
 
 
 LOGGER = logging.getLogger('django')
