@@ -4,7 +4,7 @@ import {PlayerSummaryComponent} from './player-summary.component';
 import {routing} from 'app/player-summary/player-summary.routing';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
-import {FlexModule} from '@angular/flex-layout';
+// import {FlexModule} from '@angular/flex-layout';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
@@ -26,7 +26,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     routing,
     MatToolbarModule,
     MatCardModule,
-    FlexModule,
+    // FlexModule,
     MatListModule,
     MatRadioModule,
     MatIconModule,

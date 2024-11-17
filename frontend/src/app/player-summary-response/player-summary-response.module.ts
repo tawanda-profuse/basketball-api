@@ -4,7 +4,7 @@ import {PlayerSummaryResponseComponent} from './player-summary-response.componen
 import {routing} from 'app/player-summary-response/player-summary-response.routing';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
-import {FlexModule} from '@angular/flex-layout';
+// import {FlexModule} from '@angular/flex-layout';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
@@ -26,7 +26,7 @@ import {PlayersService} from 'app/_services/players.service';
     routing,
     MatToolbarModule,
     MatCardModule,
-    FlexModule,
+    // FlexModule,
     MatListModule,
     MatRadioModule,
     MatIconModule,

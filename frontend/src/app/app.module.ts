@@ -10,7 +10,7 @@ import { PlayersService } from 'app/_services/players.service'
 import { CommonModule } from '@angular/common'
 import { MatButtonModule } from '@angular/material/button'
 import { MatToolbarModule } from '@angular/material/toolbar'
-import { FlexLayoutModule } from '@angular/flex-layout'
+// import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatInputModule } from '@angular/material/input'
 import { MatIconModule } from '@angular/material/icon'
@@ -28,7 +28,7 @@ import { MatTabsModule } from '@angular/material/tabs'
         CommonModule,
         MatButtonModule,
         MatToolbarModule,
-        FlexLayoutModule,
+        // FlexLayoutModule,
         MatMenuModule,
         MatInputModule,
         MatIconModule,
