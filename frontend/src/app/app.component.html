@@ -1,16 +1,10 @@
 <div id="app-header">
   <p>Player Summary</p>
   <nav mat-tab-nav-bar>
-    <a mat-tab-link
-        [routerLink]="['', 'player-summary']"
-        routerLinkActive
-        [active]="currentTab === tab.FRONTEND"
-        (click)="currentTab = tab.FRONTEND">Frontend</a>
-    <a mat-tab-link
-        [routerLink]="['', 'player-summary-api']"
-        routerLinkActive
-        [active]="currentTab === tab.BACKEND"
-        (click)="currentTab = tab.BACKEND">Backend</a>
+    <a mat-tab-link [routerLink]="['', 'player-summary']" routerLinkActive [active]="currentTab === tab.FRONTEND"
+      (click)="currentTab = tab.FRONTEND">Frontend</a>
+    <a mat-tab-link [routerLink]="['', 'player-summary-api']" routerLinkActive [active]="currentTab === tab.BACKEND"
+      (click)="currentTab = tab.BACKEND">Backend</a>
   </nav>
   <img src="assets/okc-logo.png" alt="Oklahoma City Thunder logo">
 </div>

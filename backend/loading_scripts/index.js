@@ -1,16 +1,18 @@
+require("dotenv").config(); 
 var fs = require("fs");
 var playersData = JSON.parse(fs.readFileSync("../raw_data/players.json", "utf8"));
 var teamsData = JSON.parse(fs.readFileSync("../raw_data/teams.json", "utf8"));
 var gamesData = JSON.parse(fs.readFileSync("../raw_data/games.json", "utf8"));
 
 const Pool = require("pg").Pool;
+const clientPassword = process.env.DBPassword;
 
 // Connection string:
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
   database: "basketball",
-  password: "work=MailWorking",
+  password: clientPassword,
   port: 5432,
 });
 
