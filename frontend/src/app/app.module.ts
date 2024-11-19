@@ -10,7 +10,6 @@ import { PlayersService } from 'app/_services/players.service'
 import { CommonModule } from '@angular/common'
 import { MatButtonModule } from '@angular/material/button'
 import { MatToolbarModule } from '@angular/material/toolbar'
-// import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatInputModule } from '@angular/material/input'
 import { MatIconModule } from '@angular/material/icon'
@@ -22,22 +21,27 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatOptionModule } from '@angular/material/core'
 import { MatTabsModule } from '@angular/material/tabs'
 
-@NgModule({ declarations: [AppComponent],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        BrowserAnimationsModule,
-        CommonModule,
-        MatButtonModule,
-        MatToolbarModule,
-        // FlexLayoutModule,
-        MatMenuModule,
-        MatInputModule,
-        MatIconModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatNativeDateModule,
-        MatDatepickerModule,
-        MatSelectModule,
-        MatOptionModule,
-        MatTabsModule,
-        routing], providers: [PlayersService, provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatInputModule,
+    MatIconModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatTabsModule,
+    routing
+  ],
+  providers: [PlayersService, provideHttpClient(withInterceptorsFromDi())]
+})
 export class AppModule {}

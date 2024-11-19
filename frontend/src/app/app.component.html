@@ -1,16 +1,14 @@
 <div id="app-header">
-  <p>Player Summary</p>
-  <nav mat-tab-nav-bar>
-    <a mat-tab-link [routerLink]="['', 'player-summary']" routerLinkActive [active]="currentTab === tab.FRONTEND"
-      (click)="currentTab = tab.FRONTEND">Frontend</a>
-    <a mat-tab-link [routerLink]="['', 'player-summary-api']" routerLinkActive [active]="currentTab === tab.BACKEND"
-      (click)="currentTab = tab.BACKEND">Backend</a>
-  </nav>
-  <img src="assets/okc-logo.png" alt="Oklahoma City Thunder logo">
+  <a href="/"><img src="assets/basketball-api-logo.png" alt="Basketball API logo"></a>
+  <div class="links">
+    <a href="/">Home</a>
+    <a href="/player-summary">Player Summary</a>
+    <a href="/player-summary-api">Basketball API</a>
+  </div>
 </div>
 
 <router-outlet></router-outlet>
 <footer>
-  <img src="assets/okc-logo.png" alt="OKC Thunder logo">
-  Oklahoma City Thunder &copy;
+  <img src="assets/basketball-api-logo.png" alt="Basketball API logo">
+  Basketball API - All Rights Reserved
 </footer>

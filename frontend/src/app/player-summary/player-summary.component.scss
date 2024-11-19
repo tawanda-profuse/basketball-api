@@ -13,7 +13,7 @@ player-summary-component {
 
   .choice {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-decoration: underline;
     margin: 2rem 0;
     color: #555;
@@ -25,21 +25,22 @@ player-summary-component {
     gap: 1rem;
     justify-content: center;
     align-items: center;
+    padding: 0 2rem;
 
     button {
-      background-color: $color-thunder-blue;
+      background-color: $color-1;
       color: white;
       text-align: center;
       text-decoration: none;
-      font-size: 1.5rem;
-      padding: 0.75rem 0;
+      font-size: 1rem;
+      padding: 0.75rem;
       border-radius: 0.5rem;
       outline: none;
       border: none;
     }
 
     button:hover {
-      background-color: $color-thunder-orange;
+      background-color: $color-2;
       text-decoration: underline;
       cursor: pointer;
     }
@@ -50,7 +51,7 @@ player-summary-component {
     display: flex;
     flex-direction: column;
     border: 0.2rem solid black;
-    background-color: $color-thunder-blue;
+    background-color: $color-1;
     justify-content: center;
     color: white;
     border-radius: 0.625rem;
@@ -82,25 +83,27 @@ player-summary-component {
     border-bottom: 0.125rem solid white;
     padding-top: 5%;
 
-    h3, option, select {
+    h3 {
       font-family: 'Roboto';
-      font-size: 1.5rem;
+      font-size: 1rem;
       color: white;
       transition: 0.3s ease;
     }
-    select{
-      background-color: $color-thunder-blue;
-      border: none;
-      cursor: pointer;
-    }
-    option{
-      background-color: $color-thunder-orange;
-      padding: 2rem 0;
-      -webkit-appearance: none;
-      appearance: none;
-      border: 0.0625rem solid white
+    .button-list{
+      display: flex;
+      flex-direction: column;
+      
+      button{
+        cursor: pointer;
+        font-size: 1rem;
+        padding: 0.5rem;
+        border: none;
+        outline: none;
+        font-weight: bold;
+      }
     }
   }
+
 
   .shots-data {
     width: 50%;
@@ -119,25 +122,27 @@ player-summary-component {
   }
 
   .key{
-    border: 0.2rem solid $color-thunder-orange;
+    border: 0.2rem solid $color-2;
     border-radius: 1rem;
     padding: 1rem;
     translate: 0 -50%;
 
     h4{
       text-decoration: underline;
-      font-size: 2rem;
+      font-size: 1.5rem;
       margin-bottom: 1rem;
     }
     p{
       vertical-align: middle;
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
   }
 
   .shots-table{
     margin: 2.5rem auto;
     width: 100%;
+    overflow-x: auto;
+
     table{
       width: 100%;
       margin: auto;
@@ -150,24 +155,24 @@ player-summary-component {
     th, td{
       width: 20%;
       text-align: center;
-      border: 0.2rem solid $color-thunder-blue;
+      border: 0.2rem solid $color-1;
       padding: 0.5% 0;
     } 
     th{
-      background-color: $color-thunder-blue;
-      font-size: 1.5rem;
+      background-color: $color-1;
+      font-size: 1.2rem;
       color: white;
     }
     td{
-      color: $color-thunder-orange;
-      font-size: 1.1rem;
-    }
-    td:hover{
-      background-color: darkgray;
-      cursor: pointer;
+      color: $color-1;
+      font-size: 1.2rem;
     }
     tr:nth-child(even){
       background-color: lightgray;
+    }
+    tr:hover{
+      background-color: $color-2;
+      cursor: pointer;
     }
   }
 

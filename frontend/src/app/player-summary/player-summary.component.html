@@ -1,13 +1,9 @@
 <h1 class="choice">Select a player:</h1>
 <div class="filter">
-  <button
-    type="button"
-    *ngFor="let _ of [].constructor(31); let i = index"
-    (click)="changeData(i + 1)"
+  <button type="button" *ngFor="let _ of [].constructor(31); let i = index" (click)="changeData(i + 1)"
     [style.background-color]="
-      items.focusItem === i + 1 ? 'orangered' : '#007ac1'
-    "
-  >
+      items.focusItem === i + 1 ? 'gold' : 'indigo'
+    ">
     {{ i + 1 }}
   </button>
 </div>
@@ -24,28 +20,13 @@
       </span>
       <span class="item">
         <h3>Date:</h3>
-        <select
-          name="date"
-          id="date"
-          (change)="
-            adjustDate(
-              $event.target.value === '2022.12.19'
-                ? 1
-                : $event.target.value === '2022.12.21'
-                ? 2
-                : $event.target.value === '2023.02.10'
-                ? 3
-                : $event.target.value === '2023.03.26'
-                ? 4
-                : null
-            )
-          "
-        >
-        <option>{{playerData.date}}</option>
-          <option *ngFor="let info of playersInfo" value="{{ info.date }}">
-            {{ info.date }}
-          </option>
-        </select>
+        <div *ngFor="let info of playersInfo" class="button-list">
+          <button (click)="adjustDate(info.date)" [style.background-color]="
+            playerData.date === info.date ? 'gold' : ''
+          " [style.color]="
+          playerData.date === info.date ? 'indigo' : ''
+        ">{{ info.date }}</button>
+        </div>
       </span>
       <span class="item">
         <h3>Minutes:</h3>
@@ -55,246 +36,111 @@
         <h3>Points:</h3>
         <h3>{{ playerData.points }}</h3>
       </span>
-      <span class="item"
-        ><h3>Assists:</h3>
-        <h3>{{ playerData.assists }}</h3></span
-      >
-      <span class="item"
-        ><h3>Rebounds:</h3>
-        <h3>{{ playerData.rebounds }}</h3></span
-      >
+      <span class="item">
+        <h3>Assists:</h3>
+        <h3>{{ playerData.assists }}</h3>
+      </span>
+      <span class="item">
+        <h3>Rebounds:</h3>
+        <h3>{{ playerData.rebounds }}</h3>
+      </span>
       <span class="item">
         <h3>Steals:</h3>
         <h3>{{ playerData.steals }}</h3>
       </span>
-      <span class="item"
-        ><h3>Blocks:</h3>
+      <span class="item">
+        <h3>Blocks:</h3>
         <h3>{{ playerData.blocks }}</h3>
       </span>
-      <span class="item"
-        ><h3>Turnovers:</h3>
+      <span class="item">
+        <h3>Turnovers:</h3>
         <h3>{{ playerData.turnovers }}</h3>
       </span>
-      <span class="item"
-        ><h3>Fouls:</h3>
+      <span class="item">
+        <h3>Fouls:</h3>
         <h3>{{ playerData.fouls }}</h3>
       </span>
-      <span class="item"
-        ><h3>Free Throws:</h3>
+      <span class="item">
+        <h3>Free Throws:</h3>
         <h3>
           {{ playerData.freeThrowsMade }}/{{ playerData.freeThrowsAttempted }}
         </h3>
       </span>
-      <span class="item"
-        ><h3>2pt Field Goals:</h3>
+      <span class="item">
+        <h3>2pt Field Goals:</h3>
         <h3>
           {{ playerData.twoPointersMade }}/{{ playerData.twoPointersAttempted }}
-        </h3></span
-      >
-      <span class="item"
-        ><h3>3pt Field Goals:</h3>
+        </h3>
+      </span>
+      <span class="item">
+        <h3>3pt Field Goals:</h3>
         <h3>
           {{ playerData.threePointersMade }}/{{
-            playerData.threePointersAttempted
+          playerData.threePointersAttempted
           }}
-        </h3></span
-      >
+        </h3>
+      </span>
     </div>
   </div>
   <div class="shots-data">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      version="1.1"
-      width="1454px"
-      viewBox="-0.5 -0.5 1454 2000"
-      style="background-color: rgb(255, 255, 255)"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1454px"
+      viewBox="-0.5 -0.5 1454 2000" style="background-color: rgb(255, 255, 255)">
       <!-- Local styles in <defs> -->
       <defs>
-        <linearGradient
-          x1="0%"
-          y1="0%"
-          x2="0%"
-          y2="100%"
-          id="mx-gradient-8bbeff-1-135ec8-1-s-0"
-        >
-          <stop
-            offset="0%"
-            style="stop-color: rgb(139, 190, 255); stop-opacity: 1"
-          />
-          <stop
-            offset="100%"
-            style="stop-color: rgb(19, 94, 200); stop-opacity: 1"
-          />
+        <linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="mx-gradient-8bbeff-1-135ec8-1-s-0">
+          <stop offset="0%" style="stop-color: rgb(139, 190, 255); stop-opacity: 1" />
+          <stop offset="100%" style="stop-color: rgb(19, 94, 200); stop-opacity: 1" />
         </linearGradient>
       </defs>
       <g>
-        <rect
-          class="boundary"
-          x="2"
-          y="173"
-          width="1444"
-          height="1359"
-          fill="#fff4c3"
-          stroke="#130f0d"
-          stroke-width="5"
-          pointer-events="all"
-        />
-        <!-- OKC Logo -->
-        <image
-          x="886.45"
-          y="206.55"
-          width="397"
-          height="360.91"
-          xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA5MzcuNCA4NTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDkzNy40IDg1MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9DQoJLnN0MXtmaWxsOiNGMDUzMzM7fQ0KCS5zdDJ7ZmlsbDojRkNCQjMwO30NCgkuc3Qze2ZpbGw6IzFFMzE2MDt9DQoJLnN0NHtmaWxsOiMwQTdFQzI7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik03NDUuNSw0MDMuNWMtNDQuOCwxNjguOC0xMjYuOSwyODIuMS0yNzYuMSwzNzQuM2MtNTYtMzQuNy0xMDMuNy03My4zLTE0My41LTExNy40bDMxLjgtMTUuMQ0KCQljMzMuOCwzOS41LDczLDc0LjcsMTE2LjksMTA0LjRjMy42LTIuNCw3LjItNC44LDExLTcuNGMwLDAtMC4xLDAtMC4xLTAuMWw5LTYuMWMxMTAuOC03OC41LDE4OS40LTE4OC45LDIyNy43LTMyMC40DQoJCWMtMTIuNS02LTI3LjUtMTIuNC00NC41LTE4LjdjLTYuNy0yLjYtMTMuNi01LTIwLjgtNy40Yy0zLjQtMS02LjctMi4xLTEwLjMtMy40YzAsMCw0LjgsMTksNS44LDI1LjQNCgkJYzEyLjYsNzktMTIuNywxNjIuOC03NS42LDIyMS41Yy0zNi45LDM0LjUtODEuNiw1NS41LTEyNy45LDYzLjJsLTE1LjEsMi41Yy0yLjItMi4xLTQuNS00LjItNi43LTYuNGMwLDAsMTQtMS4zLDIyLjEtMy4xDQoJCWMwLjEsMCwwLjIsMCwwLjMsMGM3LjItMC45LDE1LjItMy4xLDIxLjItNC45YzI5LTguNiw1MS45LTE5LjYsNzQtMzUuMmMwLDAsMCwwLTAuMSwwYzUuNC0zLjYsMTAuNC03LjYsMTUuMy0xMS42bDAuMy0wLjINCgkJYzI4LjUtMjMuOSw1MS41LTUzLjksNjYuOC04OC40bC0wLjIsMC4yYzYtMTMuNiwxMC44LTI3LjgsMTQuMy00Mi42bDAuMi0wLjNjNC4xLTE3LjksNi40LTM2LjQsNi40LTU1LjZjMC0yMy4yLTMuMy00NS41LTkuMy02Ni44DQoJCWMtOC41LTIuNS0xNy4xLTQuOC0yNS44LTdjMCwwLDAsMCwwLDBsLTE0LjMtMy40bC04LjEtMmMtMzcuNC03LjctNzUuNy0xMS44LTExNS0xMi4yYy04NC4zLDIuNC0xNjMuNiwyMS44LTI0MC4yLDU4DQoJCWM4LjYsMzAuMiwxOS40LDU5LjMsMzIuMiw4Ny40Yy01LjQsNS43LTExLjQsMTIuMS0xMi42LDEzLjRjLTUsNS44LTkuMywxMS44LTEzLDE4Yy0yMC4xLTQwLjQtMzUuOS04NC4zLTQ3LjktMTMyLjYNCgkJYzkxLjUtNDUuNywxNzIuNi02OS45LDI3Ni4xLTY5LjlTNjU0LjUsMzU3LjgsNzQ1LjUsNDAzLjV6IE05MjMuOCw0ODQuOGMtNjQuOSwxOS44LTEzMC43LDQxLjgtMTk1LjYsNjUuMw0KCQljLTI3LjksNTcuMi02Mi43LDEwNi41LTEwNi4xLDE1MC44Yy00MC4zLDQxLjEtODguOSw3OC41LTE0OC41LDExNC4ybC0zLjYsMi4ybC0zLjYtMi4yYy01Mi4xLTMxLjMtOTYuMi02NC4zLTEzNC41LTEwMQ0KCQljLTg5LjksNDIuMS0xNzYuOCw4Ni40LTI1OC4zLDEzMS42Yy00LjUsMi44LTkuMyw0LjMtMTMuNiw0LjNjLTUuOSwwLTEwLjUtMi44LTEyLjItNy41Yy0xLjYtNC4zLTEuNC0xMS4zLDguOC0yMC40DQoJCWMzNC41LTMwLjcsNzEuOC02MC4zLDExMS04OC4xYy02LjktNC0xMS42LTkuMy0xNC4yLTE1LjljLTYuMy0xNi4yLDIuNC0zNS44LDguNy01MC4xYzAuNC0wLjksMC44LTEuOCwxLjItMi43bDAsMGwwLDANCgkJYzEwLjItMjIuOCwxOS4xLTQyLjMsMjcuNC02MC4xYy01Ny44LDE4LjUtMTEzLjQsMzcuNC0xNjUuNSw1Ni4zYy0zLjksMS42LTcuNiwyLjQtMTEuMSwyLjRjLTcuMSwwLTEyLjUtMy41LTE0LTkNCgkJYy0wLjktMy4yLTEuNC0xMS40LDEyLjItMTkuNWM1OC4yLTM3LjEsMTIyLjMtNzAuOCwxOTAuNy0xMDAuNGMtMTYuMi0zNS0yOS4zLTcyLjMtMzguOS0xMTFsLTguMS0zMi44bC0xLjMtNS40bDQuOS0yLjUNCgkJYzU3LjQtMjkuNSwxMDMuNS00OC41LDE0OS42LTYxLjZjNTEuMi0xNC41LDEwMy43LTIxLjYsMTYwLjYtMjEuNmM1Ni45LDAsMTA5LjQsNy4xLDE2MC42LDIxLjZjNDYuMSwxMy4xLDkyLjIsMzIuMSwxNDkuNiw2MS42DQoJCWw0LjksMi41bC0xLjMsNS4zYy0xLjIsNC45LTIuNCw5LjgtMy43LDE0LjZjMTMtMC40LDI2LjEtMC41LDM4LjktMC41YzM0LjMsMCw2OC41LDEuMywxMDEuNywzLjdjMTAuMywwLjgsMTUuMSw4LDE1LjIsMTQuNQ0KCQljMC4xLDYuNS00LjgsMTMuNi0xNC4zLDE0LjZjLTUyLjQsNy40LTEwNS42LDE2LTE1OC4zLDI1LjVjLTEuOCw1LjQtMy41LDEwLjUtNS4zLDE1LjVjNTQuMy0xMS4xLDEwOC4yLTE4LjcsMTYwLjQtMjIuOA0KCQljMC45LTAuMSwxLjctMC4xLDIuNi0wLjFjMTAuMywwLDE1LjYsNi4yLDE2LjIsMTIuM0M5MzgsNDc0LjgsOTMzLjYsNDgyLjUsOTIzLjgsNDg0Ljh6IE05MTkuNiw0NzAuNw0KCQljLTU5LjcsNC44LTEyMS42LDE0LjEtMTg0LjcsMjguMWM2LjItMTUuNiwxMS45LTMxLjYsMTcuMy00OC4yYzU2LjYtMTAuMywxMTIuNS0xOS40LDE2Ny40LTI3LjFjLTUxLTMuOS0xMDQtNC44LTE1OC41LTIuNg0KCQljMi41LTksNC45LTE4LjIsNy4zLTI3LjVjLTk5LjEtNTEtMTg2LTc4LjgtMjk4LjMtNzguOHMtMTk5LjIsMjcuOC0yOTguMyw3OC44bDYuNywyN2MxMC44LDQzLjYsMjUuNyw4NC4yLDQ0LjQsMTIxLjkNCgkJYy03My41LDMwLjktMTQxLjUsNjYuNC0yMDIuOCwxMDUuNGM2NC0yMy4yLDEzMC4zLTQ1LjUsMTk4LjUtNjYuNmwtNDEuNiw5MC4zYy02LjksMTUuMS0yMS4zLDQxLjksMC43LDUxLjMNCgkJYzIwLjEsNS4yLDM5LjMtOC4yLDU2LjgtMTcuMmMyLjctMS40LDUuNy0yLjksOC4zLTQuMmMtNjQuNyw0MC44LTEyNC4xLDg1LjEtMTc2LjYsMTMxLjVjODUtNDcsMTc0LjgtOTIuOSwyNjguNC0xMzYuNg0KCQljMzIuMywzMi4yLDc2LjgsNjguNCwxMzUuMywxMDMuOWMxMTcuMy03MC4zLDE5NS42LTE1Mi45LDI0Ny42LTI2MS43Qzc4NS45LDUxMy41LDg1My40LDQ5MC45LDkxOS42LDQ3MC43eiBNNjIwLjEsNDM4LjkNCgkJYzIuNy0xMC44LDUuNS0yMS44LDguMi0zMi42Yy0xMiwxLjctMjMuOSwzLjQtMzUuOSw1LjVjLTkuNCwxLjUtMTgsNC42LTI1LjIsMTEuN2MtNS44LDYuMi04LjksMTMuNy0xMS41LDIxLjYNCgkJYy03LjYsMjMuNy0xNS4xLDQ3LjYtMjIuOCw3MS4zYy0yLjksOS40LTcuOSwyNi40LDcuMiwyNS4yYzUuMi0wLjksMTAtMi45LDE0LjgtNWMxNS4zLTYuNSwzMC42LTEyLjksNDUuOC0xOS4yDQoJCWMzLjktMTQuOSw3LjctMjkuOSwxMS43LTQ0LjhjLTguMSwyLjYtMTYsNS4yLTI0LDcuN2MtMS45LDYuNy0zLjgsMTMuNC01LjcsMjAuM2MtNS43LDIuMS0xMS4yLDQuMS0xNi44LDYuMg0KCQljNy0yNCwxNC4xLTQ4LjMsMjEuMS03Mi4zYzUtMSwxMC0yLjEsMTQuOS0zLjFjLTEuMiw0LjMtMi40LDguNC0zLjQsMTIuN0M2MDUuNyw0NDIuMyw2MTIuOSw0NDAuNiw2MjAuMSw0MzguOXogTTI5OS4yLDY1Mi41DQoJCWMtMTUuNiw3LjctMzEuMSwxNS41LTQ2LjUsMjMuNGMtMTQuMyw3LjItMzQuMywyMC44LTUwLjUsMTYuN2MtMTQuNi02LjQtMC45LTMwLjcsMy42LTQwLjljMTcuMi0zOC41LDM0LjktNzYuOCw1My42LTExNC41DQoJCWM2LjQtMTIuOSwxMy0yNS40LDIyLjctMzYuNGMxNi43LTE4LjQsMzcuNC0yOC4zLDYwLjgtMzQuN2MxMy42LTMuNiwyNy4xLTcuMiw0MC43LTEwLjVjMTAtMi42LDMzLTEwLjgsMzcuNCwyLjcNCgkJYzIuMiwxMC4xLTQuNiwyMS44LTguNiwzMS4xYy0xMC41LDI0LjctMjAuOCw0OS42LTMwLjksNzQuNWMtNC44LDExLjUtOS42LDIzLjItMTYsMzRDMzQ5LjQsNjIzLjUsMzI1LjcsNjM5LjQsMjk5LjIsNjUyLjV6DQoJCSBNMzEzLjMsNjA4LjJjMTYuNS0zOSwzMy41LTc3LjgsNTEtMTE2LjRjLTEwLjgsMy40LTIxLjYsNi43LTMyLjUsMTAuMWMtMTkuMiw0MC43LTM3LjYsODEuNy01NS41LDEyMi45DQoJCUMyODguNyw2MTkuMiwzMDAuOSw2MTMuNywzMTMuMyw2MDguMnogTTM4NS4yLDYxMS4zYzE3LjctOC40LDM1LjQtMTYuNyw1My4xLTI0LjdjOC4xLTIyLjIsMTYuMS00NC4zLDI0LjQtNjYuNQ0KCQljNy42LDE1LjEsMTQuOSwzMC4yLDIyLjMsNDUuM2MxMS4zLTUuMiwyMi44LTEwLjEsMzQuMy0xNS4xYy03LTE2LTE0LjEtMzEuOC0yMS4xLTQ3LjdjMTIuNy0xOS4yLDI1LjQtMzguNSwzOC41LTU3LjUNCgkJYzMuNi0wLjksNy4yLTEuNywxMS0yLjZjMi43LTguMiw1LjUtMTYuNSw4LjItMjQuOWMtMTAuOCwxLjktMjEuMywzLjgtMzEuOCw1LjhjLTE3LDIyLjMtMzMuOCw0NC44LTUwLjcsNjcuMw0KCQljNy43LTIwLjgsMTUuNi00MS40LDIzLjUtNjJjLTE3LjcsMy42LTM1LjQsNy40LTUyLjksMTEuNWMtNC42LDEwLjYtOS4xLDIxLjMtMTMuNiwzMS45YzMuOC0xLDcuNi0yLjEsMTEuMy0zLjENCgkJYy0xMy45LDMzLjUtMjcuMyw2Ny4xLTQwLjUsMTAxQzM5NS45LDU4My44LDM5MC42LDU5Ny41LDM4NS4yLDYxMS4zeiIvPg0KCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zODEuMSw2MzQuMWM3LDAuNywxNC40LDEsMjAuOCwxLjJjLTAuMyw5LjgtMy41LDE2LjQtOC41LDIxLjVjLTUuOC02LjctMTEuNC0xMy41LTE2LjktMjAuNUwzODEuMSw2MzQuMXoNCgkJIE00NTkuNiw1OTguMWMtMy4zLTYuOS01LjItOS40LTguNC0xNi4xTDQ0Niw1OTZsLTIyLjgsMTguN2wtOC45LDQuMWwwLjMsMy4zYzE4LjUtMC4zLDM2LjQtMi40LDUyLjktNi4yYzAtNi45LDAtMTMuOS0wLjMtMjEuMQ0KCQlMNDU5LjYsNTk4LjF6IE00MDIuNCw2NjYuOWM3LjksOC44LDE2LjQsMTcuMywyNC44LDI1LjVjNy42LTAuNywxNC45LTEuNywyMi4zLTMuMWMxLjUtMS40LDMuMy0zLjEsNS4yLTVjMC4yLTAuMiwwLjMtMC4zLDAuNS0wLjcNCgkJYzcuNi03LjcsMTAuOC0yNy4zLDExLjctNTMuOWMtMTYuMywzLjQtMzMuMyw1LjMtNTEuNSw1LjdDNDE0LjksNjQ5LjksNDEwLjEsNjYwLDQwMi40LDY2Ni45eiBNNDI0LjIsNDQ4LjNsMTQuMS0xNC44bDExLTIuNA0KCQljLTMuMy0yMS42LTYuMi00MS42LTkuMS01Ny4yYy00OC4zLDYuOS05NSwxOS44LTE0MC43LDM4LjVsMS4zLDNjOC4xLDE2LjUsMTcuNiwzMS44LDI3LjksNDYuNWMzLjktMS40LDcuOS0yLjYsMTItMy44DQoJCWMxMy43LTMuNiwyNy40LTcuMiw0MS4yLTEwLjdDMzk0LjUsNDQ0LjMsNDE0LjQsNDM3LjksNDI0LjIsNDQ4LjN6IE0yODcuMSw0MTcuN2MtNi4yLDIuNy0xMi4xLDUuNC0xOC4zLDguMw0KCQljNS43LDE5LjcsMTIuMiwzOS4xLDE5LjYsNTcuOGM3LjktNi42LDE3LjktMTIuNiwyNy43LTE2LjljLTEwLjEtMTQuNi0xOS4zLTI5LjItMjctNDUuMkwyODcuMSw0MTcuN3ogTTIwLjIsNjQ3LjcNCgkJYzY0LTIzLjIsMTMwLjMtNDUuNSwxOTguNS02Ni42YzMuOS04LjEsNy45LTE2LjEsMTEuOC0yNC4yYy0yLjYtNC44LTUuMi05LjYtNy42LTE0LjZDMTQ5LjUsNTczLjIsODEuNSw2MDguNywyMC4yLDY0Ny43eg0KCQkgTTU5OC41LDM3My4zQzU5OC41LDM3My4zLDU5OC41LDM3My4zLDU5OC41LDM3My4zYzQuOCwxLjEsOS41LDIuMywxNC4yLDMuNWMwLDAsMCwwLDAsMEM2MDcuOSwzNzUuNSw2MDMuMywzNzQuMyw1OTguNSwzNzMuM3oNCgkJIE01MjUuOSw2MTMuNWMtMTMuNiw0LjYtMjguNyw4LjktNDUuNywxMy4yYy0wLjIsNS43LTAuMywzOC44LTkuNCw1Ny43YzI2LjgtNy42LDUxLjUtMTkuNCw3My43LTM1DQoJCUM1MzIuNiw2NDMuOSw1MjYuMyw2MjguNyw1MjUuOSw2MTMuNXogTTYxMi43LDM3Ni44Yy0wLjcsOC4xLTEuOSwxNi41LTMuNiwyNC41YzkuOC0xLjUsMTkuOC0zLjIsMjkuNy00LjgNCgkJYy0zLjksMTYuMS04LjEsMzIuNS0xMi4yLDQ4LjhsLTE5LjgsMjFsMTYuOC01LjNjLTUuMywyMC44LTExLDQxLjktMTYuMyw2Mi43TDU4Niw1NDZjLTguOSwzLjgtMjMuOSwxMC44LTM4LjEsMTYuOA0KCQljLTMuOSwxMi40LTYuNSwyMi44LTcuOSwzMS40YzQ4LjktMTkuNyw3NC4yLTQ1LjIsMTAxLjUtODguMWM0LjEtMTcuOSw2LjQtMzYuNCw2LjQtNTUuNmMwLTIzLjItMy4zLTQ1LjUtOS4zLTY2LjgNCgkJQzYzMCwzODEuMyw2MjEuNCwzNzguOSw2MTIuNywzNzYuOHogTTc2MC45LDQyMC45Yy0yLjksMTAuMS01LjgsMjAuMS04LjksMjkuN2M1Ni43LTEwLjMsMTEyLjYtMTkuNCwxNjcuNi0yNy4xDQoJCUM4NjguNiw0MTkuNSw4MTUuNSw0MTguNiw3NjAuOSw0MjAuOXogTTUyNS43LDM2OC4xYy0yNC42LDAtNDguNiwxLjQtNzIuNSw0LjFjMi45LDE1LjUsNiwzNC45LDkuMyw1NmMxNS42LTMuNCwzMS40LTcsNDctMTAuMw0KCQlsLTUuMiwxMy4ybC0wLjcsMS43bDE2LTE2LjhjMTUuOC0zLjEsMzEuOC02LDQ3LjYtOC45bC0yLjcsOC40YzguMi02LjksMTcuOS0xMC4zLDI3LjEtMTEuOGwxLjQtMC4yYzIuNy0xMS4xLDQuNS0yMS4xLDUuNS0zMC4yDQoJCWMtMi43LTAuNi01LjQtMS4zLTguMS0xLjlDNTY5LjEsMzY5LjIsNTQ3LjUsMzY4LjEsNTI1LjcsMzY4LjF6IE01MzguNiw2MDljLTAuMywzMC4yLDE4LjUsMjguOSwyMS41LDI4LjUNCgkJYzI4LjUtMjMuOSw1MS45LTU0LjEsNjcuMS04OC42QzYwNC4zLDU3NS43LDU3OC4xLDU5NC4xLDUzOC42LDYwOXogTTUyNi42LDU5OC45YzAuOS04LjgsMi43LTE4LjksNi0zMC42Yy01LDEuNy05LjYsMi45LTEzLjIsMy42DQoJCWMtMi42LDAuMi00LjYsMC4yLTYuNS0wLjJsLTQuNSw0LjZjLTkuNCw0LjEtMTguOSw4LjQtMjguMywxMi43YzAuMyw4LjIsMC4zLDE1LjgsMC41LDIzLjVDNDk5LjIsNjA4LDUxMyw2MDMuNyw1MjYuNiw1OTguOXoiLz4NCgk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNDg1LjUsNzQyLjNjLTMuOCwyLjYtNy40LDUtMTEsNy40Yy00NC0yOS43LTgzLjEtNjQuOS0xMTYuOS0xMDQuNGwxOC45LTljNS41LDcsMTEuMywxNC4xLDE3LjIsMjAuOA0KCQljMi45LDMuMyw1LjgsNi41LDguOCw5LjhDNDI3LjUsNjk0LjQsNDU1LjMsNzE5LjYsNDg1LjUsNzQyLjN6IE00NzUuNCwzNTkuMmMtODQuMywyLjQtMTYzLjYsMjEuOC0yNDAuMiw1OA0KCQljOC42LDMwLjIsMTkuNCw1OS40LDMyLjMsODcuNmw4LjgtOS40YzMuOC00LjMsNy45LTguMSwxMi4yLTExLjZjLTcuNC0xOC43LTEzLjktMzgtMTkuNi01Ny44YzYuMi0yLjksMTIuNC01LjcsMTguNS04LjQNCgkJYzQuMS0xLjcsOC4yLTMuNCwxMi40LTUuMmM0NS43LTE4LjcsOTIuNC0zMS42LDE0MC41LTM4LjVjNC4zLTAuNSw4LjgtMS4yLDEzLjItMS43YzIzLjctMi45LDQ3LjctNC4zLDcyLjMtNC4zDQoJCWMyMiwwLDQzLjQsMS4yLDY0LjcsMy40QzU1MywzNjMuNyw1MTQuNywzNTkuNiw0NzUuNCwzNTkuMnoiLz4NCgk8cGF0aCBjbGFzcz0ic3QzIiBkPSJNMzY0LjMsNDkxLjhjLTE3LjUsMzguNi0zNC41LDc3LjQtNTEsMTE2LjRjLTEyLjQsNS41LTI0LjYsMTEtMzYuOSwxNi43YzE3LjktNDEuMiwzNi4yLTgyLjIsNTUuNS0xMjIuOQ0KCQlDMzQyLjcsNDk4LjUsMzUzLjUsNDk1LjIsMzY0LjMsNDkxLjh6IE03NjguMywzOTMuNGMtNDYsMTg1LjQtMTMzLjgsMzA4LTI5OC4zLDQwNi42Yy02Mi0zNy4xLTExNi4yLTgwLjctMTYxLjItMTMxLjINCgkJYy0xMi41LDYtMjIuNSwxMC44LTI3LjYsMTMuNGMtMTUuNSw3LjctMzEuMSwxNS41LTQ2LjUsMjMuNGMtMTcuNSw4LjktMzYuNywyMi4zLTU2LjgsMTcuMmMtMjItOS40LTcuNi0zNi4yLTAuNy01MS4zDQoJCWMxNy0zOC41LDM0LjktNzYuNiw1My40LTExNC40Yy0yMi4zLTQxLjktMzkuOC04Ny40LTUyLTEzNi43bC02LjctMjdjOTkuMS01MSwxODYtNzguOCwyOTguMy03OC44UzY2OS4yLDM0Mi40LDc2OC4zLDM5My40eg0KCQkgTTM2NS41LDU5Ny45YzYuNC0xMC44LDExLjItMjIuNSwxNi0zNGMxMC4xLTI0LjksMjAuNC00OS44LDMwLjktNzQuNWMzLjktOS4zLDEwLjgtMjAuOSw4LjYtMzEuMWMtNC41LTEzLjYtMjcuNS01LjMtMzcuNC0yLjcNCgkJYy0xMy42LDMuMy0yNy4xLDYuOS00MC43LDEwLjVjLTIzLjQsNi40LTQ0LjEsMTYuMy02MC44LDM0LjdjLTkuNiwxMS0xNi4zLDIzLjUtMjIuNywzNi40Yy0xOC43LDM3LjgtMzYuNCw3Ni4xLTUzLjYsMTE0LjUNCgkJYy00LjUsMTAuMS0xOC4yLDM0LjUtMy42LDQwLjljMTYuMSw0LjEsMzYuMi05LjQsNTAuNS0xNi43YzE1LjUtNy45LDMwLjktMTUuNiw0Ni41LTIzLjRDMzI1LjcsNjM5LjQsMzQ5LjQsNjIzLjUsMzY1LjUsNTk3Ljl6DQoJCSBNNDQxLjksNDY5LjFjLTEzLjksMzMuNS0yNy4zLDY3LjEtNDAuNSwxMDFjLTUuNSwxMy43LTEwLjgsMjcuNS0xNi4xLDQxLjJjMTcuNy04LjQsMzUuNC0xNi43LDUzLjEtMjQuNw0KCQljOC4xLTIyLjIsMTYuMS00NC4zLDI0LjQtNjYuNWM3LjYsMTUuMSwxNC45LDMwLjIsMjIuMyw0NS4zYzExLjMtNS4yLDIyLjgtMTAuMSwzNC4zLTE1LjFjLTctMTYtMTQuMS0zMS44LTIxLjEtNDcuNw0KCQljMTIuNy0xOS4yLDI1LjQtMzguNSwzOC41LTU3LjVjMy42LTAuOSw3LjItMS43LDExLTIuNmMyLjctOC4yLDUuNS0xNi41LDguMi0yNC45Yy0xMC44LDEuOS0yMS4zLDMuOC0zMS44LDUuOA0KCQljLTE3LDIyLjMtMzMuOCw0NC44LTUwLjcsNjcuM2M3LjctMjAuOCwxNS42LTQxLjQsMjMuNS02MmMtMTcuNywzLjYtMzUuNCw3LjQtNTIuOSwxMS41Yy00LjYsMTAuNi05LjEsMjEuMy0xMy42LDMxLjkNCgkJQzQzNC4zLDQ3MS4yLDQzOC4xLDQ3MC4xLDQ0MS45LDQ2OS4xeiBNNjAxLjksNDMxLjNjLTEuMiw0LjMtMi40LDguNC0zLjQsMTIuN2M3LjItMS43LDE0LjQtMy40LDIxLjYtNS4yDQoJCWMyLjctMTAuOCw1LjUtMjEuOCw4LjItMzIuNmMtMTIsMS43LTIzLjksMy40LTM1LjksNS41Yy05LjQsMS41LTE4LDQuNi0yNS4yLDExLjdjLTUuOCw2LjItOC45LDEzLjctMTEuNSwyMS42DQoJCWMtNy42LDIzLjctMTUuMSw0Ny42LTIyLjgsNzEuM2MtMi45LDkuNC03LjksMjYuNCw3LjIsMjUuMmM1LjItMC45LDEwLTIuOSwxNC44LTVjMTUuMy02LjUsMzAuNi0xMi45LDQ1LjgtMTkuMg0KCQljMy45LTE0LjksNy43LTI5LjksMTEuNy00NC44Yy04LjEsMi42LTE2LDUuMi0yNCw3LjdjLTEuOSw2LjctMy44LDEzLjQtNS43LDIwLjNjLTUuNywyLjEtMTEuMiw0LjEtMTYuOCw2LjINCgkJYzctMjQsMTQuMS00OC4zLDIxLjEtNzIuM0M1OTIsNDMzLjQsNTk3LDQzMi40LDYwMS45LDQzMS4zeiBNNTE5LjMsNTcyYy0yLjQsMC4yLTQuNiwwLjItNi41LTAuMmwtNC41LDQuNg0KCQljLTkuMyw0LjUtMTguNyw4LjYtMjguMywxMi43YzAuMyw4LjEsMC41LDE2LDAuNSwyMy41YzE3LjMtNC4zLDMyLjUtOC45LDQ2LTEzLjdjMC45LTguOCwyLjctMTguOSw2LTMwLjYNCgkJQzUyNy42LDU3MC4xLDUyMy4xLDU3MS4zLDUxOS4zLDU3MnogTTQ2Ny4xLDU5NC44bC03LjYsMy4zYy0zLjMtNi43LTUuMi05LjQtOC40LTE2LjFMNDQ2LDU5NmwtMjIuOCwxOC43bC04LjksNC4xbDAuMywzLjMNCgkJYzE4LjQtMC4zLDM2LjItMi40LDUyLjktNi4yQzQ2Ny41LDYwOS4yLDQ2Ny4zLDYwMi4yLDQ2Ny4xLDU5NC44eiBNNzQ1LjUsNDAzLjVjLTkxLTQ1LjctMTcyLjEtNjkuOS0yNzUuNi02OS45DQoJCXMtMTg0LjYsMjQuMi0yNzYuMSw2OS45YzEyLDQ4LjMsMjcuOCw5Mi4yLDQ3LjksMTMyLjZjMy44LTYuMiw4LjEtMTIuMiwxMy0xOGMyLjItMi40LDIxLjMtMjIuNSwyMS4zLTIyLjUNCgkJYzExLjgtMTMsMjUuNC0yMi4yLDQwLTI4LjdjLTEwLTE0LjQtMTkuNC0yOS41LTI3LjEtNDUuNWwtMS44LTMuN2M0LjEtMS43LDguMi0zLjYsMTIuNC01LjJsMS40LDMuMmM3LjksMTYuMywxNy41LDMxLjYsMjcuOCw0Ni40DQoJCWMzLjktMS40LDguMS0yLjYsMTItMy44YzEzLjYtMy42LDI3LjMtNy4yLDQxLTEwLjZjMTIuNS0zLjMsMzIuNi05LjgsNDIuNCwwLjdsMTQuMS0xNC44bDExLTIuNGMtMy4zLTIxLjYtNi40LTQxLjYtOS4xLTU3LjINCgkJYzQuNS0wLjcsOC44LTEuMiwxMy0xLjdjMi45LDE1LjUsNiwzNC45LDkuMyw1NmMxNS42LTMuNCwzMS40LTcsNDctMTAuM2wtNS4zLDEzLjZsLTAuNSwxLjRsMTYtMTYuOGMxNS44LTMuMSwzMS42LTYsNDcuNi04LjkNCgkJbC0yLjcsOC40YzguMi03LDE3LjctMTAuMywyNi45LTExLjhsMS42LTAuMmMyLjctMTEuMiw0LjUtMjEuMSw1LjUtMzAuMmM0LjgsMSw5LjYsMi4zLDE0LjIsMy41Yy0wLjcsOC4xLTEuOCwxNi4xLTMuNiwyNC41DQoJCWM5LjgtMS41LDE5LjktMy4zLDI5LjctNC44Yy00LjEsMTYuMy04LjEsMzIuNi0xMi4yLDQ4LjhsLTE5LjgsMjFsMTYuOC01LjNjLTUuMywyMC44LTEwLjgsNDEuOS0xNi4zLDYyLjdMNTg2LDU0Ng0KCQljLTguOSwzLjgtMjMuOSwxMC44LTM4LjEsMTYuOGMtMy45LDEyLjQtNi41LDIyLjgtNy45LDMxLjRjNDguOS0xOS43LDc0LjItNDUuMiwxMDEuNS04OC4xQzYzOCw1MjEsNjMzLDUzNS42LDYyNyw1NDkuMQ0KCQljLTIyLjgsMjctNDguNiw0NS04OC40LDU5LjljLTAuMywzMC4yLDE4LjUsMjguOCwyMS41LDI4LjVjLTUsNC4xLTEwLjEsOC4yLTE1LjYsMTEuOGMtMTEuOC01LjUtMTgtMjAuMy0xOC41LTM1LjkNCgkJYy0xMy42LDQuNi0yOC43LDguOS00NS43LDEzLjJjLTAuMiw1LjctMC4zLDM4LjgtOS40LDU3LjdjLTcsMi4xLTEzLjksMy44LTIxLjMsNWMxLjQtMS40LDMuNS0zLjMsNS4yLTVjMC4yLTAuMiwwLjMtMC40LDAuNS0wLjcNCgkJYzcuNi03LjcsMTAuOC0yNy4zLDExLjctNTMuOWMtMTYuMywzLjQtMzMuMyw1LjMtNTEuNSw1LjdjLTAuMywxNC42LTUuMiwyNC42LTEyLjksMzEuNGMtMi45LTMuMy02LjEtNi44LTktMTAuMQ0KCQljNS01LjIsOC4yLTExLjcsOC41LTIxLjVjLTYuNC0wLjItMTMuNy0wLjUtMjAuOC0xLjJjLTE3LjUsOC4yLTM3LjYsMTcuOS01NS4zLDI2LjNjMzkuOCw0NC4xLDg3LjYsODIuOCwxNDMuNSwxMTcuNA0KCQlDNjE4LjYsNjg1LjYsNzAwLjcsNTcyLjMsNzQ1LjUsNDAzLjV6Ii8+DQoJPHBhdGggY2xhc3M9InN0NCIgZD0iTTkxOS42LDQ3MC43Yy02Ni4zLDIwLjMtMTMzLjgsNDIuOS0yMDIuMSw2Ny43YzYtMTIuOSwxMS44LTI1LjksMTcuMi0zOS41DQoJCUM3OTcuOSw0ODQuNyw4NTkuOCw0NzUuNSw5MTkuNiw0NzAuN3ogTTI4MS4yLDY4Mi4yYy0xMi40LDYuMi0yNiwxMi45LTM4LjIsMTkuMWMtNjUuMiw0MS0xMjMuNyw4NC44LTE3Ni42LDEzMS41DQoJCWM4NS00NywxNzQuOC05Mi45LDI2OC40LTEzNi42Yy04LjktOC45LTE3LjUtMTcuOS0yNS45LTI3LjNDMjk2LjMsNjc0LjgsMjg2LjMsNjc5LjYsMjgxLjIsNjgyLjJ6IE02NzcuNywzOTcNCgkJYy02LjctMi42LTEzLjYtNS0yMC44LTcuNGMtMy40LTEtNi43LTIuMS0xMC4zLTMuNGMwLjcsMi4yLDEuNCw0LjYsMi4xLDcuNmwwLjIsMC43bDAuMiwwLjdsMC4yLDAuN2wwLjIsMWwwLjMsMWwwLjIsMC43bDAuMiwwLjkNCgkJbDAuMiwwLjlsMC4yLDFsMC4yLDAuOWwwLjIsMC45bDAuMiwwLjlsMC4yLDAuOWwwLjIsMC45bDAuMiwwLjdjMC4zLDEuNywwLjcsMy42LDEsNS4zYzEyLjksNzktMTIuNywxNjIuOC03NS42LDIyMS41DQoJCWMtMzYuOSwzNC41LTgxLjYsNTUuNS0xMjcuOSw2My4ybC0xNS4xLDIuNWMwLDAsMTkuMSwxOS4yLDUxLjYsNDMuNGw5LTYuMWMxMTAuOC03OC41LDE4OS40LTE4OC45LDIyNy43LTMyMC40DQoJCUM3MDkuNiw0MDkuNyw2OTQuNyw0MDMuMyw2NzcuNywzOTd6Ii8+DQo8L2c+DQo8Zz4NCgk8cGF0aCBjbGFzcz0ic3QzIiBkPSJNNzkuOCwxMTdsMTA4LjIsMjIxLjhsLTI1LjYsMTIuNWwtMTA4LjItMjIybC0yNS44LDEyLjVsLTEyLjUtMjUuNmw3Ni45LTM3LjZsMTIuNSwyNS44TDc5LjgsMTE3eiBNMzYyLjcsNy4zDQoJCWwtMjguMiw0LjVsMzguNiwyNDMuOGwtMjguMiw0LjVMMzA2LjQsMTYuM2wtMjguMiw0LjVsMzYuNiwyMzJjMy42LDIzLjIsMjUuOCwzOS4zLDQ4LjksMzUuNWMyMy4yLTMuNiwzOS4zLTI1LjgsMzUuNS00OC45DQoJCUwzNjIuNyw3LjN6IE0xODguNSw0My45bDM4LjEsMTE3LjRsLTI3LjEsOC45TDE2MS4zLDUyLjhMMTM0LDYxLjZsODUuMiwyNjJsMjcuMS04LjhsLTM4LjEtMTE3LjRsMjcuMS04LjhsMzguMSwxMTcuNGwyNy4xLTguOA0KCQlsLTg1LTI2Mi4yTDE4OC41LDQzLjl6IE05MTAuMywxNDVsLTQ0LjYsOTEuNWMtNS44LDExLjgtMTUuOCwxNi44LTI3LDExLjNsLTMwLjYsMTIyLjhsLTI1LjgtMTIuNUw4MTMsMjM1LjRsLTguNC00LjFsLTU0LjEsMTExLjMNCgkJTDcyNC43LDMzMEw4NDUuOCw4MS43bDUxLjMsMjUuMUM5MTEuNCwxMTMuOCw5MTcuMiwxMzAuOCw5MTAuMywxNDV6IE04ODQuNywxMzIuN0w4NTksMTIwLjFsLTQxLjcsODUuNWwyNS44LDEyLjVMODg0LjcsMTMyLjd6DQoJCSBNNDgzLjEsODIuOWMtMC4zLDI0LjQsMSw3My4zLDIuMSw5Ni41aC0wLjdjLTcuNC02MS41LTIxLjEtMTE4LjgtMzAtMTc2LjlMNDI3LjYsMmwtNC44LDI3NS40bDI4LjUsMC41bDEuNC03OS44DQoJCWMwLjUtMjQuNC0xLTczLjMtMi4yLTk2LjVoMC43YzcuNCw2MS41LDIxLjEsMTE4LjgsMzAsMTc2LjlsMjcsMC41TDUxMywzLjVMNDg0LjUsM0w0ODMuMSw4Mi45eiBNNjk1LjksMTg5LjJsNDAuNywxMy4ybDguOC0yNy4xDQoJCUw3MDQuNiwxNjJMNzM0LDcxLjdsNTQuMywxNy43bDguOS0yNy4xbC01NC4zLTE3LjdjLTE1LjEtNC44LTMxLjEsMy4zLTM2LjEsMTguNGwtNjcuNSwyMDcuNmMtNC44LDE1LjEsMy4zLDMxLjEsMTguNCwzNi4xDQoJCWw1NC4zLDE3LjdsOC44LTI3LjFsLTU0LjMtMTcuN0w2OTUuOSwxODkuMnogTTY1Mi42LDQ5bC0zNCwyMTUuN2MtMi40LDE1LjYtMTcsMjYuMS0zMi42LDIzLjdsLTU2LjUtOC45bDQzLjEtMjcybDU2LjMsOC45DQoJCUM2NDQuNSwxOC44LDY1NSwzMy40LDY1Mi42LDQ5eiBNNjI0LjQsNDQuNmwtMjguMi00LjVsLTM0LjIsMjE1LjdsMjguMiw0LjVMNjI0LjQsNDQuNnoiLz4NCjwvZz4NCjwvc3ZnPg0K"
-          transform="rotate(270,1085.45,387.5)"
-        />
-        <path
-          d="M 95 726 L 3 726"
-          fill="none"
-          stroke="#130f0d"
-          stroke-width="5"
-          stroke-miterlimit="10"
-          pointer-events="stroke"
-        />
-        <path
-          d="M 1448 726 L 1356 726"
-          fill="none"
-          stroke="#130f0d"
-          stroke-width="5"
-          stroke-miterlimit="10"
-          pointer-events="stroke"
-        />
+        <rect class="boundary" x="2" y="173" width="1444" height="1359" fill="#fff4c3" stroke="#130f0d" stroke-width="5"
+          pointer-events="all" />
+        <path d="M 95 726 L 3 726" fill="none" stroke="#130f0d" stroke-width="5" stroke-miterlimit="10"
+          pointer-events="stroke" />
+        <path d="M 1448 726 L 1356 726" fill="none" stroke="#130f0d" stroke-width="5" stroke-miterlimit="10"
+          pointer-events="stroke" />
         <!-- Paint -->
-        <rect
-          x="503"
-          y="980"
-          width="455"
-          height="552"
-          fill="none"
-          stroke="#130f0d"
-          stroke-width="5"
-          pointer-events="all"
-        />
+        <rect x="503" y="980" width="455" height="552" fill="none" stroke="#130f0d" stroke-width="5"
+          pointer-events="all" />
         <!-- Free throw line: -->
-        <path
-          d="M 645 895.5 Q 813 895.5 813 1064 Q 813 1232.5 645 1232.5 Z"
-          fill="none"
-          stroke="#130f0d"
-          stroke-width="5"
-          stroke-miterlimit="10"
-          stroke-dasharray="40 40"
-          transform="rotate(90,729,1064)"
-          pointer-events="all"
-        />
+        <path d="M 645 895.5 Q 813 895.5 813 1064 Q 813 1232.5 645 1232.5 Z" fill="none" stroke="#130f0d"
+          stroke-width="5" stroke-miterlimit="10" stroke-dasharray="40 40" transform="rotate(90,729,1064)"
+          pointer-events="all" />
         <path
           d="M 732 1536.99 C 677.88 1537.41 627.63 1515.3 600.41 1479.08 C 573.19 1442.86 573.2 1398.12 600.43 1361.9 C 627.65 1325.69 677.91 1303.58 732.04 1304.01"
-          fill="none"
-          stroke="#130f0d"
-          stroke-width="5"
-          stroke-miterlimit="10"
-          transform="rotate(90,730.5,1420.5)"
-          pointer-events="all"
-        />
-        <path
-          d="M 815 1420 L 642 1420"
-          fill="none"
-          stroke="#130f0d"
-          stroke-width="5"
-          stroke-miterlimit="10"
-          pointer-events="stroke"
-        />
-        <path
-          d="M 727.28 1156.49 C 632.63 1155.56 556.53 1079.89 557 987.16 C 557.48 894.43 634.34 819.5 729 819.5"
-          fill="none"
-          stroke="#130f0d"
-          stroke-width="5"
-          stroke-miterlimit="10"
-          transform="rotate(90,729,988)"
-          pointer-events="all"
-        />
+          fill="none" stroke="#130f0d" stroke-width="5" stroke-miterlimit="10" transform="rotate(90,730.5,1420.5)"
+          pointer-events="all" />
+        <path d="M 815 1420 L 642 1420" fill="none" stroke="#130f0d" stroke-width="5" stroke-miterlimit="10"
+          pointer-events="stroke" />
+        <path d="M 727.28 1156.49 C 632.63 1155.56 556.53 1079.89 557 987.16 C 557.48 894.43 634.34 819.5 729 819.5"
+          fill="none" stroke="#130f0d" stroke-width="5" stroke-miterlimit="10" transform="rotate(90,729,988)"
+          pointer-events="all" />
         <!-- Center circle: -->
-        <path
-          d="M 727.78 343.99 C 633.13 343.06 557.03 266.71 557.5 173.15 C 557.98 79.59 634.84 4 729.5 4"
-          fill="none"
-          stroke="#130f0d"
-          stroke-width="5"
-          stroke-miterlimit="10"
-          transform="rotate(270,729.5,174)"
-          pointer-events="all"
-        />
-        <path
-          d="M 729.37 238.5 C 694.42 238.17 666.33 211.22 666.5 178.2 C 666.68 145.18 695.05 118.5 730 118.5"
-          fill="none"
-          stroke="#130f0d"
-          stroke-width="5"
-          stroke-miterlimit="10"
-          transform="rotate(270,730,178.5)"
-          pointer-events="all"
-        />
+        <path d="M 727.78 343.99 C 633.13 343.06 557.03 266.71 557.5 173.15 C 557.98 79.59 634.84 4 729.5 4" fill="none"
+          stroke="#130f0d" stroke-width="5" stroke-miterlimit="10" transform="rotate(270,729.5,174)"
+          pointer-events="all" />
+        <path d="M 729.37 238.5 C 694.42 238.17 666.33 211.22 666.5 178.2 C 666.68 145.18 695.05 118.5 730 118.5"
+          fill="none" stroke="#130f0d" stroke-width="5" stroke-miterlimit="10" transform="rotate(270,730,178.5)"
+          pointer-events="all" />
         <!-- Vertical dotted line -->
-        <path
-          d="M 734.5 1538 L 727 180"
-          fill="none"
-          stroke="#ff0000"
-          stroke-width="5"
-          stroke-miterlimit="10"
-          stroke-dasharray="15 15"
-          pointer-events="stroke"
-        />
+        <path d="M 734.5 1538 L 727 180" fill="none" stroke="#ff0000" stroke-width="5" stroke-miterlimit="10"
+          stroke-dasharray="15 15" pointer-events="stroke" />
         <!-- Three point line -->
         <path
           d="M 101 1532 Q 101 1116 151.5 1032.5 Q 202 949 243 909.5 Q 284 870 331.5 834 Q 379 798 419.5 778.5 Q 460 759 501.5 744 Q 543 729 588.5 719.5 Q 634 710 682.5 705 Q 731 700 783 706.5 Q 835 713 889 723.5 Q 943 734 991.5 755 Q 1040 776 1084.5 806 Q 1129 836 1167 867 Q 1205 898 1238 935 Q 1271 972 1297 1014.5 Q 1323 1057 1343 1095 Q 1363 1133 1356 1531"
-          fill="none"
-          stroke="#130f0d"
-          stroke-width="6"
-          stroke-miterlimit="10"
-          pointer-events="stroke"
-        />
+          fill="none" stroke="#130f0d" stroke-width="6" stroke-miterlimit="10" pointer-events="stroke" />
         <!-- Horizontal dotted line: -->
-        <path
-          d="M 4.89 1385.15 L 1447 1385.51"
-          fill="none"
-          stroke="#ff0000"
-          stroke-width="5"
-          stroke-miterlimit="10"
-          stroke-dasharray="15 15"
-          pointer-events="stroke"
-        />
+        <path d="M 4.89 1385.15 L 1447 1385.51" fill="none" stroke="#ff0000" stroke-width="5" stroke-miterlimit="10"
+          stroke-dasharray="15 15" pointer-events="stroke" />
         <!-- Black circle: basket -->
-        <ellipse
-          cx="733.5"
-          cy="1386"
-          rx="21.5"
-          ry="21"
-          fill="#000000"
-          stroke="#000000"
-          stroke-width="5"
-          pointer-events="all"
-        />
+        <ellipse cx="733.5" cy="1386" rx="21.5" ry="21" fill="#000000" stroke="#000000" stroke-width="5"
+          pointer-events="all" />
         <!-- SVG Heading -->
-        <rect
-          x="461"
-          y="23"
-          width="549"
-          height="128"
-          fill="orangered"
-          stroke="none"
-          pointer-events="all"
-        />
+        <rect x="461" y="23" width="549" height="128" fill="orangered" stroke="none" pointer-events="all" />
         <g transform="translate(-0.5 -0.5)">
           <switch>
-            <text
-              x="736"
-              y="112"
-              fill="rgb(0, 0, 0)"
-              font-family="Roboto"
-              font-size="85px"
-              text-anchor="middle"
-              font-weight="bold"
-              font-style="italic"
-            >
+            <text x="736" y="112" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="85px" text-anchor="middle"
+              font-weight="bold" font-style="italic">
               Shot Chart
             </text>
           </switch>
@@ -305,77 +151,29 @@
           <!-- Center points: -->
           <!-- cx="735" -->
           <!-- cy="1390" -->
-          <ellipse
-            cx="1169"
-            cy="900"
-            rx="30"
-            ry="30"
-            fill="#00ff00"
-            stroke="#000000"
-            stroke-width="6"
-            pointer-events="all"
-          />
-          <ellipse
-            cx="900"
-            cy="1043"
-            rx="30"
-            ry="30"
-            fill="#00ff00"
-            stroke="#000000"
-            stroke-width="6"
-            pointer-events="all"
-          />
-          <ellipse
-            cx="855"
-            cy="700"
-            rx="30"
-            ry="30"
-            fill="#00ff00"
-            stroke="#000000"
-            stroke-width="6"
-            pointer-events="all"
-          />
-          <ellipse
-            cx="455"
-            cy="1000"
-            rx="30"
-            ry="30"
-            fill="#00ff00"
-            stroke="#000000"
-            stroke-width="6"
-            pointer-events="all"
-          />
+          <ellipse cx="1169" cy="900" rx="30" ry="30" fill="#00ff00" stroke="#000000" stroke-width="6"
+            pointer-events="all" />
+          <ellipse cx="900" cy="1043" rx="30" ry="30" fill="#00ff00" stroke="#000000" stroke-width="6"
+            pointer-events="all" />
+          <ellipse cx="855" cy="700" rx="30" ry="30" fill="#00ff00" stroke="#000000" stroke-width="6"
+            pointer-events="all" />
+          <ellipse cx="455" cy="1000" rx="30" ry="30" fill="#00ff00" stroke="#000000" stroke-width="6"
+            pointer-events="all" />
         </g>
         <g>
           <!-- Red crosses: -->
           <path
             d="M 999 1003 L 1028.17 1003 L 1049 1026.97 L 1069.83 1003 L 1099 1003 L 1063.58 1043.5 L 1099 1084 L 1069.83 1084 L 1049 1060.03 L 1028.17 1084 L 999 1084 L 1032.33 1043.5 Z"
-            fill="#ff0000"
-            stroke="#000000"
-            stroke-width="6"
-            stroke-miterlimit="10"
-            pointer-events="all"
-          />
-          <path
-            transform="translate(-990, 300)"
+            fill="#ff0000" stroke="#000000" stroke-width="6" stroke-miterlimit="10" pointer-events="all" />
+          <path transform="translate(-990, 300)"
             d="M 999 1003 L 1028.17 1003 L 1049 1026.97 L 1069.83 1003 L 1099 1003 L 1063.58 1043.5 L 1099 1084 L 1069.83 1084 L 1049 1060.03 L 1028.17 1084 L 999 1084 L 1032.33 1043.5 Z"
-            fill="#ff0000"
-            stroke="#000000"
-            stroke-width="6"
-            stroke-miterlimit="10"
-            pointer-events="all"
-          />
+            fill="#ff0000" stroke="#000000" stroke-width="6" stroke-miterlimit="10" pointer-events="all" />
         </g>
       </g>
       <switch>
-        <g
-          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-        />
-        <a
-          transform="translate(0,-5)"
-          xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems"
-          target="_blank"
-        >
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" />
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems"
+          target="_blank">
           <text text-anchor="middle" font-size="10px" x="50%" y="100%">
             Text is not SVG - cannot display
           </text>

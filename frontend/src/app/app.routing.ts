@@ -2,7 +2,16 @@ import { ModuleWithProviders } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'player-summary' },
+  { path: '', pathMatch: 'full', redirectTo: '' },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./home/home.module').then(
+        m => m.HomeComponentModule
+      ),
+    data: { preload: true },
+    title: 'Basketball API: Home'
+  },
   {
     path: 'player-summary',
     loadChildren: () =>

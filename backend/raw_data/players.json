@@ -1,156 +1,156 @@
 [{
         "id": 1,
         "name": "Michael Jordan",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/m-jordan.png?raw=true"
     },
     {
         "id": 2,
         "name": "Tweety",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/tweety.png?raw=true"
     },
     {
         "id": 3,
         "name": "Bugs Bunny",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://raw.githubusercontent.com/tawanda-profuse/basketball-api/refs/heads/main/frontend/src/assets/posters/bugs-bunny.jfif?token=GHSAT0AAAAAAC2EGUYCJ5J4P7MS6BQSF3DEZZ4WBZQ"
     },
     {
         "id": 4,
         "name": "Daffy Duck",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://raw.githubusercontent.com/tawanda-profuse/basketball-api/refs/heads/main/frontend/src/assets/posters/daffy.webp?token=GHSAT0AAAAAAC2EGUYDP43IWEHXDZJFHJNEZZ4WCKQ"
     },
     {
         "id": 5,
         "name": "Sniffles",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/sniffles.png?raw=true"
     },
     {
         "id": 6,
         "name": "Yosemite Sam",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/yosemite-sam.png?raw=true"
     },
     {
         "id": 7,
         "name": "Road Runner",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/road-runner.jpg?raw=true"
     },
     {
         "id": 8,
         "name": "Porky Pig",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/porky-pig.jpg?raw=true"
     },
     {
         "id": 9,
         "name": "Sylvester",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/sylvester.jpg?raw=true"
     },
     {
         "id": 10,
         "name": "Lola Bunny",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://raw.githubusercontent.com/tawanda-profuse/basketball-api/refs/heads/main/frontend/src/assets/posters/lola-bunny.webp?token=GHSAT0AAAAAAC2EGUYCANN7MB4ZJ54AL5H6ZZ4WEFQ"
     },
     {
         "id": 11,
         "name": "Wile E. Coyote",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/will-coyote.jpg?raw=true"
     },
     {
         "id": 12,
         "name": "Bill Murray",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/bill-murray.png?raw=true"
     },
     {
         "id": 13,
         "name": "Barnyard Dawg",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/barnyard-dawg.jpg?raw=true"
     },
     {
         "id": 14,
         "name": "Tasmanian Devil",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/tasmania-devil.jpg?raw=true"
     },
     {
         "id": 15,
         "name": "Foghorn Leghorn",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/leghorn.png?raw=true"
     },
     {
         "id": 16,
         "name": "Elmer Fudd",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/elmer-fudd.jpg?raw=true"
     },
     {
         "id": 17,
         "name": "Monstar 1",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 18,
         "name": "Monstar 2",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 19,
         "name": "Monstar 3",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 20,
         "name": "Monstar 4",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 21,
         "name": "Monstar 5",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 22,
         "name": "Monstar 6",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 23,
         "name": "Monstar 7",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 24,
         "name": "Monstar 8",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 25,
         "name": "Monstar 9",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 26,
         "name": "Monstar 10",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 27,
         "name": "Monstar 11",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 28,
         "name": "Monstar 12",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 29,
         "name": "Monstar 13",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 30,
         "name": "Monstar 14",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     },
     {
         "id": 31,
         "name": "Monstar 15",
-        "poster": "https://wallpapers.com/images/hd/space-jam-background-vmfl6g7t0t4nb1yl.jpg"
+        "poster": "https://github.com/tawanda-profuse/basketball-api/blob/main/frontend/src/assets/posters/monstars.jpg?raw=true"
     }
 ]

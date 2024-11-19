@@ -68,43 +68,58 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
     this.shotsApiResponse()
   }
 
-  fetchApiResponse (): void {
+  getUniqueDates(data: any[]): any[] {
+    const uniqueDates = new Set();
+    return data.filter(item => {
+      if (!uniqueDates.has(item.date)) {
+        uniqueDates.add(item.date);
+        return true;
+      }
+      return false;
+    });
+  }  
+
+  fetchApiResponse(): void {
     this.playersService
       .getPlayerSummary(this.playerID)
       .pipe(untilDestroyed(this))
       .subscribe(data => {
-        this.endpoint = data.endpoint
-        this.apiResponse = JSON.stringify(data.apiResponse, null, 2)
-        this.playersInfo = data.apiResponse
-        this.playerData.poster = data.apiResponse[this.dateFilter].poster
-        this.playerData.name = data.apiResponse[this.dateFilter].player_name
-        this.playerData.date = data.apiResponse[this.dateFilter].date
-        this.playerData.minutes = data.apiResponse[this.dateFilter].minutes
-        this.playerData.assists = data.apiResponse[this.dateFilter].assists
+        this.endpoint = data.endpoint;
+        this.apiResponse = JSON.stringify(data.apiResponse, null, 2);
+        this.playersInfo = this.getUniqueDates(data.apiResponse); // Filter duplicates
+        
+        // Ensure `dateFilter` is within bounds
+        if (this.dateFilter >= this.playersInfo.length) {
+          this.dateFilter = 0;
+        }
+        
+        // Use dateFilter to set playerData values
+        const selectedData = data.apiResponse[this.dateFilter];
+        this.playerData.poster = selectedData.poster;
+        this.playerData.name = selectedData.player_name;
+        this.playerData.date = selectedData.date; // Ensure this matches `playersInfo`
+        this.playerData.minutes = selectedData.minutes;
+        this.playerData.assists = selectedData.assists;
         this.playerData.rebounds =
-          data.apiResponse[this.dateFilter].offensiveRebounds +
-          data.apiResponse[this.dateFilter].defensiveRebounds
-        this.playerData.points = data.apiResponse[this.dateFilter].points
-        this.playerData.steals = data.apiResponse[this.dateFilter].steals
-        this.playerData.blocks = data.apiResponse[this.dateFilter].blocks
-        this.playerData.turnovers = data.apiResponse[this.dateFilter].turnovers
+          selectedData.offensiveRebounds + selectedData.defensiveRebounds;
+        this.playerData.points = selectedData.points;
+        this.playerData.steals = selectedData.steals;
+        this.playerData.blocks = selectedData.blocks;
+        this.playerData.turnovers = selectedData.turnovers;
         this.playerData.fouls =
-          data.apiResponse[this.dateFilter].offensiveFouls +
-          data.apiResponse[this.dateFilter].defensiveFouls
-        this.playerData.freeThrowsMade =
-          data.apiResponse[this.dateFilter].freeThrowsMade
-        this.playerData.freeThrowsAttempted =
-          data.apiResponse[this.dateFilter].freeThrowsAttempted
-        this.playerData.twoPointersMade =
-          data.apiResponse[this.dateFilter].twoPointersMade
-        this.playerData.twoPointersAttempted =
-          data.apiResponse[this.dateFilter].twoPointersAttempted
-        this.playerData.threePointersMade =
-          data.apiResponse[this.dateFilter].threePointersMade
-        this.playerData.threePointersAttempted =
-          data.apiResponse[this.dateFilter].threePointersAttempted
-      })
+          selectedData.offensiveFouls + selectedData.defensiveFouls;
+        this.playerData.freeThrowsMade = selectedData.freeThrowsMade;
+        this.playerData.freeThrowsAttempted = selectedData.freeThrowsAttempted;
+        this.playerData.twoPointersMade = selectedData.twoPointersMade;
+        this.playerData.twoPointersAttempted = selectedData.twoPointersAttempted;
+        this.playerData.threePointersMade = selectedData.threePointersMade;
+        this.playerData.threePointersAttempted = selectedData.threePointersAttempted;
+  
+        // Trigger change detection manually if needed
+        this.cdr.detectChanges();
+      });
   }
+   
 
   shotsApiResponse (): void {
     this.playersService
@@ -126,14 +141,18 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
     this.shotsApiResponse()
   }
 
-  adjustDate (data: number): void {
-    this.dateFilter = 0
-    this.gameID = 1
-    this.dateFilter = data - 1
-    this.gameID = data
-    this.fetchApiResponse()
-    this.shotsApiResponse()
-  }
+  adjustDate(selectedDate: string): void {
+    const selectedIndex = this.playersInfo.findIndex(info => info.date === selectedDate);
+  
+    if (selectedIndex !== -1) {
+      this.dateFilter = selectedIndex; // Update the filter index
+      this.playerData.date = this.playersInfo[selectedIndex].date; // Directly update `playerData.date`
+      this.gameID = selectedIndex + 1; // Sync game ID with the date index if needed
+  
+      this.fetchApiResponse(); // Refresh data
+      this.shotsApiResponse(); // Refresh related shots data
+    }
+  }  
 
   items = {
     focusItem: 0
