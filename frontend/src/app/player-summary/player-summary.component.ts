@@ -155,7 +155,7 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
   }  
 
   items = {
-    focusItem: 0
+    focusItem: this.playerID
   }
 
   changeData (data: number): void {
