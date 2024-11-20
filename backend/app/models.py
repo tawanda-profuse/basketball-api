@@ -44,3 +44,10 @@ class AllPlayers(models.Model):
 
     class Meta:
         db_table = "all_players"
+
+class Team(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = "teams"

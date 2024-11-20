@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from app.models import Player, Shots, AllPlayers
+from app.models import Player, Shots, AllPlayers, Team
 
 class PlayerSerializer(serializers.ModelSerializer):
 
@@ -54,3 +54,12 @@ class AllPlayersSerializer(serializers.ModelSerializer):
     class Meta:
         model=AllPlayers
         fields=('id', 'name', 'poster')
+
+class TeamSerializer(serializers.ModelSerializer):
+
+    id = serializers.IntegerField()
+    name = serializers.CharField()
+
+    class Meta:
+        model=Team
+        fields=('id', 'name')
