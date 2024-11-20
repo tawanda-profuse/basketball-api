@@ -35,3 +35,12 @@ class Shots(models.Model):
     locationX = models.DecimalField(max_digits=10, decimal_places=1)
     locationY = models.DecimalField(max_digits=10, decimal_places=1)
     date = models.DateField()
+
+class AllPlayers(models.Model):
+    # Database columns
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    poster = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = "all_players"

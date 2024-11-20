@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from app.models import Player, Shots
+from app.models import Player, Shots, AllPlayers
 
 class PlayerSerializer(serializers.ModelSerializer):
 
@@ -44,3 +44,13 @@ class ShotsSerializer(serializers.ModelSerializer):
     class Meta:
         model=Shots
         fields=('id','player_id','game_id','isMake','locationX','locationY','date')
+
+class AllPlayersSerializer(serializers.ModelSerializer):
+    
+    id = serializers.IntegerField()
+    name = serializers.CharField()
+    poster = serializers.CharField()
+
+    class Meta:
+        model=AllPlayers
+        fields=('id', 'name', 'poster')

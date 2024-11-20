@@ -20,8 +20,8 @@ const pool = new Pool({
 const addPlayers = () => {
   playersData.forEach((player) => {
     pool.query(
-      `INSERT INTO app.players (id, name) VALUES ($1, $2)`,
-      [player.id, player.name],
+      `INSERT INTO app.players (id, name, poster) VALUES ($1, $2, $3)`,
+      [player.id, player.name, player.poster],
       (error, results) => {
         if (error) {
           throw error;

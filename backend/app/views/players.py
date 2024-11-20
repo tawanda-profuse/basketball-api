@@ -3,9 +3,8 @@ import logging
 
 from django.http.response import JsonResponse
 
-from app.models import Player, Shots
-from app.serializers import PlayerSerializer, ShotsSerializer
-
+from app.models import Player, AllPlayers, Shots
+from app.serializers import PlayerSerializer, ShotsSerializer, AllPlayersSerializer
 
 LOGGER = logging.getLogger('django')
 
@@ -13,7 +12,17 @@ from django.http import HttpResponse
 
 def index():
     # Testing HTTP Response
-    return HttpResponse('<h1>Django Include URLs</h1><p>Quick Jordan jumped over the lazy Monstar.</p>')
+    return HttpResponse('<h1>Django Include URLs</h1><h1>Quick Jordan jumped over the lazy Monstar.</h1>')
+
+def allPlayers(request):
+    try:
+        players = AllPlayers.objects.all()
+    except AllPlayers.DoesNotExist:
+        return HttpResponse(status=404)
+    
+    if request.method == 'GET':
+        serializer = AllPlayersSerializer(players, many=True)
+        return JsonResponse(serializer.data, safe=False)
 
 def PlayerSummary(request, playerID):
     try:
