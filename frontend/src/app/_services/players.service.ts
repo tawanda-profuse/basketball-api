@@ -1,8 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Observable, BehaviorSubject} from 'rxjs';
+import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-// import {plainToClass} from 'class-transformer';
 
 import {BaseService} from './base.service';
 

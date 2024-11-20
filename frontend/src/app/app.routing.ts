@@ -22,6 +22,15 @@ const routes: Routes = [
     title: 'Basketball API: Player Summary'
   },
   {
+    path: 'teams',
+    loadChildren: () =>
+      import('./all-teams/all-teams.module').then(
+        m => m.AllTeamsModule
+      ),
+    data: { preload: true },
+    title: 'Basketball API: All Teams'
+  },
+  {
     path: 'player-summary-api',
     loadChildren: () =>
       import('./player-summary-response/player-summary-response.module').then(
@@ -30,7 +39,7 @@ const routes: Routes = [
     data: { preload: true },
     title: 'Basketball API: Player Summary API'
   },
-  { path: '**', redirectTo: 'player-summary' }
+  { path: '**', redirectTo: '' }
 ]
 
 export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(
