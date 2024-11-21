@@ -1,20 +1,4 @@
-<h1 class="choice">Select a player:</h1>
-<div class="filter">
-  <button type="button" *ngFor="let _ of [].constructor(31); let i = index" (click)="changeData(i + 1)"
-    [style.background-color]="
-      items.focusItem === i + 1 ? 'gold' : 'indigo'
-    "
-    [style.color]="
-      items.focusItem === i + 1 ? 'black' : 'white'
-    "
-    [style.fontWeight]="
-      items.focusItem === i + 1 ? 'bold' : ''
-    "
-    >
-    {{ i + 1 }}
-  </button>
-</div>
-
+<h1 class="choice">{{playerData.name}}</h1>
 <div class="container">
   <div class="player-info">
     <div class="player-bio">

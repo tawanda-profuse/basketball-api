@@ -13,7 +13,7 @@ const routes: Routes = [
     title: 'Basketball API: Home'
   },
   {
-    path: 'player-summary',
+    path: 'player-summary/:id',
     loadChildren: () =>
       import('./player-summary/player-summary.module').then(
         m => m.PlayerSummaryModule
@@ -29,6 +29,15 @@ const routes: Routes = [
       ),
     data: { preload: true },
     title: 'Basketball API: All Teams'
+  },
+  {
+    path: 'players',
+    loadChildren: () =>
+      import('./all-players/all-players.module').then(
+        m => m.AllPlayersModule
+      ),
+    data: { preload: true },
+    title: 'Basketball API: All Players'
   },
   {
     path: 'player-summary-api',

@@ -1,1 +1,18 @@
-<p>all-players works!</p>
+<div class="all-teams">
+    <h1>All Players</h1>
+    <table *ngIf="playersData.length > 0">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Player Name</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let player of playersData">
+            <tr>
+                <td>{{player.id}}</td>
+                <td><a href="/player-summary/{{player.id}}">{{player.name}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="playersData.length === 0">No data available</p>
+</div>

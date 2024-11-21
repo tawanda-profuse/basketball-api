@@ -1,4 +1,4 @@
-@import './vars.scss';
+@import "./vars.scss";
 
 html,
 body {
@@ -8,35 +8,46 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-table{
-    width: 100%;
-    margin: auto;
-    border-collapse: collapse;
-    
-    caption{
-      font-size: 2rem;
-      color: black;
-    }
-    th, td{
-      width: 20%;
-      text-align: center;
-      border: 0.2rem solid $color-1;
-      padding: 0.5% 0;
-    } 
-    th{
-      background-color: $color-1;
-      font-size: 1.2rem;
-      color: white;
-    }
-    td{
-      color: $color-1;
-      font-size: 1.2rem;
-    }
-    tr:nth-child(even){
-      background-color: lightgray;
-    }
-    tr:hover{
-      background-color: $color-2;
-      cursor: pointer;
-    }
+table {
+  width: 100%;
+  margin: 2rem auto;
+  border-collapse: collapse;
+
+  caption {
+    font-size: 2rem;
+    color: black;
   }
+  th,
+  td {
+    width: 20%;
+    text-align: center;
+    border: 0.2rem solid $color-1;
+    padding: 0.5% 0;
+  }
+  th {
+    background-color: $color-1;
+    font-size: 1.2rem;
+    color: white;
+  }
+  td {
+    color: $color-1;
+    font-size: 1.2rem;
+  }
+  tr:nth-child(even) {
+    background-color: lightgray;
+  }
+  tr:hover {
+    background-color: $color-2;
+    cursor: pointer;
+  }
+}
+.all-teams {
+  padding: 2rem;
+
+  h1 {
+    text-align: center;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+}

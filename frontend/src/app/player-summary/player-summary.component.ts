@@ -53,77 +53,81 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
   public playerShotsInfo
 
   constructor (
-    protected activatedRoute: ActivatedRoute,
+    private route: ActivatedRoute,
+    // protected activatedRoute: ActivatedRoute,
     protected cdr: ChangeDetectorRef,
     protected playersService: PlayersService
   ) {}
 
   ngOnInit (): void {
-    this.fetchApiResponse()
-    this.shotsApiResponse()
+    this.route.params.subscribe(params => {
+      const playerId = +params['id']
+      this.fetchApiResponse(playerId)
+      this.shotsApiResponse(playerId)
+    })
   }
 
   changeParams (): void {
-    this.fetchApiResponse()
-    this.shotsApiResponse()
+    this.fetchApiResponse(this.playerID)
+    this.shotsApiResponse(this.playerID)
   }
 
-  getUniqueDates(data: any[]): any[] {
-    const uniqueDates = new Set();
+  getUniqueDates (data: any[]): any[] {
+    const uniqueDates = new Set()
     return data.filter(item => {
       if (!uniqueDates.has(item.date)) {
-        uniqueDates.add(item.date);
-        return true;
+        uniqueDates.add(item.date)
+        return true
       }
-      return false;
-    });
-  }  
+      return false
+    })
+  }
 
-  fetchApiResponse(): void {
+  fetchApiResponse (playerID: any): void {
     this.playersService
-      .getPlayerSummary(this.playerID)
+      .getPlayerSummary(playerID)
       .pipe(untilDestroyed(this))
       .subscribe(data => {
-        this.endpoint = data.endpoint;
-        this.apiResponse = JSON.stringify(data.apiResponse, null, 2);
-        this.playersInfo = this.getUniqueDates(data.apiResponse); // Filter duplicates
-        
+        this.endpoint = data.endpoint
+        this.apiResponse = JSON.stringify(data.apiResponse, null, 2)
+        this.playersInfo = this.getUniqueDates(data.apiResponse) // Filter duplicates
+
         // Ensure `dateFilter` is within bounds
         if (this.dateFilter >= this.playersInfo.length) {
-          this.dateFilter = 0;
+          this.dateFilter = 0
         }
-        
-        // Use dateFilter to set playerData values
-        const selectedData = data.apiResponse[this.dateFilter];
-        this.playerData.poster = selectedData.poster;
-        this.playerData.name = selectedData.player_name;
-        this.playerData.date = selectedData.date; // Ensure this matches `playersInfo`
-        this.playerData.minutes = selectedData.minutes;
-        this.playerData.assists = selectedData.assists;
-        this.playerData.rebounds =
-          selectedData.offensiveRebounds + selectedData.defensiveRebounds;
-        this.playerData.points = selectedData.points;
-        this.playerData.steals = selectedData.steals;
-        this.playerData.blocks = selectedData.blocks;
-        this.playerData.turnovers = selectedData.turnovers;
-        this.playerData.fouls =
-          selectedData.offensiveFouls + selectedData.defensiveFouls;
-        this.playerData.freeThrowsMade = selectedData.freeThrowsMade;
-        this.playerData.freeThrowsAttempted = selectedData.freeThrowsAttempted;
-        this.playerData.twoPointersMade = selectedData.twoPointersMade;
-        this.playerData.twoPointersAttempted = selectedData.twoPointersAttempted;
-        this.playerData.threePointersMade = selectedData.threePointersMade;
-        this.playerData.threePointersAttempted = selectedData.threePointersAttempted;
-  
-        // Trigger change detection manually if needed
-        this.cdr.detectChanges();
-      });
-  }
-   
 
-  shotsApiResponse (): void {
+        // Use dateFilter to set playerData values
+        const selectedData = data.apiResponse[this.dateFilter]
+        this.playerData.poster = selectedData.poster
+        this.playerData.name = selectedData.player_name
+        this.playerData.date = selectedData.date // Ensure this matches `playersInfo`
+        this.playerData.minutes = selectedData.minutes
+        this.playerData.assists = selectedData.assists
+        this.playerData.rebounds =
+          selectedData.offensiveRebounds + selectedData.defensiveRebounds
+        this.playerData.points = selectedData.points
+        this.playerData.steals = selectedData.steals
+        this.playerData.blocks = selectedData.blocks
+        this.playerData.turnovers = selectedData.turnovers
+        this.playerData.fouls =
+          selectedData.offensiveFouls + selectedData.defensiveFouls
+        this.playerData.freeThrowsMade = selectedData.freeThrowsMade
+        this.playerData.freeThrowsAttempted = selectedData.freeThrowsAttempted
+        this.playerData.twoPointersMade = selectedData.twoPointersMade
+        this.playerData.twoPointersAttempted = selectedData.twoPointersAttempted
+        this.playerData.threePointersMade = selectedData.threePointersMade
+        this.playerData.threePointersAttempted =
+          selectedData.threePointersAttempted
+
+        // Trigger change detection manually if needed
+        this.cdr.detectChanges()
+      })
+  }
+
+  shotsApiResponse (playerID: any): void {
     this.playersService
-      .getPlayerShots(this.playerID, this.gameID)
+      .getPlayerShots(playerID, this.gameID)
       .pipe(untilDestroyed(this))
       .subscribe(data => {
         this.endpoint2 = data.endpoint
@@ -137,22 +141,24 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy () {
-    this.fetchApiResponse()
-    this.shotsApiResponse()
+    this.fetchApiResponse(this.playerID)
+    this.shotsApiResponse(this.playerID)
   }
 
-  adjustDate(selectedDate: string): void {
-    const selectedIndex = this.playersInfo.findIndex(info => info.date === selectedDate);
-  
+  adjustDate (selectedDate: string): void {
+    const selectedIndex = this.playersInfo.findIndex(
+      info => info.date === selectedDate
+    )
+
     if (selectedIndex !== -1) {
-      this.dateFilter = selectedIndex; // Update the filter index
-      this.playerData.date = this.playersInfo[selectedIndex].date; // Directly update `playerData.date`
-      this.gameID = selectedIndex + 1; // Sync game ID with the date index if needed
-  
-      this.fetchApiResponse(); // Refresh data
-      this.shotsApiResponse(); // Refresh related shots data
+      this.dateFilter = selectedIndex // Update the filter index
+      this.playerData.date = this.playersInfo[selectedIndex].date // Directly update `playerData.date`
+      this.gameID = selectedIndex + 1 // Sync game ID with the date index if needed
+
+      this.fetchApiResponse(this.playerID) // Refresh data
+      this.shotsApiResponse(this.playerID) // Refresh related shots data
     }
-  }  
+  }
 
   items = {
     focusItem: this.playerID
@@ -161,8 +167,8 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
   changeData (data: number): void {
     this.items.focusItem = data
     this.playerID = data
-    this.fetchApiResponse()
-    this.shotsApiResponse()
+    this.fetchApiResponse(this.playerID)
+    this.shotsApiResponse(this.playerID)
     this.dateFilter = 0
     this.gameID = 1
   }
