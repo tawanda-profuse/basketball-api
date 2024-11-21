@@ -1,7 +1,7 @@
-@import './vars.scss';
+@import "./vars.scss";
 
 player-summary-component {
-  font-family: 'Roboto';
+  font-family: "Roboto";
 
   .container {
     display: flex;
@@ -41,10 +41,10 @@ player-summary-component {
   }
 
   .player-bio img {
-    width: 9.375rem;
-    height: 9.375rem;
+    width: 12rem;
+    height: 12rem;
     border: 0.3125rem solid black;
-    object-fit: contain;
+    object-fit: cover;
     background-color: white;
     border-radius: 10%;
     transition: 0.3s ease;
@@ -57,26 +57,35 @@ player-summary-component {
     padding-top: 5%;
 
     h3 {
-      font-family: 'Roboto';
+      font-family: "Roboto";
       font-size: 1rem;
       color: white;
       transition: 0.3s ease;
     }
-    .button-list{
-      display: flex;
-      flex-direction: column;
-      
-      button{
-        cursor: pointer;
-        font-size: 1rem;
-        padding: 0.5rem;
-        border: none;
-        outline: none;
-        font-weight: bold;
+  }
+
+  .date-container {
+    display: flex;
+  }
+
+  .button-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 0;
+
+    button {
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.5rem;
+      border: none;
+      outline: none;
+
+      &:hover {
+        background-color: #ccc;
       }
     }
   }
-
 
   .shots-data {
     width: 50%;
@@ -94,31 +103,30 @@ player-summary-component {
     }
   }
 
-  .key{
+  .key {
     border: 0.2rem solid $color-2;
     border-radius: 1rem;
     padding: 1rem;
     translate: 0 -50%;
 
-    h4{
+    h4 {
       text-decoration: underline;
       font-size: 1.5rem;
       margin-bottom: 1rem;
     }
-    p{
+    p {
       vertical-align: middle;
       font-size: 1rem;
     }
   }
 
-  .shots-table{
+  .shots-table {
     margin: 2.5rem auto;
     width: 100%;
     overflow-x: auto;
   }
 
   @media screen and (max-width: 861px) {
-
     .shots-data,
     .player-info {
       width: 100%;
@@ -131,11 +139,11 @@ player-summary-component {
     .player-info {
       order: 2;
     }
-    .shots-table{
+    .shots-table {
       order: 3;
     }
 
-    .key{
+    .key {
       translate: 0 -50%;
     }
   }

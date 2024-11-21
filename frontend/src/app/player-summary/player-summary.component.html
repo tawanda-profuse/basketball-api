@@ -5,20 +5,18 @@
       <img [src]="playerData.poster" alt="A poster of {{ playerData.name }}" />
     </div>
     <div class="details">
-      <span class="item">
-        <h3>Player:</h3>
-        <h3>{{ playerData.name }}</h3>
-      </span>
-      <span class="item">
-        <h3>Date:</h3>
-        <div *ngFor="let info of playersInfo" class="button-list">
-          <button (click)="adjustDate(info.date)" [style.background-color]="
-            playerData.date === info.date ? 'gold' : ''
-          " [style.color]="
-          playerData.date === info.date ? 'indigo' : ''
-        ">{{ info.date }}</button>
-        </div>
-      </span>
+      <h3>Date:</h3>
+      <div class="button-list">
+        <button *ngFor="let info of playersInfo" (click)="adjustDate(info.date)" [style.background-color]="
+          playerData.date === info.date ? 'gold' : ''
+        " [style.color]="
+        playerData.date === info.date ? 'indigo' : ''
+      " [style.text-decoration]="
+        playerData.date === info.date ? 'underline' : 'none'
+      " [style.font-weight]="
+        playerData.date === info.date ? 'bold' : ''
+      ">{{ info.date }}</button>
+      </div>
       <span class="item">
         <h3>Minutes:</h3>
         <h3>{{ playerData.minutes }}</h3>

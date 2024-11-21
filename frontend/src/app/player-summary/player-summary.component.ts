@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy'
 import { PlayersService } from '../_services/players.service'
 
@@ -54,9 +54,9 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
 
   constructor (
     private route: ActivatedRoute,
-    // protected activatedRoute: ActivatedRoute,
     protected cdr: ChangeDetectorRef,
-    protected playersService: PlayersService
+    protected playersService: PlayersService,
+    private router: Router
   ) {}
 
   ngOnInit (): void {
@@ -88,6 +88,13 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
       .getPlayerSummary(playerID)
       .pipe(untilDestroyed(this))
       .subscribe(data => {
+        if (!data || !data.apiResponse || data.apiResponse.length === 0) {
+          // Redirect if no data is found
+          alert("Player not found");
+          this.router.navigate(['/players']); // Replace with your "not found" route
+          return;
+        }
+
         this.endpoint = data.endpoint
         this.apiResponse = JSON.stringify(data.apiResponse, null, 2)
         this.playersInfo = this.getUniqueDates(data.apiResponse) // Filter duplicates
@@ -155,8 +162,11 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
       this.playerData.date = this.playersInfo[selectedIndex].date // Directly update `playerData.date`
       this.gameID = selectedIndex + 1 // Sync game ID with the date index if needed
 
-      this.fetchApiResponse(this.playerID) // Refresh data
-      this.shotsApiResponse(this.playerID) // Refresh related shots data
+      this.route.params.subscribe(params => {
+        const playerId = +params['id']
+        this.fetchApiResponse(playerId)
+        this.shotsApiResponse(playerId)
+      })
     }
   }
 
