@@ -31,6 +31,15 @@ const routes: Routes = [
     title: 'Basketball API: All Teams'
   },
   {
+    path: 'create-team',
+    loadChildren: () =>
+      import('./create-team/create-team.module').then(
+        m => m.CreateTeamModule
+      ),
+    data: { preload: true },
+    title: 'Basketball API: All Teams'
+  },
+  {
     path: 'players',
     loadChildren: () =>
       import('./all-players/all-players.module').then(

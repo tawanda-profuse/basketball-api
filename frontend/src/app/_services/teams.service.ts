@@ -29,4 +29,17 @@ export class TeamsService extends BaseService {
       )
     )
   }
+
+  createTeam(payload: { name: string, id: number }): Observable<any> {
+    const endpoint = `${this.baseUrl}/createTeam`;
+  
+    return this.post(endpoint, payload).pipe(
+      map((data: Object) => {
+        return {
+          endpoint: endpoint,
+          apiResponse: data
+        };
+      })
+    );
+  }  
 }
