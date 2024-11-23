@@ -30,7 +30,7 @@ export class TeamsService extends BaseService {
     )
   }
 
-  createTeam(payload: { name: string, id: number }): Observable<any> {
+  createTeam(payload: { name: string }): Observable<any> {
     const endpoint = `${this.baseUrl}/createTeam`;
   
     return this.post(endpoint, payload).pipe(

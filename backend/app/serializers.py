@@ -46,20 +46,13 @@ class ShotsSerializer(serializers.ModelSerializer):
         fields=('id','player_id','game_id','isMake','locationX','locationY','date')
 
 class AllPlayersSerializer(serializers.ModelSerializer):
-    
-    id = serializers.IntegerField()
-    name = serializers.CharField()
-    poster = serializers.CharField()
-
-    class Meta:
+   class Meta:
         model=AllPlayers
         fields=('id', 'name', 'poster')
+        read_only_fields = ('id')
 
 class TeamSerializer(serializers.ModelSerializer):
-
-    id = serializers.IntegerField()
-    name = serializers.CharField()
-
     class Meta:
-        model=Team
-        fields=('id', 'name')
+        model = Team
+        fields = ('id', 'name')  # 'id' will be read-only, and 'name' is required
+        read_only_fields = ('id',)

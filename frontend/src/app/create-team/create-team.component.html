@@ -1,11 +1,9 @@
 <div class="create-team">
     <form (ngSubmit)="addTeamData()" #teamForm="ngForm">
         <div class="row">
-            <label for="teamName">Team ID</label>
-            <input type="number" id="teamId" name="teamId" [(ngModel)]="teamId" required #teamIdInput="ngModel">
             <label for="teamName">Team Name</label>
             <input type="text" id="teamName" name="teamName" [(ngModel)]="teamName" required #teamNameInput="ngModel">
-            <p *ngIf="teamNameInput.invalid && teamNameInput.touched || teamIdInput.invalid && teamIdInput.touched" class="error">
+            <p *ngIf="teamNameInput.invalid && teamNameInput.touched" class="error">
                 Team name and id are required.
             </p>
         </div>

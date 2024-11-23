@@ -1,7 +1,4 @@
 import logging
-
-# from django.http.response import JsonResponse
-
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from app.models import Team

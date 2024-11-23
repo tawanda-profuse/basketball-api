@@ -10,7 +10,6 @@ import { TeamsService } from 'app/_services/teams.service'
   styleUrl: './create-team.component.scss'
 })
 export class CreateTeamComponent {
-  teamId: number;
   teamName: string = '';
 
   constructor (
@@ -26,7 +25,7 @@ export class CreateTeamComponent {
     }
 
     this.teamsService
-      .createTeam({ name: this.teamName, id: this.teamId })
+      .createTeam({ name: this.teamName })
       .pipe(untilDestroyed(this))
       .subscribe(
         data => {
