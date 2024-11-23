@@ -213,7 +213,7 @@ const boxScore = () => {
 
 // Return all the players
 const returnPlayers = function () {
-  pool.query(`SELECT * FROM app.players`, (error, results) => {
+  pool.query(`SELECT * FROM app.all_players`, (error, results) => {
     if (error) {
       throw error;
     } else {
@@ -221,3 +221,5 @@ const returnPlayers = function () {
     }
   });
 };
+
+returnPlayers();
