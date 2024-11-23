@@ -19,7 +19,7 @@ export class BaseService {
 
   protected baseUrl = window.location.origin.includes('localhost')
     ? 'http://localhost:8000/api/v1'
-    : window.location.origin + '/api/v1'
+    :  'https://basketball-api-ochre.vercel.app/api/v1'
   protected defaultLimit: number = 25
 
   constructor(protected http: HttpClient) {}
