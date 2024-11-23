@@ -5,22 +5,21 @@ var teamsData = JSON.parse(fs.readFileSync("../raw_data/teams.json", "utf8"));
 var gamesData = JSON.parse(fs.readFileSync("../raw_data/games.json", "utf8"));
 
 const Pool = require("pg").Pool;
-const clientPassword = process.env.DBPassword;
 
 // Connection string:
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "basketball",
-  password: clientPassword,
-  port: 5432,
+  user: process.env.DATABASE_USER,
+  host: process.env.DATABASE_HOST,
+  database: process.env.DATABASE_NAME,
+  password: process.env.DATABASE_PASSWORD,
+  port: process.env.DATABASE_PORT,
 });
 
 // Add players to the table
 const addPlayers = () => {
   playersData.forEach((player) => {
     pool.query(
-      `INSERT INTO app.players (id, name, poster) VALUES ($1, $2, $3)`,
+      `INSERT INTO app.all_players (id, name, poster) VALUES ($1, $2, $3)`,
       [player.id, player.name, player.poster],
       (error, results) => {
         if (error) {
