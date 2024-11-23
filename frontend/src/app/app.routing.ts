@@ -49,6 +49,15 @@ const routes: Routes = [
     title: 'Basketball API: All Players'
   },
   {
+    path: 'create-player',
+    loadChildren: () =>
+      import('./create-player/create-player.module').then(
+        m => m.CreatePlayerModule
+      ),
+    data: { preload: true },
+    title: 'Basketball API: Create a Player'
+  },
+  {
     path: 'player-summary-api',
     loadChildren: () =>
       import('./player-summary-response/player-summary-response.module').then(

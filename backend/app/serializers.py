@@ -49,7 +49,7 @@ class AllPlayersSerializer(serializers.ModelSerializer):
    class Meta:
         model=AllPlayers
         fields=('id', 'name', 'poster')
-        read_only_fields = ('id')
+        read_only_fields = ('id',)
 
 class TeamSerializer(serializers.ModelSerializer):
     class Meta:

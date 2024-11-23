@@ -90,7 +90,7 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
       .subscribe(data => {
         if (!data || !data.apiResponse || data.apiResponse.length === 0) {
           // Redirect if no data is found
-          alert("Player not found");
+          alert("Player details not found");
           this.router.navigate(['/players']); // Replace with your "not found" route
           return;
         }

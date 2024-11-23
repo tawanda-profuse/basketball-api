@@ -1,14 +1,11 @@
 # # -*- coding: utf-8 -*-
 import logging
-
-from django.http.response import JsonResponse
-
 from app.models import Player, AllPlayers, Shots
 from app.serializers import PlayerSerializer, ShotsSerializer, AllPlayersSerializer
-
+from django.views.decorators.csrf import csrf_exempt
+import json
 LOGGER = logging.getLogger('django')
-
-from django.http import HttpResponse
+from django.http import JsonResponse, HttpResponse
 
 def index():
     # Testing HTTP Response
@@ -53,6 +50,22 @@ def ShotsPerGame(request, playerID, gameID):
     if request.method == 'GET':
         serializer = ShotsSerializer(shots, many=True)
         return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt  
+def createPlayer(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+
+            serializer = AllPlayersSerializer(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=201)
+            return JsonResponse(serializer.errors, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "Invalid JSON data"}, status=400)
+        
+    return HttpResponse(status=405)
 
 
  

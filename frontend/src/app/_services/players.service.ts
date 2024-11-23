@@ -62,4 +62,17 @@ export class PlayersService extends BaseService {
       )
     )
   }
+
+  createPlayer(payload: { name: string, poster: string }): Observable<any> {
+    const endpoint = `${this.baseUrl}/createPlayer`;
+  
+    return this.post(endpoint, payload).pipe(
+      map((data: Object) => {
+        return {
+          endpoint: endpoint,
+          apiResponse: data
+        };
+      })
+    );
+  }   
 }

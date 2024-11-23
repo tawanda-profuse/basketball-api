@@ -1,0 +1,20 @@
+<div class="api-form">
+    <h1>Add a Player to the Database</h1>
+    <form (ngSubmit)="addPlayerData()" #teamForm="ngForm">
+        <div class="row">
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName" name="playerName" [(ngModel)]="playerName" required
+                #playerNameInput="ngModel" />
+            <label for="playerPoster">Poster URL</label>
+            <input type="url" id="playerPoster" name="playerPoster" [(ngModel)]="playerPoster" required
+                #playerPosterInput="ngModel" />
+            <p *ngIf="playerNameInput.invalid && playerNameInput.touched || playerPosterInput.invalid && playerPosterInput.touched"
+                class="error">
+                Team name and id are required.
+            </p>
+        </div>
+        <div class="row">
+            <button type="submit" [disabled]="teamForm.invalid">Submit</button>
+        </div>
+    </form>
+</div>

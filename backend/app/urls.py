@@ -10,6 +10,7 @@ urlpatterns=[
     path('api/v1/playerSummary/shots/<int:playerID>/game/<int:gameID>', players.ShotsPerGame, name='shots_per_game'),
     path('api/v1/allPlayers', players.allPlayers, name='players'),
     path('api/v1/allTeams', teams.allTeams, name='teams'),
-    path('api/v1/createTeam', teams.createTeam, name='create_team')
+    path('api/v1/createTeam', teams.createTeam, name='create_team'),
+    path('api/v1/createPlayer', players.createPlayer, name='create_player')
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
