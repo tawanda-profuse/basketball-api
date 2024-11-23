@@ -4,6 +4,7 @@ from app.views import players
 from app.views import teams
 
 urlpatterns=[
+    path('', players.index, name='home'),
     path('api/v1', players.index, name='home'),
     path('api/v1/playerSummary/<int:playerID>/', players.PlayerSummary, name='player_summary'),
     path('api/v1/playerSummary/shots/<int:playerID>/', players.PlayerSummaryShots, name='player_summary_shots'),
