@@ -72,16 +72,22 @@ if DEBUG:  # Use local PostgreSQL for development
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'your_local_db',
-            'USER': 'postgres',
-            'PASSWORD': 'password',
-            'HOST': '127.0.0.1',
-            'PORT': '5432',
+            'NAME': config('DATABASE_NAME', default='basketball'),
+            'USER': config('DATABASE_USER', default='postgres'),
+            'PASSWORD': config('DATABASE_PASSWORD', default=''),
+            'HOST': config('DATABASE_HOST', default='127.0.0.1'),
+            'PORT': config('DATABASE_PORT', default='5432'),
+            'OPTIONS': {
+            'options': '-c search_path=app,public',
+        },
         }
     }
 else:  # Use ElephantSQL in production
     DATABASES = {
-        'default': dj_database_url.config(default=config('DATABASE_URL'))
+        'default': dj_database_url.config(default=config('DATABASE_URL')),
+        'OPTIONS': {
+            'options': '-c search_path=app,public',
+        },
     }
 
 db_from_env = dj_database_url.config(conn_max_age=600)

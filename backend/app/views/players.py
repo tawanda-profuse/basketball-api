@@ -7,9 +7,8 @@ import json
 LOGGER = logging.getLogger('django')
 from django.http import JsonResponse, HttpResponse
 
-def index():
-    # Testing HTTP Response
-    return HttpResponse('<h1>Django Include URLs</h1><h1>Quick Jordan jumped over the lazy Monstar.</h1>')
+def index(request):
+    return JsonResponse({"message": "Successful API response"}, status=200)
 
 def allPlayers(request):
     try:
