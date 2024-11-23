@@ -41,9 +41,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:4200',
-)
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',  # Local development URL
+    'https://basketball-api-ui.vercel.app',  # Deployed frontend URL
+]
 
 ROOT_URLCONF = 'app.urls'
 
