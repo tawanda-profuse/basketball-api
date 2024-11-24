@@ -12,6 +12,21 @@ SECRET_KEY = config("SECRET_KEY", default="fallback-secret-key")
 
 ALLOWED_HOSTS = ['*']
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+        },
+    },
+}
 
 # Application definition
 
@@ -85,10 +100,11 @@ if DEBUG:  # Use local PostgreSQL for development
     }
 else:  # Use ElephantSQL in production
     DATABASES = {
-        'default': dj_database_url.config(default=config('DATABASE_URL')),
-        'OPTIONS': {
-            'options': '-c search_path=app,public',
-        },
+        'default': dj_database_url.config(default=config('DATABASE_URL'))
+    }
+    DATABASES['default']['OPTIONS'] = {
+    'options': '-c search_path=app,public',
+    'sslmode': 'require',  # Ensure SSL is enforced
     }
 
 db_from_env = dj_database_url.config(conn_max_age=600)
