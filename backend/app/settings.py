@@ -84,28 +84,19 @@ ASGI_APPLICATION = 'app.asgi.application'
 
 
 # Configure the database
-if DEBUG:  # Use local PostgreSQL for development
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': config('DATABASE_NAME', default='basketball'),
-            'USER': config('DATABASE_USER', default='postgres'),
-            'PASSWORD': config('DATABASE_PASSWORD', default=''),
-            'HOST': config('DATABASE_HOST', default='127.0.0.1'),
-            'PORT': config('DATABASE_PORT', default='5432'),
-            'OPTIONS': {
-            'options': '-c search_path=app,public',
-        },
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DATABASE_NAME', default='basketball'),
+        'USER': config('DATABASE_USER', default='postgres'),
+        'PASSWORD': config('DATABASE_PASSWORD', default=''),
+        'HOST': config('DATABASE_HOST', default='127.0.0.1'),
+        'PORT': config('DATABASE_PORT', default='5432'),
+        'OPTIONS': {
+        'options': '-c search_path=app,public',
+    },
     }
-else:  # Use ElephantSQL in production
-    DATABASES = {
-        'default': dj_database_url.config(default=config('DATABASE_URL'))
-    }
-    DATABASES['default']['OPTIONS'] = {
-    'options': '-c search_path=app,public',
-    'sslmode': 'require',  # Ensure SSL is enforced
-    }
+}
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
