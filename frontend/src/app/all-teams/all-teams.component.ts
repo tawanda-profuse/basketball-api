@@ -12,6 +12,7 @@ import { TeamsService } from 'app/_services/teams.service'
 })
 export class AllTeamsComponent {
   teamsData: []
+  loading: boolean = true
 
   constructor (
     protected activatedRoute: ActivatedRoute,
@@ -29,6 +30,7 @@ export class AllTeamsComponent {
       .pipe(untilDestroyed(this))
       .subscribe(data => {
         this.teamsData = data.apiResponse
+        this.loading = false;
       })
   }
 

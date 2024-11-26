@@ -1,4 +1,7 @@
-<div class="all-teams">
+<div class="loading" *ngIf="loading">
+    <span *ngFor="let _ of [].constructor(5)"></span>
+</div>
+<div *ngIf="!loading" class="all-teams">
     <a href="/create-team">Create Team</a>
     <h1>All Teams</h1>
     <table *ngIf="teamsData.length > 0">

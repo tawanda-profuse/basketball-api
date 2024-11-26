@@ -11,6 +11,7 @@ import { PlayersService } from 'app/_services/players.service'
 })
 export class AllPlayersComponent {
   playersData: []
+  loading: boolean = true
 
   constructor (
     protected activatedRoute: ActivatedRoute,
@@ -28,6 +29,7 @@ export class AllPlayersComponent {
       .pipe(untilDestroyed(this))
       .subscribe(data => {
         this.playersData = data?.apiResponse?.sort((a, b) => a.id - b.id)
+        this.loading = false;
       })
   }
 
