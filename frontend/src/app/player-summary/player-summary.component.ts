@@ -146,15 +146,15 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
         this.madeShots = data.apiResponse
           .filter(shot => shot.isMake)
           .map(shot => ({
-            locationX: shot.locationX * -10, // Ensures positive values
-            locationY: shot.locationY * -10, // Ensures positive values
+            locationX: shot.locationX * -20, // Ensures positive values
+            locationY: shot.locationY * -20, // Ensures positive values
             isMake: shot.isMake
           }))
         this.missedShots = data.apiResponse
           .filter(shot => !shot.isMake)
           .map(shot => ({
-            locationX: shot.locationX * -10, // Ensures positive values
-            locationY: shot.locationY * -10, // Ensures positive values
+            locationX: shot.locationX * -20, // Ensures positive values
+            locationY: shot.locationY * -20, // Ensures positive values
             isMake: shot.isMake
           }))
         this.playerShotsInfo = data.apiResponse
@@ -172,6 +172,7 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
   }
 
   adjustDate (selectedDate: string): void {
+    this.loading = true;
     const selectedIndex = this.playersInfo.findIndex(
       info => info.date === selectedDate
     )
