@@ -134,6 +134,14 @@ player-summary-component {
     overflow-x: auto;
   }
 
+  .data-dot{
+    cursor: pointer;
+
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+
   @media screen and (max-width: 861px) {
     .shots-data,
     .player-info {
