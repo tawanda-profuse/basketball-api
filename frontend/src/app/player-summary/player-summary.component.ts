@@ -22,35 +22,35 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
   apiResponse: any
   apiResponse2: any
   playerData: any = {
-    name: String,
-    poster: String,
-    date: Date,
-    minutes: Number,
-    points: Number,
-    assists: Number,
-    rebounds: Number,
-    steals: Number,
-    blocks: Number,
-    turnovers: Number,
-    offensiveFouls: Number,
-    defensiveFouls: Number,
-    fouls: Number,
-    freeThrowsMade: Number,
-    freeThrowsAttempted: Number,
-    twoThrowsMade: Number,
-    twoThrowsAttempted: Number,
-    threeThrowsMade: Number,
-    threeThrowsAttempted: Number,
-    game_id: Number,
-    isMake: Boolean,
-    locationX: Float64Array,
-    locationY: Float64Array
+    name: '',  // Initialize as an empty string
+    poster: '',
+    date: null,  // Initialize as null or a default date
+    minutes: 0,
+    points: 0,
+    assists: 0,
+    rebounds: 0,
+    steals: 0,
+    blocks: 0,
+    turnovers: 0,
+    fouls: 0,
+    freeThrowsMade: 0,
+    freeThrowsAttempted: 0,
+    twoThrowsMade: 0,
+    twoThrowsAttempted: 0,
+    threeThrowsMade: 0,
+    threeThrowsAttempted: 0,
+    game_id: 0,
+    isMake: false,
+    locationX: [],
+    locationY: []
   }
+  
   playerID: number = 1 // changing this value will update the UI
   gameID: number = 1 // changing this value will update the UI
   dateFilter = 0 // changing this value will filter the API results based on the date
   public playersInfo
   public playerShotsInfo
+  loading: boolean = true;
 
   constructor (
     private route: ActivatedRoute,
@@ -88,11 +88,13 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
       .getPlayerSummary(playerID)
       .pipe(untilDestroyed(this))
       .subscribe(data => {
+        this.loading = false;
+
         if (!data || !data.apiResponse || data.apiResponse.length === 0) {
           // Redirect if no data is found
-          alert("Player details not found");
-          this.router.navigate(['/players']); // Replace with your "not found" route
-          return;
+          alert('Player details not found')
+          this.router.navigate(['/players']) // Replace with your "not found" route
+          return
         }
 
         this.endpoint = data.endpoint
@@ -137,6 +139,7 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
       .getPlayerShots(playerID, this.gameID)
       .pipe(untilDestroyed(this))
       .subscribe(data => {
+        this.loading = false;
         this.endpoint2 = data.endpoint
         this.apiResponse2 = JSON.stringify(data.apiResponse, null, 2)
         this.playerShotsInfo = data.apiResponse

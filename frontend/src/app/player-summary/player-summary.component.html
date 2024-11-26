@@ -1,5 +1,8 @@
-<h1 class="choice">{{playerData.name}}</h1>
-<div class="container">
+<h1 class="choice" *ngIf="!loading">{{ playerData.name }}</h1>
+<h1 class="choice" *ngIf="loading">Loading...</h1>
+
+<div class="container loading" *ngIf="loading"></div>
+<div class="container" *ngIf="!loading">
   <div class="player-info">
     <div class="player-bio">
       <img [src]="playerData.poster" alt="A poster of {{ playerData.name }}" />

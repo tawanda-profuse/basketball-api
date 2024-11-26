@@ -11,6 +11,14 @@ player-summary-component {
     flex-wrap: wrap;
   }
 
+  .loading{
+    background-color: #444;
+    max-width: 80vw;
+    margin: auto;
+    border-radius: 0.5rem;
+    height: 50vh;
+  }
+
   .choice {
     text-align: center;
     font-size: 2rem;
