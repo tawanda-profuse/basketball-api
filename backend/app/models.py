@@ -25,6 +25,9 @@ class Player(models.Model):
     threePointersMade = models.IntegerField()
     threePointersAttempted = models.IntegerField()
     poster = models.CharField(max_length=500)
+    class Meta:
+        db_table = "app_player"
+        managed = True
 
 class Shots(models.Model):
     # Database columns
@@ -35,6 +38,9 @@ class Shots(models.Model):
     locationX = models.DecimalField(max_digits=10, decimal_places=1)
     locationY = models.DecimalField(max_digits=10, decimal_places=1)
     date = models.DateField()
+    class Meta:
+        db_table = "app_shots"
+        managed = True
 
 class AllPlayers(models.Model):
     # Database columns
@@ -44,6 +50,7 @@ class AllPlayers(models.Model):
 
     class Meta:
         db_table = "all_players"
+        managed = True
 
 class Team(models.Model):
     id = models.AutoField(primary_key=True)
@@ -51,3 +58,4 @@ class Team(models.Model):
 
     class Meta:
         db_table = "teams"
+        managed = True

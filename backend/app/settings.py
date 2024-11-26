@@ -93,8 +93,8 @@ DATABASES = {
         'HOST': config('DATABASE_HOST', default='127.0.0.1'),
         'PORT': config('DATABASE_PORT', default='5432'),
         'OPTIONS': {
-        'options': '-c search_path=app,public',
-    },
+            'options': '-c search_path=app,public',
+        },
     }
 }
 
