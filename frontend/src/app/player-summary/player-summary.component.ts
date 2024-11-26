@@ -22,9 +22,9 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
   apiResponse: any
   apiResponse2: any
   playerData: any = {
-    name: '',  // Initialize as an empty string
+    name: '', // Initialize as an empty string
     poster: '',
-    date: null,  // Initialize as null or a default date
+    date: null, // Initialize as null or a default date
     minutes: 0,
     points: 0,
     assists: 0,
@@ -41,16 +41,19 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
     threeThrowsAttempted: 0,
     game_id: 0,
     isMake: false,
-    locationX: [],
-    locationY: []
+    locationX: 0,
+    locationY: 0
   }
-  
+
+  madeShots = []
+  missedShots = []
+
   playerID: number = 1 // changing this value will update the UI
   gameID: number = 1 // changing this value will update the UI
   dateFilter = 0 // changing this value will filter the API results based on the date
   public playersInfo
   public playerShotsInfo
-  loading: boolean = true;
+  loading: boolean = true
 
   constructor (
     private route: ActivatedRoute,
@@ -88,8 +91,6 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
       .getPlayerSummary(playerID)
       .pipe(untilDestroyed(this))
       .subscribe(data => {
-        this.loading = false;
-
         if (!data || !data.apiResponse || data.apiResponse.length === 0) {
           // Redirect if no data is found
           alert('Player details not found')
@@ -131,6 +132,7 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
 
         // Trigger change detection manually if needed
         this.cdr.detectChanges()
+        this.loading = false
       })
   }
 
@@ -139,14 +141,28 @@ export class PlayerSummaryComponent implements OnInit, OnDestroy {
       .getPlayerShots(playerID, this.gameID)
       .pipe(untilDestroyed(this))
       .subscribe(data => {
-        this.loading = false;
         this.endpoint2 = data.endpoint
         this.apiResponse2 = JSON.stringify(data.apiResponse, null, 2)
+        this.madeShots = data.apiResponse
+          .filter(shot => shot.isMake)
+          .map(shot => ({
+            locationX: shot.locationX * -10, // Ensures positive values
+            locationY: shot.locationY * -10, // Ensures positive values
+            isMake: shot.isMake
+          }))
+        this.missedShots = data.apiResponse
+          .filter(shot => !shot.isMake)
+          .map(shot => ({
+            locationX: shot.locationX * -10, // Ensures positive values
+            locationY: shot.locationY * -10, // Ensures positive values
+            isMake: shot.isMake
+          }))
         this.playerShotsInfo = data.apiResponse
         this.playerData.game_id = this.gameID
         this.playerData.isMake = data.apiResponse[this.dateFilter].isMake
         this.playerData.locationX = data.apiResponse[this.dateFilter].locationX
         this.playerData.locationY = data.apiResponse[this.dateFilter].locationY
+        this.loading = false
       })
   }
 

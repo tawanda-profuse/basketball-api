@@ -137,29 +137,15 @@
             </text>
           </switch>
         </g>
+        <!-- Green dots: -->
         <g>
-          <!-- Green dots: -->
-          <!-- *ngFor="let info of playersInfo" -->
-          <!-- Center points: -->
-          <!-- cx="735" -->
-          <!-- cy="1390" -->
-          <ellipse cx="1169" cy="900" rx="30" ry="30" fill="#00ff00" stroke="#000000" stroke-width="6"
-            pointer-events="all" />
-          <ellipse cx="900" cy="1043" rx="30" ry="30" fill="#00ff00" stroke="#000000" stroke-width="6"
-            pointer-events="all" />
-          <ellipse cx="855" cy="700" rx="30" ry="30" fill="#00ff00" stroke="#000000" stroke-width="6"
-            pointer-events="all" />
-          <ellipse cx="455" cy="1000" rx="30" ry="30" fill="#00ff00" stroke="#000000" stroke-width="6"
-            pointer-events="all" />
+          <ellipse *ngFor="let shot of madeShots" [attr.cx]="shot.locationX + 733.5" [attr.cy]="shot.locationY + 1386"
+            rx="30" ry="30" fill="#00ff00" stroke="#000000" stroke-width="6" pointer-events="all" />
         </g>
+        <!-- Red dots: -->
         <g>
-          <!-- Red crosses: -->
-          <path
-            d="M 999 1003 L 1028.17 1003 L 1049 1026.97 L 1069.83 1003 L 1099 1003 L 1063.58 1043.5 L 1099 1084 L 1069.83 1084 L 1049 1060.03 L 1028.17 1084 L 999 1084 L 1032.33 1043.5 Z"
-            fill="#ff0000" stroke="#000000" stroke-width="6" stroke-miterlimit="10" pointer-events="all" />
-          <path transform="translate(-990, 300)"
-            d="M 999 1003 L 1028.17 1003 L 1049 1026.97 L 1069.83 1003 L 1099 1003 L 1063.58 1043.5 L 1099 1084 L 1069.83 1084 L 1049 1060.03 L 1028.17 1084 L 999 1084 L 1032.33 1043.5 Z"
-            fill="#ff0000" stroke="#000000" stroke-width="6" stroke-miterlimit="10" pointer-events="all" />
+          <ellipse *ngFor="let shot of missedShots" [attr.cx]="shot.locationX + 733.5" [attr.cy]="shot.locationY + 1386"
+            rx="30" ry="30" fill="#ff0000" stroke="#000000" stroke-width="6" pointer-events="all" />
         </g>
       </g>
       <switch>
@@ -183,30 +169,35 @@
       <caption>
         <h1 class="choice">Shot data for {{ playerData.name }}</h1>
       </caption>
-      <tr>
+      <thead>
         <th>Game</th>
         <th>Made Shot?</th>
         <th>X Location</th>
         <th>Y Location</th>
         <th>Date</th>
-      </tr>
-      <tr *ngFor="let info of playerShotsInfo">
-        <td>
-          {{ playerData.game_id }}
-        </td>
-        <td>
-          {{ info.isMake }}
-        </td>
-        <td>
-          {{ info.locationX }}
-        </td>
-        <td>
-          {{ info.locationY }}
-        </td>
-        <td>
-          {{ playerData.date }}
-        </td>
-      </tr>
+      </thead>
+      <tbody *ngIf="playerShotsInfo.length > 0">
+        <tr *ngFor="let info of playerShotsInfo">
+          <td>
+            {{ playerData.game_id }}
+          </td>
+          <td>
+            {{ info.isMake }}
+          </td>
+          <td>
+            {{ info.locationX }}
+          </td>
+          <td>
+            {{ info.locationY }}
+          </td>
+          <td>
+            {{ playerData.date }}
+          </td>
+        </tr>
+      </tbody>
     </table>
+    <p *ngIf="playerShotsInfo.length === 0">
+      No shots data for {{playerData.name}}
+    </p>
   </div>
 </div>
