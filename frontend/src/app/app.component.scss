@@ -52,8 +52,12 @@ app-component {
     display: flex;
     gap: 1rem;
 
-    img {
-      width: 2rem;
+    a{
+      color: white;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
     }
   }
 
@@ -110,5 +114,12 @@ app-component {
     svg:hover{
       fill: $color-2;
     }
+  }
+  footer {
+    span{
+      text-wrap: wrap;
+    }
+    width: 100%;
+    flex-direction: column;
   }
 }

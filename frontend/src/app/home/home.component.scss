@@ -1,5 +1,5 @@
 .home-width{
-    max-width: 50%;
+    width: 50%;
     margin: auto;
     padding: 2rem; 
 
@@ -7,5 +7,16 @@
         font-family: Georgia, 'Times New Roman', Times, serif;
         font-size: 1.2rem;
         margin-bottom: 2rem;
+        text-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home-width{
+        width: 90%;
+        padding: 2rem 0;
+    }
+    h1{
+        text-align: center;
     }
 }
